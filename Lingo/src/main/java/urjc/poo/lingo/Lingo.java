@@ -1,11 +1,13 @@
 
 package urjc.poo.lingo;
 
+import urjc.poo.lingo.Login.Iniciar;
+
 
 public class Lingo {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        System.out.println("Hello Manolazo!");
+         Iniciar ini = new Iniciar();
+         ini.setVisible(true);
     }
 }
