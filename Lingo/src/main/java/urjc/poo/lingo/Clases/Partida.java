@@ -7,7 +7,7 @@ public class Partida {
     private int contadorJ1; //Contador de puntos de jugador1
     private int contadorJ2; //Contador de puntos de jugador2
     private boolean regaloPalabra; //Una unica vez por partida. Valor: 3 puntos
-    
+    private boolean primeraLetra; //Activa o no la primera letra
     
     //Constructor
     public Partida(int numPalabras){
@@ -20,7 +20,7 @@ public class Partida {
         
     }
     
-    public boolean usarRegaloPalabra(int contadorJ1){
+    public boolean usarPistadePalabra(int contadorJ1){
         if(contadorJ1 >= 3 && regaloPalabra){
             
               
@@ -31,6 +31,30 @@ public class Partida {
         
         return true;
     }
+    
+    
+    public boolean usarPistadeLetra(int contadorJ1){
+        if(contadorJ1 >= 1 && ){
+            
+            
+            
+            contadorJ1 = contadorJ1 - 1;
+            
+        }
+        
+        return true;
+    }
+    
+    public void actualizarMarcador(){
+        //En cada palabra actualizar el puntuaje
+    }
+    
+    public String infoPartida(){
+        //Mostrar los nombres de jugadores,marcador,palabras e intentos realizados y pistas utilizadas
+    }
+    
+    
+    
     
     
 }
