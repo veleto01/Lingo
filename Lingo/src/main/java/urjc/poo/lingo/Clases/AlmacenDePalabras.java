@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class AlmacenDePalabras {
-    private final ArrayList<Palabra> palabrasDeCinco;
-    private final ArrayList<Palabra> palabrasDeSeis;
+    static ArrayList<Palabra> palabrasDeCinco;
+    static ArrayList<Palabra> palabrasDeSeis;
     
     public AlmacenDePalabras(){
         palabrasDeCinco = new ArrayList<>();
