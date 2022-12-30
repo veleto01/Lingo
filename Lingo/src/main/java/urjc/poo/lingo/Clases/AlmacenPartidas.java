@@ -14,7 +14,7 @@ public class AlmacenPartidas {
      
      public void infoPartidas(){
          for(Partida c : Partidas){
-             System.out.println(c.infoPartida());
+             //System.out.println(c.infoPartida());
          }
      }
      

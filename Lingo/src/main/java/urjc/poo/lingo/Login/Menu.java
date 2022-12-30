@@ -1,5 +1,6 @@
 package urjc.poo.lingo.Login;
 
+import javax.swing.JOptionPane;
 import urjc.poo.lingo.Clases.Usuario;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Modo;
@@ -10,6 +11,7 @@ public class Menu extends javax.swing.JFrame {
     
     AlmacenUsuarios aU;
     Usuario usu;
+    boolean adminBool;
             
     public Menu(AlmacenUsuarios a, Usuario u) {
         
@@ -17,7 +19,18 @@ public class Menu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         aU = a;
         usu = u;
+        
     }
+    
+    
+    /*public Menu(AlmacenUsuarios a, Usuario u,boolean bool) {
+        
+        initComponents();
+        this.setLocationRelativeTo(null);
+        aU = a;
+        usu = u;
+        adminBool = u.isAdmin();
+    }*/
 
     public Menu() {
     }
@@ -47,6 +60,11 @@ public class Menu extends javax.swing.JFrame {
 
         Admin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Admin.setText("Modo Administrador");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
 
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +124,17 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+        
+        if (usu.isAdmin()){
+            administrador admin = new administrador ( aU, usu);
+            admin.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Este usuario no es Administrador", "Usuario no válido", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_AdminActionPerformed
 
     
     public static void main(String args[]) {

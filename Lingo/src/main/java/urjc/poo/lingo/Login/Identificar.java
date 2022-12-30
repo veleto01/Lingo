@@ -1,4 +1,3 @@
-
 package urjc.poo.lingo.Login;
 
 import urjc.poo.lingo.Clases.Usuario;
@@ -10,11 +9,16 @@ public class Identificar extends javax.swing.JDialog {
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
+    Usuario admin = new Usuario("admin", "1234", true);
+    Usuario prueba = new Usuario("Sergio", "1234");
 
     public Identificar(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a) {
 
         super(Iniciar, modal);
         aU = a;
+
+        aU.añadirUsuario(admin);
+        aU.añadirUsuario(prueba);
 
         initComponents();
         this.setLocationRelativeTo(null);
@@ -126,6 +130,14 @@ public class Identificar extends javax.swing.JDialog {
         String texto = Tcontraseña.getText();
         String texto2 = Tusuario.getText();
 
+        contraseña = texto;
+        nombre = texto2;
+
+        Usuario u = new Usuario(nombre, contraseña);
+
+        String adminUsuario = "admin";
+        String adminContraseña = "1234";
+
         if ("".equals(texto)) {
 
             System.out.println("Campo de contraseña no válido");
@@ -138,34 +150,36 @@ public class Identificar extends javax.swing.JDialog {
 
             } else {
 
-                contraseña = texto;
-                nombre = texto2;
+                if ((u.getNombre().equals(admin.getNombre())) && ((u.getContraseña().equals(admin.getContraseña())))) {
+                    Menu iden = new Menu(aU, admin);
+                    iden.setVisible(true);
+                    this.setVisible(false);
+                    JOptionPane.showMessageDialog(null, "Inicio de sesion correcto como Administrador", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    boolean esta = false;
 
-                Usuario u = new Usuario(nombre, contraseña);
+                    for (int i = 0; i < aU.tamañoAlmacen(); i++) {
 
-                boolean esta = false;
+                        if (u.equals((aU.getUsu(i)))) {
 
-                for (int i = 0; i < aU.tamañoAlmacen(); i++) {
+                            esta = true;
 
-                    if (u.equals((aU.getUsu(i)))) {
+                        }
+                    }
+                    if (esta) {
 
-                        esta = true;
+                        Menu iden = new Menu(aU, u);
+                        iden.setVisible(true);
+                        this.setVisible(false);
+                        JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta", "Acceso no válido", JOptionPane.ERROR_MESSAGE);
 
                     }
                 }
 
-                if (esta) {
-                    
-                    Menu iden = new Menu(aU, u);
-                    iden.setVisible(true);
-                    this.setVisible(false);
-                    JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
-
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta", "Acceso no válido", JOptionPane.ERROR_MESSAGE);
-
-                }
             }
         }
     }//GEN-LAST:event_EntrarActionPerformed

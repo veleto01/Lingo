@@ -40,7 +40,7 @@ public class Registrar extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Registrate");
+        jLabel1.setText("Dar de alta");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Usuario");
@@ -181,7 +181,8 @@ public class Registrar extends javax.swing.JDialog {
                         
                         JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Usuario válido", JOptionPane.INFORMATION_MESSAGE);
                         aU.añadirUsuario(usu);
-                        
+                        administrador admin = new administrador ( aU, usu);
+                        admin.setVisible(true);
                     }
                     
                     

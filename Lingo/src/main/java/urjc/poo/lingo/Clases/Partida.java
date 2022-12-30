@@ -34,13 +34,13 @@ public class Partida {
     
     
     public boolean usarPistadeLetra(int contadorJ1){
-        if(contadorJ1 >= 1 && ){
+        /*if(contadorJ1 >= 1 && ){
             
             
             
             contadorJ1 = contadorJ1 - 1;
             
-        }
+        }*/
         
         return true;
     }
@@ -49,9 +49,9 @@ public class Partida {
         //En cada palabra actualizar el puntuaje
     }
     
-    public String infoPartida(){
+    /*public String infoPartida(){
         //Mostrar los nombres de jugadores,marcador,palabras e intentos realizados y pistas utilizadas
-    }
+    }*/
     
     
     

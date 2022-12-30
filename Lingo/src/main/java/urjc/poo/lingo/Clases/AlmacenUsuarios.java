@@ -16,6 +16,11 @@ public class AlmacenUsuarios {
         usu.add(u);
     }
     
+    public void eliminarUsuario(Usuario u){
+    
+        usu.remove(u);
+    }
+    
     public Usuario getUsu(int i) {
         return usu.get(i);
     }
@@ -35,4 +40,7 @@ public class AlmacenUsuarios {
         }
         return a;
     }
+    
+    
+    
 }
