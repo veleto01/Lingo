@@ -27,7 +27,6 @@ public class Iniciar extends javax.swing.JDialog{
 
         jLabel1 = new javax.swing.JLabel();
         Identificate = new javax.swing.JButton();
-        Registrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,13 +40,6 @@ public class Iniciar extends javax.swing.JDialog{
             }
         });
 
-        Registrarse.setText("Registrarse");
-        Registrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarseActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,10 +50,8 @@ public class Iniciar extends javax.swing.JDialog{
                         .addGap(143, 143, 143)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Registrarse)
-                            .addComponent(Identificate))))
+                        .addGap(153, 153, 153)
+                        .addComponent(Identificate)))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,11 +59,9 @@ public class Iniciar extends javax.swing.JDialog{
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(74, 74, 74)
                 .addComponent(Identificate)
-                .addGap(39, 39, 39)
-                .addComponent(Registrarse)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -87,16 +75,6 @@ public class Iniciar extends javax.swing.JDialog{
         
 
     }//GEN-LAST:event_IdentificateActionPerformed
-
-    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
-
-        
-        Registrar iden = new Registrar(new javax.swing.JDialog(),true, aU);
-        iden.setVisible(true);
-       
-        
-
-    }//GEN-LAST:event_RegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,7 +122,6 @@ public class Iniciar extends javax.swing.JDialog{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Identificate;
-    private javax.swing.JButton Registrarse;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

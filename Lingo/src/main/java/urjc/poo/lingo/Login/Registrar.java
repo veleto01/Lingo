@@ -181,8 +181,9 @@ public class Registrar extends javax.swing.JDialog {
                         
                         JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Usuario válido", JOptionPane.INFORMATION_MESSAGE);
                         aU.añadirUsuario(usu);
-                        administrador admin = new administrador ( aU, usu);
-                        admin.setVisible(true);
+                       
+                        Iniciar ini = new Iniciar();
+                        ini.setVisible(true);
                     }
                     
                     
