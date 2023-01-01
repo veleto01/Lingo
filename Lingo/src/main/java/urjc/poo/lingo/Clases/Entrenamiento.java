@@ -2,11 +2,12 @@
 package urjc.poo.lingo.Clases;
 
 
-public class Entrenamiento extends Palabra{
+/*public class Entrenamiento extends Palabra{
     private int puntos;//Declaracion de puntos cuando entrenas
     private boolean regaloDePalabra;//Boolean para saber si se ha usado el regalo de palabra
     
     public Entrenamiento(){
+        //super();
         puntos = 0;
         regaloDePalabra = false;
     }
@@ -19,4 +20,4 @@ public class Entrenamiento extends Palabra{
         
        return true;
     }
-}
+}*/
