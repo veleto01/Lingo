@@ -1,27 +1,28 @@
-package urjc.poo.lingo.Login;
+package partida;
 
 import urjc.poo.lingo.Clases.Usuario;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import javax.swing.*;
 
-public class IdentificarJ2 extends javax.swing.JDialog {
+public class LoginSegundoJugador extends javax.swing.JDialog {
 
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
-    Usuario usu;
+    Usuario usuario1;
+    Usuario usuario2;
 
-    public IdentificarJ2(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a, Usuario u) {
+    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a, Usuario u) {
 
         super(Iniciar, modal);
         aU = a;
-        usu = u;
+        usuario1 = u;
 
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public IdentificarJ2(javax.swing.JDialog Iniciar, boolean modal) {
+    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal) {
         super(Iniciar, modal);
     }
 
@@ -142,16 +143,16 @@ public class IdentificarJ2 extends javax.swing.JDialog {
                 contraseña = texto;
                 nombre = texto2;
 
-                Usuario u = new Usuario(nombre, contraseña);
+                usuario2 = new Usuario(nombre, contraseña);
 
                 boolean esta = false;
                 boolean igual = true;
 
                 for (int i = 0; i < aU.tamañoAlmacen(); i++) {
 
-                    if (u.equals((aU.getUsu(i)))) {
+                    if (usuario2.equals((aU.getUsu(i)))) {
 
-                        if (u.equals(usu)) {
+                        if (usuario2.equals(usuario1)) {
                             
                             JOptionPane.showMessageDialog(null, "Usuario ya iniciado", "Acceso no válido, ya has iniciado sesion con este usuario", JOptionPane.ERROR_MESSAGE);
                             igual = false;
@@ -170,8 +171,11 @@ public class IdentificarJ2 extends javax.swing.JDialog {
 
                 if (esta) {
                     
+               
+                    ElegirLetrasPartidaNormal partida = new ElegirLetrasPartidaNormal(aU,usuario1,usuario2);
+                    partida.setVisible(true);
+                    this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
-                    //A partir de aqui
                     
 
                 } else if(igual){
@@ -205,14 +209,18 @@ public class IdentificarJ2 extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IdentificarJ2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSegundoJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IdentificarJ2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSegundoJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IdentificarJ2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSegundoJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IdentificarJ2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSegundoJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -221,7 +229,7 @@ public class IdentificarJ2 extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IdentificarJ2 dialog = new IdentificarJ2(new javax.swing.JDialog(), true);
+                LoginSegundoJugador dialog = new LoginSegundoJugador(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

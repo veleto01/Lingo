@@ -3,7 +3,7 @@ package urjc.poo.lingo.Login;
 import javax.swing.JOptionPane;
 import urjc.poo.lingo.Clases.Usuario;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Modo;
+import partida.Modo;
 
 
 public class Menu extends javax.swing.JFrame {
@@ -115,6 +115,7 @@ public class Menu extends javax.swing.JFrame {
         
         Modo u = new Modo(new javax.swing.JFrame(),true, aU, usu);
         u.setVisible(true);
+        this.setVisible(false);
         
         
     }//GEN-LAST:event_JugarActionPerformed
@@ -130,6 +131,7 @@ public class Menu extends javax.swing.JFrame {
         if (usu.isAdmin()){
             administrador admin = new administrador ( aU, usu);
             admin.setVisible(true);
+            this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Este usuario no es Administrador", "Usuario no válido", JOptionPane.INFORMATION_MESSAGE);
         }
