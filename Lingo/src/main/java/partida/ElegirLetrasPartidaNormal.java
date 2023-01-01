@@ -122,7 +122,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
         if(numeroPalabrass>=1 && numeroPalabrass <=10){
-            partidaCincoLetras partida = new partidaCincoLetras(almacenUsuarios,usuario1,usuario2,numeroPalabrass);
+            ElegirPalabra partida = new ElegirPalabra(almacenUsuarios,usuario1,usuario2,numeroPalabrass);
             partida.setVisible(true);
             this.setVisible(false);
         }else{
