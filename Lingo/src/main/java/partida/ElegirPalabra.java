@@ -15,20 +15,21 @@ import urjc.poo.lingo.Clases.Usuario;
  */
 public class ElegirPalabra extends javax.swing.JFrame {
 
-     private AlmacenUsuarios almacenUsuarios;
+    private AlmacenUsuarios almacenUsuarios;
     Usuario usuario1;
     Usuario usuario2;
     int numpalabras;
-    public ElegirPalabra(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras) {
-         almacenUsuarios = a;
+
+    public ElegirPalabra(AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras) {
+        almacenUsuarios = a;
         usuario1 = u1;
         usuario2 = u2;
         numpalabras = numeroPalabras;
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    public ElegirPalabra(){
+
+    public ElegirPalabra() {
     }
 
     /**
@@ -95,15 +96,26 @@ public class ElegirPalabra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      String Palabra = palabra.getText();    
-       if (Palabra.length() != 0){
-           partidaCincoLetras partida = new partidaCincoLetras(almacenUsuarios,usuario1,usuario2,numpalabras,Palabra);
-            partida.setVisible(true);
-            this.setVisible(false);
-       }else{
-           JOptionPane.showMessageDialog(null, "No has escrito nada", "Error en la palabra", JOptionPane.INFORMATION_MESSAGE);
-             palabra.setBackground(Color.white); 
-       }
+        String Palabra = palabra.getText();
+
+        if ("".equals(Palabra)) {
+
+              JOptionPane.showMessageDialog(null, "No has escrito nada", "Error en la palabra", JOptionPane.INFORMATION_MESSAGE);       
+
+        } else {
+
+            if (Palabra.length() != 0 && Palabra.length() <= 5) {
+                partidaCincoLetras partida = new partidaCincoLetras(almacenUsuarios, usuario1, usuario2, numpalabras, Palabra);
+                partida.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error en el numero de letras", "Error en la palabra", JOptionPane.INFORMATION_MESSAGE);
+                palabra.setBackground(Color.white);
+            }
+
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void palabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palabraActionPerformed
