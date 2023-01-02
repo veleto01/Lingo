@@ -1,7 +1,12 @@
 package partida;
 
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.util.Arrays;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
+import java.util.*;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,7 +18,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     Usuario usuario1;
     Usuario usuario2;
     int palabras;
-    String palabra;
+    List<String> palabra;
     
     
     public partidaCincoLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala) {
@@ -22,8 +27,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         usuario1 = u1;
         usuario2 = u2;
         palabras = numeroPalabras;
-        palabra = pala;
+        palabra = Arrays.asList(pala.split(""));
         this.setLocationRelativeTo(null);
+        
     }
     
     public partidaCincoLetras(){
@@ -39,181 +45,232 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     private void initComponents() {
 
         letra11 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
+        letra13 = new javax.swing.JTextField();
+        letra12 = new javax.swing.JTextField();
+        letra14 = new javax.swing.JTextField();
+        letra15 = new javax.swing.JTextField();
+        letra23 = new javax.swing.JTextField();
+        letra22 = new javax.swing.JTextField();
+        letra24 = new javax.swing.JTextField();
+        letra25 = new javax.swing.JTextField();
+        letra21 = new javax.swing.JTextField();
+        letra33 = new javax.swing.JTextField();
+        letra32 = new javax.swing.JTextField();
+        letra34 = new javax.swing.JTextField();
+        letra35 = new javax.swing.JTextField();
+        letra31 = new javax.swing.JTextField();
+        letra43 = new javax.swing.JTextField();
+        letra42 = new javax.swing.JTextField();
+        letra44 = new javax.swing.JTextField();
+        letra45 = new javax.swing.JTextField();
+        letra41 = new javax.swing.JTextField();
+        letra53 = new javax.swing.JTextField();
+        letra52 = new javax.swing.JTextField();
+        letra54 = new javax.swing.JTextField();
+        letra55 = new javax.swing.JTextField();
+        letra51 = new javax.swing.JTextField();
         comprobar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        letra11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra11.setToolTipText("");
         letra11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra11ActionPerformed(evt);
             }
         });
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+        letra11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra11KeyTyped(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        letra13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                letra13ActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        letra12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                letra12ActionPerformed(evt);
             }
         });
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        letra14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                letra14ActionPerformed(evt);
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        letra15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                letra15ActionPerformed(evt);
             }
         });
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        letra23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra23.setEnabled(false);
+        letra23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                letra23ActionPerformed(evt);
             }
         });
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        letra22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra22.setEnabled(false);
+        letra22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                letra22ActionPerformed(evt);
             }
         });
 
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        letra24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra24.setEnabled(false);
+        letra24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                letra24ActionPerformed(evt);
             }
         });
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        letra25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra25.setEnabled(false);
+        letra25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                letra25ActionPerformed(evt);
             }
         });
 
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+        letra21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra21.setEnabled(false);
+        letra21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
+                letra21ActionPerformed(evt);
             }
         });
 
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        letra33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra33.setEnabled(false);
+        letra33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                letra33ActionPerformed(evt);
             }
         });
 
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        letra32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra32.setEnabled(false);
+        letra32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                letra32ActionPerformed(evt);
             }
         });
 
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        letra34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra34.setEnabled(false);
+        letra34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                letra34ActionPerformed(evt);
             }
         });
 
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+        letra35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra35.setEnabled(false);
+        letra35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
+                letra35ActionPerformed(evt);
             }
         });
 
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+        letra31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra31.setEnabled(false);
+        letra31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+                letra31ActionPerformed(evt);
             }
         });
 
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
+        letra43.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra43.setEnabled(false);
+        letra43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
+                letra43ActionPerformed(evt);
             }
         });
 
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        letra42.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra42.setEnabled(false);
+        letra42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                letra42ActionPerformed(evt);
             }
         });
 
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+        letra44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra44.setEnabled(false);
+        letra44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
+                letra44ActionPerformed(evt);
             }
         });
 
-        jTextField22.addActionListener(new java.awt.event.ActionListener() {
+        letra45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra45.setEnabled(false);
+        letra45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField22ActionPerformed(evt);
+                letra45ActionPerformed(evt);
             }
         });
 
-        jTextField23.addActionListener(new java.awt.event.ActionListener() {
+        letra41.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra41.setEnabled(false);
+        letra41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField23ActionPerformed(evt);
+                letra41ActionPerformed(evt);
             }
         });
 
-        jTextField24.addActionListener(new java.awt.event.ActionListener() {
+        letra53.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra53.setEnabled(false);
+        letra53.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField24ActionPerformed(evt);
+                letra53ActionPerformed(evt);
             }
         });
 
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
+        letra52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra52.setEnabled(false);
+        letra52.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
+                letra52ActionPerformed(evt);
             }
         });
 
-        jTextField26.addActionListener(new java.awt.event.ActionListener() {
+        letra54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra54.setEnabled(false);
+        letra54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField26ActionPerformed(evt);
+                letra54ActionPerformed(evt);
             }
         });
 
-        jTextField27.addActionListener(new java.awt.event.ActionListener() {
+        letra55.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra55.setEnabled(false);
+        letra55.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField27ActionPerformed(evt);
+                letra55ActionPerformed(evt);
+            }
+        });
+
+        letra51.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        letra51.setEnabled(false);
+        letra51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                letra51ActionPerformed(evt);
             }
         });
 
@@ -233,51 +290,53 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra51, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra52, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(letra25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -289,38 +348,38 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(letra11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(letra21, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra25, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra35, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra45, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(letra51, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra52, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -333,101 +392,101 @@ public class partidaCincoLetras extends javax.swing.JFrame {
 
     }//GEN-LAST:event_letra11ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void letra13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_letra13ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void letra12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_letra12ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void letra14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra14ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_letra14ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void letra15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra15ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_letra15ActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void letra23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra23ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_letra23ActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void letra22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra22ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_letra22ActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void letra24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra24ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_letra24ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void letra25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra25ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_letra25ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void letra21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra21ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_letra21ActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+    private void letra33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra33ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    }//GEN-LAST:event_letra33ActionPerformed
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void letra32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra32ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_letra32ActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void letra34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra34ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_letra34ActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void letra35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra35ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_letra35ActionPerformed
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void letra31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra31ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_letra31ActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void letra43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra43ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_letra43ActionPerformed
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void letra42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra42ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+    }//GEN-LAST:event_letra42ActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void letra44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra44ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+    }//GEN-LAST:event_letra44ActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void letra45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra45ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_letra45ActionPerformed
 
-    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+    private void letra41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra41ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
+    }//GEN-LAST:event_letra41ActionPerformed
 
-    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+    private void letra53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra53ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField23ActionPerformed
+    }//GEN-LAST:event_letra53ActionPerformed
 
-    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+    private void letra52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra52ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField24ActionPerformed
+    }//GEN-LAST:event_letra52ActionPerformed
 
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+    private void letra54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra54ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
+    }//GEN-LAST:event_letra54ActionPerformed
 
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+    private void letra55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra55ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
+    }//GEN-LAST:event_letra55ActionPerformed
 
-    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
+    private void letra51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letra51ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField27ActionPerformed
+    }//GEN-LAST:event_letra51ActionPerformed
 
     
     
@@ -438,11 +497,381 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     
     
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-
+        int contadorFila = 0;
+        JTextField[] gridLetras = new JTextField[25];
+        String[] letras = new String[5];
+        
+        gridLetras[0] = letra11;//0
+        gridLetras[1] = letra12;
+        gridLetras[2] = letra13;
+        gridLetras[3] = letra14;
+        gridLetras[4] = letra15;
+        gridLetras[5] = letra21;//5
+        gridLetras[6] = letra22;
+        gridLetras[7] = letra23;
+        gridLetras[8] = letra24;
+        gridLetras[9] = letra25;
+        gridLetras[10] = letra31;//10
+        gridLetras[11] = letra32;
+        gridLetras[12] = letra33;
+        gridLetras[13] = letra34;
+        gridLetras[14] = letra35;
+        gridLetras[15] = letra41;//15
+        gridLetras[16] = letra42;
+        gridLetras[17] = letra43;
+        gridLetras[18] = letra44;
+        gridLetras[19] = letra45;
+        gridLetras[20] = letra51;//20
+        gridLetras[21] = letra52;
+        gridLetras[22] = letra53;
+        gridLetras[23] = letra54;
+        gridLetras[24] = letra55;
+        
+        for(int i = 0; i<letras.length; i++){
+            JTextField aux = gridLetras[i];
+            String stringaux = aux.getText();
+            letras[i] = stringaux;
+        }
+        for(int i = 0; i<5; i++){
+            if(palabra.contains(letras[i])){
+                if(palabra.get(i).equals(letras[i])){
+                   gridLetras[contadorFila].setBackground(Color.green); 
+                }else{
+                    gridLetras[contadorFila].setBackground(Color.yellow);
+                }
+            }else{
+                gridLetras[contadorFila].setBackground(Color.gray);
+            }
+            contadorFila++;
+        }
+        
+        
     }//GEN-LAST:event_comprobarActionPerformed
 
+    private void letra11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra11KeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra11.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_letra11KeyTyped
+
+    private void letra12KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra12.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
     
+    private void letra13KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra13.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
     
+    private void letra14KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra14.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra15KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra15.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra21KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra21.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra22KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra22.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra23KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra23.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra24KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra24.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra25KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra25.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra31KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra31.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra32KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra32.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra33KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra33.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra34KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra34.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra35KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra35.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra41KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra41.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra42KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra42.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra43KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra43.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra44KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra44.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra45KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra45.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra51KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra51.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra52KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra52.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra53KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra53.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra54KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra54.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }  
+    
+    private void letra55KeyTyped(java.awt.event.KeyEvent evt) {                                 
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad = (""+c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+        }
+        if(letra55.getText().length() > 1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }
     
     
     
@@ -486,30 +915,30 @@ public class partidaCincoLetras extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton comprobar;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField letra11;
+    private javax.swing.JTextField letra12;
+    private javax.swing.JTextField letra13;
+    private javax.swing.JTextField letra14;
+    private javax.swing.JTextField letra15;
+    private javax.swing.JTextField letra21;
+    private javax.swing.JTextField letra22;
+    private javax.swing.JTextField letra23;
+    private javax.swing.JTextField letra24;
+    private javax.swing.JTextField letra25;
+    private javax.swing.JTextField letra31;
+    private javax.swing.JTextField letra32;
+    private javax.swing.JTextField letra33;
+    private javax.swing.JTextField letra34;
+    private javax.swing.JTextField letra35;
+    private javax.swing.JTextField letra41;
+    private javax.swing.JTextField letra42;
+    private javax.swing.JTextField letra43;
+    private javax.swing.JTextField letra44;
+    private javax.swing.JTextField letra45;
+    private javax.swing.JTextField letra51;
+    private javax.swing.JTextField letra52;
+    private javax.swing.JTextField letra53;
+    private javax.swing.JTextField letra54;
+    private javax.swing.JTextField letra55;
     // End of variables declaration//GEN-END:variables
 }
