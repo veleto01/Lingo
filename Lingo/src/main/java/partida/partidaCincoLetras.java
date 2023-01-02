@@ -2,6 +2,7 @@ package partida;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
@@ -18,7 +19,11 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     Usuario usuario1;
     Usuario usuario2;
     int palabras;
+    int contadorFila = 0;
+    int contadorEnabled = 5;
+    int contadorFila2 = 0;
     List<String> palabra;
+    
     
     
     public partidaCincoLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala) {
@@ -617,10 +622,11 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     
     
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-        int contadorFila = 0;
-        int contadorEnabled = 5;
         JTextField[] gridLetras = new JTextField[25];
         String[] letras = new String[5];
+        Boolean[] esIgual = new Boolean[5];
+        for(int i = 0; i<5; i++) esIgual[i] = false;
+        Boolean esIgualEntero = true;
         
         gridLetras[0] = letra11;//0
         gridLetras[1] = letra12;
@@ -648,26 +654,34 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         gridLetras[23] = letra54;
         gridLetras[24] = letra55;
         
-        for(int i = 0; i<letras.length; i++){
-            JTextField aux = gridLetras[i];
-            String stringaux = aux.getText();
+        for(int i = 0; i<5; i++){
+            JTextField aux = gridLetras[contadorFila2];
+            String stringaux = aux.getText().toLowerCase();
             letras[i] = stringaux;
+            contadorFila2+=1;
         }
         for(int i = 0; i<5; i++){
             if(palabra.contains(letras[i])){
-                if(palabra.get(i).equals(letras[i])){
-                   gridLetras[contadorFila].setBackground(Color.green); 
+                if(palabra.get(i).toLowerCase().equals(letras[i])){
+                   gridLetras[contadorFila].setBackground(Color.green);
+                   esIgual[i] = true; 
                 }else{
                     gridLetras[contadorFila].setBackground(Color.yellow);
                 }
             }else{
                 gridLetras[contadorFila].setBackground(Color.gray);
             }
-            contadorFila++;
+            contadorFila+=1;
         }
+        for(int i = 0; i<5 && esIgualEntero; i++){
+            if(!esIgual[i]) esIgualEntero = false;
+        }
+        System.out.println(esIgualEntero.toString());
+        
+        
         for(int i = 0; i<5; i++){
-            gridLetras[contadorEnabled].enable();
-            contadorEnabled++;
+            gridLetras[this.contadorEnabled].enable();
+            contadorEnabled+=1;
         }
         
         
@@ -680,7 +694,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra11.getText().length() > 1){
+        if(letra11.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -693,7 +707,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra12.getText().length() > 1){
+        if(letra12.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -706,7 +720,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra13.getText().length() > 1){
+        if(letra13.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -719,7 +733,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra14.getText().length() > 1){
+        if(letra14.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -732,7 +746,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra15.getText().length() > 1){
+        if(letra15.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -745,7 +759,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra21.getText().length() > 1){
+        if(letra21.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -758,7 +772,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra22.getText().length() > 1){
+        if(letra22.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -771,7 +785,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra23.getText().length() > 1){
+        if(letra23.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -784,7 +798,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra24.getText().length() > 1){
+        if(letra24.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -797,7 +811,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra25.getText().length() > 1){
+        if(letra25.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -810,7 +824,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra31.getText().length() > 1){
+        if(letra31.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -823,7 +837,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra32.getText().length() > 1){
+        if(letra32.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -836,7 +850,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra33.getText().length() > 1){
+        if(letra33.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -849,7 +863,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra34.getText().length() > 1){
+        if(letra34.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -862,7 +876,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra35.getText().length() > 1){
+        if(letra35.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -875,7 +889,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra41.getText().length() > 1){
+        if(letra41.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -888,7 +902,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra42.getText().length() > 1){
+        if(letra42.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -901,7 +915,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra43.getText().length() > 1){
+        if(letra43.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -914,7 +928,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra44.getText().length() > 1){
+        if(letra44.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -927,7 +941,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra45.getText().length() > 1){
+        if(letra45.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -940,7 +954,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra51.getText().length() > 1){
+        if(letra51.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -953,7 +967,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra52.getText().length() > 1){
+        if(letra52.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -966,7 +980,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra53.getText().length() > 1){
+        if(letra53.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -979,7 +993,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra54.getText().length() > 1){
+        if(letra54.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -992,7 +1006,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra55.getText().length() > 1){
+        if(letra55.getText().length() >= 1){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
