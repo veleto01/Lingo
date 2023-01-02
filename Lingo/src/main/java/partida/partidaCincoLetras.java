@@ -92,11 +92,21 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra13ActionPerformed(evt);
             }
         });
+        letra13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra13KeyTyped(evt);
+            }
+        });
 
         letra12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra12ActionPerformed(evt);
+            }
+        });
+        letra12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra12KeyTyped(evt);
             }
         });
 
@@ -106,11 +116,21 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra14ActionPerformed(evt);
             }
         });
+        letra14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra14KeyTyped(evt);
+            }
+        });
 
         letra15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra15ActionPerformed(evt);
+            }
+        });
+        letra15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra15KeyTyped(evt);
             }
         });
 
@@ -121,12 +141,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra23ActionPerformed(evt);
             }
         });
+        letra23.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra23KeyTyped(evt);
+            }
+        });
 
         letra22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra22.setEnabled(false);
         letra22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra22ActionPerformed(evt);
+            }
+        });
+        letra22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra22KeyTyped(evt);
             }
         });
 
@@ -137,12 +167,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra24ActionPerformed(evt);
             }
         });
+        letra24.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra24KeyTyped(evt);
+            }
+        });
 
         letra25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra25.setEnabled(false);
         letra25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra25ActionPerformed(evt);
+            }
+        });
+        letra25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra25KeyTyped(evt);
             }
         });
 
@@ -153,12 +193,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra21ActionPerformed(evt);
             }
         });
+        letra21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra21KeyTyped(evt);
+            }
+        });
 
         letra33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra33.setEnabled(false);
         letra33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra33ActionPerformed(evt);
+            }
+        });
+        letra33.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra33KeyTyped(evt);
             }
         });
 
@@ -169,12 +219,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra32ActionPerformed(evt);
             }
         });
+        letra32.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra32KeyTyped(evt);
+            }
+        });
 
         letra34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra34.setEnabled(false);
         letra34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra34ActionPerformed(evt);
+            }
+        });
+        letra34.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra34KeyTyped(evt);
             }
         });
 
@@ -185,12 +245,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra35ActionPerformed(evt);
             }
         });
+        letra35.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra35KeyTyped(evt);
+            }
+        });
 
         letra31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra31.setEnabled(false);
         letra31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra31ActionPerformed(evt);
+            }
+        });
+        letra31.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra31KeyTyped(evt);
             }
         });
 
@@ -201,12 +271,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra43ActionPerformed(evt);
             }
         });
+        letra43.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra43KeyTyped(evt);
+            }
+        });
 
         letra42.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra42.setEnabled(false);
         letra42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra42ActionPerformed(evt);
+            }
+        });
+        letra42.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra42KeyTyped(evt);
             }
         });
 
@@ -217,12 +297,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra44ActionPerformed(evt);
             }
         });
+        letra44.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra44KeyTyped(evt);
+            }
+        });
 
         letra45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra45.setEnabled(false);
         letra45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra45ActionPerformed(evt);
+            }
+        });
+        letra45.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra45KeyTyped(evt);
             }
         });
 
@@ -233,12 +323,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra41ActionPerformed(evt);
             }
         });
+        letra41.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra41KeyTyped(evt);
+            }
+        });
 
         letra53.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra53.setEnabled(false);
         letra53.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra53ActionPerformed(evt);
+            }
+        });
+        letra53.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra53KeyTyped(evt);
             }
         });
 
@@ -249,12 +349,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra52ActionPerformed(evt);
             }
         });
+        letra52.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra52KeyTyped(evt);
+            }
+        });
 
         letra54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra54.setEnabled(false);
         letra54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra54ActionPerformed(evt);
+            }
+        });
+        letra54.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra54KeyTyped(evt);
             }
         });
 
@@ -265,12 +375,22 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 letra55ActionPerformed(evt);
             }
         });
+        letra55.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra55KeyTyped(evt);
+            }
+        });
 
         letra51.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra51.setEnabled(false);
         letra51.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letra51ActionPerformed(evt);
+            }
+        });
+        letra51.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                letra51KeyTyped(evt);
             }
         });
 
@@ -498,6 +618,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
         int contadorFila = 0;
+        int contadorEnabled = 5;
         JTextField[] gridLetras = new JTextField[25];
         String[] letras = new String[5];
         
@@ -544,6 +665,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
             contadorFila++;
         }
+        for(int i = 0; i<5; i++){
+            gridLetras[contadorEnabled].enable();
+            contadorEnabled++;
+        }
         
         
     }//GEN-LAST:event_comprobarActionPerformed
@@ -561,8 +686,8 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_letra11KeyTyped
 
-    private void letra12KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    private void letra12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra12KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -572,10 +697,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra13KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra12KeyTyped
+
+    private void letra13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra13KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -585,10 +710,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra14KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra13KeyTyped
+
+    private void letra14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra14KeyTyped
+         char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -598,10 +723,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra15KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra14KeyTyped
+
+    private void letra15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra15KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -611,9 +736,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra21KeyTyped(java.awt.event.KeyEvent evt) {                                 
+    }//GEN-LAST:event_letra15KeyTyped
+
+    private void letra21KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra21KeyTyped
         char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
@@ -624,10 +749,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra22KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra21KeyTyped
+
+    private void letra22KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra22KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -637,10 +762,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra23KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra22KeyTyped
+
+    private void letra23KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra23KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -650,10 +775,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra24KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra23KeyTyped
+
+    private void letra24KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra24KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -663,10 +788,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra25KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra24KeyTyped
+
+    private void letra25KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra25KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -676,10 +801,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra31KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra25KeyTyped
+
+    private void letra31KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra31KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -689,10 +814,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra32KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra31KeyTyped
+
+    private void letra32KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra32KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -702,10 +827,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra33KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra32KeyTyped
+
+    private void letra33KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra33KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -715,10 +840,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra34KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra33KeyTyped
+
+    private void letra34KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra34KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -728,10 +853,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra35KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra34KeyTyped
+
+    private void letra35KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra35KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -741,10 +866,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra41KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra35KeyTyped
+
+    private void letra41KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra41KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -754,10 +879,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra42KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra41KeyTyped
+
+    private void letra42KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra42KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -767,10 +892,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra43KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra42KeyTyped
+
+    private void letra43KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra43KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -780,10 +905,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra44KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra43KeyTyped
+
+    private void letra44KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra44KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -793,10 +918,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra45KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra44KeyTyped
+
+    private void letra45KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra45KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -806,10 +931,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra51KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra45KeyTyped
+
+    private void letra51KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra51KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -819,10 +944,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra52KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra51KeyTyped
+
+    private void letra52KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra52KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -832,10 +957,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra53KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra52KeyTyped
+
+    private void letra53KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra53KeyTyped
+      char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -845,10 +970,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra54KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra53KeyTyped
+
+    private void letra54KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra54KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -858,10 +983,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }  
-    
-    private void letra55KeyTyped(java.awt.event.KeyEvent evt) {                                 
-        char c = evt.getKeyChar();
+    }//GEN-LAST:event_letra54KeyTyped
+
+    private void letra55KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra55KeyTyped
+       char c = evt.getKeyChar();
         if(Character.isLowerCase(c)){
             String cad = (""+c).toUpperCase();
             c = cad.charAt(0);
@@ -871,7 +996,13 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
-    }
+    }//GEN-LAST:event_letra55KeyTyped
+
+    
+    
+     
+    
+    
     
     
     
