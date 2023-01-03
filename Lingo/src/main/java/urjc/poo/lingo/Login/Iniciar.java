@@ -27,6 +27,7 @@ public class Iniciar extends javax.swing.JDialog{
 
         jLabel1 = new javax.swing.JLabel();
         Identificate = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -40,6 +41,8 @@ public class Iniciar extends javax.swing.JDialog{
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/manuelalejandrojimenezfernandez/Desktop/Universidad/POO/descarga.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -47,21 +50,26 @@ public class Iniciar extends javax.swing.JDialog{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel1))
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(Identificate)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                        .addGap(252, 252, 252)
+                        .addComponent(Identificate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(jLabel1)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addGap(31, 31, 31)
                 .addComponent(Identificate)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel2)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,8 +78,9 @@ public class Iniciar extends javax.swing.JDialog{
     private void IdentificateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificateActionPerformed
 
         Identificar iden = new Identificar(new javax.swing.JDialog(),true, aU);
-        iden.setVisible(true);
         this.setVisible(false);
+        iden.setVisible(true);
+        
         
 
     }//GEN-LAST:event_IdentificateActionPerformed
@@ -123,5 +132,6 @@ public class Iniciar extends javax.swing.JDialog{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Identificate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
