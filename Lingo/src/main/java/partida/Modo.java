@@ -46,6 +46,11 @@ public class Modo extends javax.swing.JDialog {
 
         Entrenamiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Entrenamiento.setText("Entrenamiento");
+        Entrenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntrenamientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,6 +92,12 @@ public class Modo extends javax.swing.JDialog {
         iden.setVisible(true);
         
     }//GEN-LAST:event_ContraotroActionPerformed
+
+    private void EntrenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrenamientoActionPerformed
+        elegirLetrasEntrenamiento entrenamiento = new elegirLetrasEntrenamiento();
+        this.setVisible(false);
+        entrenamiento.setVisible(true);
+    }//GEN-LAST:event_EntrenamientoActionPerformed
 
   
     public static void main(String args[]) {

@@ -19,18 +19,23 @@ public class ElegirPalabra extends javax.swing.JFrame {
     Usuario usuario1;
     Usuario usuario2;
     int numpalabras;
+    int numLetras;
 
-    public ElegirPalabra(AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras) {
+    public ElegirPalabra(AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, int numeroLetras) {
         almacenUsuarios = a;
         usuario1 = u1;
         usuario2 = u2;
         numpalabras = numeroPalabras;
+        numLetras = numeroLetras;
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
-    public ElegirPalabra() {
+    
+    public ElegirPalabra(){
+        
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,12 +108,17 @@ public class ElegirPalabra extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null, "No has escrito nada", "Error en la palabra", JOptionPane.INFORMATION_MESSAGE);       
 
         } else {
-
-            if (Palabra.length() != 0 && Palabra.length() <= 5) {
+            
+            if (Palabra.length() != 0 && Palabra.length() <= 5 && numLetras == 5) {
                 partidaCincoLetras partida = new partidaCincoLetras(almacenUsuarios, usuario1, usuario2, numpalabras, Palabra);
                 partida.setVisible(true);
                 this.setVisible(false);
-            } else {
+            } else if(Palabra.length() != 0 && Palabra.length() <= 6 && numLetras == 6){
+                partidaSeisLetras partida = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2, numpalabras, Palabra);
+                partida.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
                 JOptionPane.showMessageDialog(null, "Error en el numero de letras", "Error en la palabra", JOptionPane.INFORMATION_MESSAGE);
                 palabra.setBackground(Color.white);
             }

@@ -3,6 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -38,46 +39,46 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="letra42" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra43" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra44" min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="letra52" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra53" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra54" min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="letra12" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra13" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="letra14" min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="letra32" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Component id="letra33" min="-2" pref="44" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="letra22" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Component id="letra23" min="-2" pref="44" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="letra24" min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="letra34" min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="letra55" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="letra45" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
@@ -93,14 +94,14 @@
                       <Component id="comprobar" min="-2" pref="128" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="88" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra11" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra13" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -108,7 +109,7 @@
                   <Component id="letra14" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra15" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra21" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra22" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -116,7 +117,7 @@
                   <Component id="letra24" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra25" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra31" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra33" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -124,7 +125,7 @@
                   <Component id="letra34" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra35" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra41" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra43" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -132,7 +133,7 @@
                   <Component id="letra44" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra45" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra51" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra53" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -140,7 +141,7 @@
                   <Component id="letra54" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra55" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="comprobar" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>

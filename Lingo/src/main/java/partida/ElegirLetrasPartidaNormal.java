@@ -15,15 +15,17 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     
     
     
+    
     public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1,Usuario u2) {
         almacenUsuarios = a;
         usuario1 = u1;
         usuario2 = u2;
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
-
-     public ElegirLetrasPartidaNormal() {
+     
+    public ElegirLetrasPartidaNormal(){
         
     }
     @SuppressWarnings("unchecked")
@@ -119,14 +121,17 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         
         int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
-        if(numeroPalabrass>=1 && numeroPalabrass <=10){
-            ElegirPalabra partida = new ElegirPalabra(almacenUsuarios,usuario1,usuario2,numeroPalabrass);
-            partida.setVisible(true);
-            this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
-             numeroPalabras.setBackground(Color.white);   
-        }
+        
+            if(numeroPalabrass>=1 && numeroPalabrass <=10){
+                ElegirPalabra partida = new ElegirPalabra(almacenUsuarios,usuario1,usuario2,numeroPalabrass, 5);
+                partida.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
+                 numeroPalabras.setBackground(Color.white);   
+            }
+         
+        
     }//GEN-LAST:event_cincoLetrasActionPerformed
 
     
@@ -140,14 +145,16 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
         int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
-        if(numeroPalabrass>=1 && numeroPalabrass <=10){
-            partidaSeisLetras partida = new partidaSeisLetras(almacenUsuarios,usuario1,usuario2,numeroPalabrass);
-            partida.setVisible(true);
-            this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
-            numeroPalabras.setBackground(Color.white);   
-        }
+       
+            if(numeroPalabrass>=1 && numeroPalabrass <=10){
+                ElegirPalabra partida = new ElegirPalabra(almacenUsuarios,usuario1,usuario2,numeroPalabrass, 6);
+                partida.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
+                numeroPalabras.setBackground(Color.white);   
+            }  
+        
     }//GEN-LAST:event_seisLetras1ActionPerformed
 
     
