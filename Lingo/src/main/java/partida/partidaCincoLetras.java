@@ -23,6 +23,8 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     int contadorEnabled = 5;
     int contadorFila2 = 0;
     List<String> palabra;
+    JTextField[] gridLetras = new JTextField[25];
+
     
     
     
@@ -34,6 +36,31 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         palabras = numeroPalabras;
         palabra = Arrays.asList(pala.split(""));
         this.setLocationRelativeTo(null);
+        gridLetras[0] = letra11;//0
+        gridLetras[1] = letra12;
+        gridLetras[2] = letra13;
+        gridLetras[3] = letra14;
+        gridLetras[4] = letra15;
+        gridLetras[5] = letra21;//5
+        gridLetras[6] = letra22;
+        gridLetras[7] = letra23;
+        gridLetras[8] = letra24;
+        gridLetras[9] = letra25;
+        gridLetras[10] = letra31;//10
+        gridLetras[11] = letra32;
+        gridLetras[12] = letra33;
+        gridLetras[13] = letra34;
+        gridLetras[14] = letra35;
+        gridLetras[15] = letra41;//15
+        gridLetras[16] = letra42;
+        gridLetras[17] = letra43;
+        gridLetras[18] = letra44;
+        gridLetras[19] = letra45;
+        gridLetras[20] = letra51;//20
+        gridLetras[21] = letra52;
+        gridLetras[22] = letra53;
+        gridLetras[23] = letra54;
+        gridLetras[24] = letra55;
         
     }
     
@@ -41,6 +68,31 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         initComponents();
         palabra = Arrays.asList(pala.split(""));
         this.setLocationRelativeTo(null);
+        gridLetras[0] = letra11;//0
+        gridLetras[1] = letra12;
+        gridLetras[2] = letra13;
+        gridLetras[3] = letra14;
+        gridLetras[4] = letra15;
+        gridLetras[5] = letra21;//5
+        gridLetras[6] = letra22;
+        gridLetras[7] = letra23;
+        gridLetras[8] = letra24;
+        gridLetras[9] = letra25;
+        gridLetras[10] = letra31;//10
+        gridLetras[11] = letra32;
+        gridLetras[12] = letra33;
+        gridLetras[13] = letra34;
+        gridLetras[14] = letra35;
+        gridLetras[15] = letra41;//15
+        gridLetras[16] = letra42;
+        gridLetras[17] = letra43;
+        gridLetras[18] = letra44;
+        gridLetras[19] = letra45;
+        gridLetras[20] = letra51;//20
+        gridLetras[21] = letra52;
+        gridLetras[22] = letra53;
+        gridLetras[23] = letra54;
+        gridLetras[24] = letra55;
     }
     
     public partidaCincoLetras(){
@@ -630,37 +682,12 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     
     
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-        JTextField[] gridLetras = new JTextField[25];
         String[] letras = new String[5];
         Boolean[] esIgual = new Boolean[5];
         for(int i = 0; i<5; i++) esIgual[i] = false;
         Boolean esIgualEntero = true;
         
-        gridLetras[0] = letra11;//0
-        gridLetras[1] = letra12;
-        gridLetras[2] = letra13;
-        gridLetras[3] = letra14;
-        gridLetras[4] = letra15;
-        gridLetras[5] = letra21;//5
-        gridLetras[6] = letra22;
-        gridLetras[7] = letra23;
-        gridLetras[8] = letra24;
-        gridLetras[9] = letra25;
-        gridLetras[10] = letra31;//10
-        gridLetras[11] = letra32;
-        gridLetras[12] = letra33;
-        gridLetras[13] = letra34;
-        gridLetras[14] = letra35;
-        gridLetras[15] = letra41;//15
-        gridLetras[16] = letra42;
-        gridLetras[17] = letra43;
-        gridLetras[18] = letra44;
-        gridLetras[19] = letra45;
-        gridLetras[20] = letra51;//20
-        gridLetras[21] = letra52;
-        gridLetras[22] = letra53;
-        gridLetras[23] = letra54;
-        gridLetras[24] = letra55;
+       
         
         for(int i = 0; i<5; i++){
             JTextField aux = gridLetras[contadorFila2];
