@@ -24,6 +24,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     int contadorFila2 = 0;
     List<String> palabra;
     JTextField[] gridLetras = new JTextField[25];
+    Boolean pistaPalabraNoUsada = true;
 
     
     
@@ -134,6 +135,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         letra55 = new javax.swing.JTextField();
         letra51 = new javax.swing.JTextField();
         comprobar = new javax.swing.JButton();
+        pistaPalabra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -466,14 +468,21 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaPalabra.setText("Pista de Palabra");
+        pistaPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pistaPalabraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,11 +530,13 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             .addComponent(letra35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(letra25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(74, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,8 +577,10 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
-                .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -1047,6 +1060,55 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_letra55KeyTyped
 
+    private void pistaPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaPalabraActionPerformed
+        if(pistaPalabraNoUsada){
+            
+            switch(contadorFila){
+                case 0:
+                    for(int i = 0; i<5; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                
+                case 5:
+                    for(int i = 0; i<5; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                    
+                case 10:
+                    for(int i = 0; i<5; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                
+                case 15:
+                    for(int i = 0; i<5; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                    
+                case 20:
+                    for(int i = 0; i<5; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+            }
+        }
+        pistaPalabra.setEnabled(false);
+        pistaPalabraNoUsada = false;
+    }//GEN-LAST:event_pistaPalabraActionPerformed
+
     
     
      
@@ -1120,5 +1182,6 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     private javax.swing.JTextField letra53;
     private javax.swing.JTextField letra54;
     private javax.swing.JTextField letra55;
+    private javax.swing.JButton pistaPalabra;
     // End of variables declaration//GEN-END:variables
 }
