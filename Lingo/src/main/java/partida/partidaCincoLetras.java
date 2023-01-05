@@ -8,6 +8,7 @@ import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
 import java.util.*;
 import javax.swing.JTextField;
+import java.util.Random;
 
 /**
  *
@@ -24,7 +25,8 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     int contadorFila2 = 0;
     List<String> palabra;
     JTextField[] gridLetras = new JTextField[25];
-    Boolean pistaPalabraNoUsada = true;
+    boolean pistaPalabraNoUsada = true;
+    boolean pistaLetraNoUsada = true;
 
     
     
@@ -136,10 +138,12 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         letra51 = new javax.swing.JTextField();
         comprobar = new javax.swing.JButton();
         pistaPalabra = new javax.swing.JButton();
+        pistaLetra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        letra11.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra11.setToolTipText("");
         letra11.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +157,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra13.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +170,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra12.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,6 +183,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra14.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +196,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra15.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +209,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra23.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra23.setEnabled(false);
         letra23.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +223,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra22.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra22.setEnabled(false);
         letra22.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +237,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra24.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra24.setEnabled(false);
         letra24.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +251,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra25.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra25.setEnabled(false);
         letra25.addActionListener(new java.awt.event.ActionListener() {
@@ -253,6 +265,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra21.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra21.setEnabled(false);
         letra21.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +279,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra33.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra33.setEnabled(false);
         letra33.addActionListener(new java.awt.event.ActionListener() {
@@ -279,6 +293,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra32.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra32.setEnabled(false);
         letra32.addActionListener(new java.awt.event.ActionListener() {
@@ -292,6 +307,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra34.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra34.setEnabled(false);
         letra34.addActionListener(new java.awt.event.ActionListener() {
@@ -305,6 +321,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra35.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra35.setEnabled(false);
         letra35.addActionListener(new java.awt.event.ActionListener() {
@@ -318,6 +335,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra31.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra31.setEnabled(false);
         letra31.addActionListener(new java.awt.event.ActionListener() {
@@ -331,6 +349,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra43.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra43.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra43.setEnabled(false);
         letra43.addActionListener(new java.awt.event.ActionListener() {
@@ -344,6 +363,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra42.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra42.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra42.setEnabled(false);
         letra42.addActionListener(new java.awt.event.ActionListener() {
@@ -357,6 +377,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra44.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra44.setEnabled(false);
         letra44.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +391,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra45.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra45.setEnabled(false);
         letra45.addActionListener(new java.awt.event.ActionListener() {
@@ -383,6 +405,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra41.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra41.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra41.setEnabled(false);
         letra41.addActionListener(new java.awt.event.ActionListener() {
@@ -396,6 +419,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra53.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra53.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra53.setEnabled(false);
         letra53.addActionListener(new java.awt.event.ActionListener() {
@@ -409,6 +433,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra52.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra52.setEnabled(false);
         letra52.addActionListener(new java.awt.event.ActionListener() {
@@ -422,6 +447,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra54.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra54.setEnabled(false);
         letra54.addActionListener(new java.awt.event.ActionListener() {
@@ -435,6 +461,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra55.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra55.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra55.setEnabled(false);
         letra55.addActionListener(new java.awt.event.ActionListener() {
@@ -448,6 +475,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        letra51.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra51.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra51.setEnabled(false);
         letra51.addActionListener(new java.awt.event.ActionListener() {
@@ -475,68 +503,76 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaLetra.setText("Pista de Letra");
+        pistaLetra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pistaLetraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra51, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(letra52, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra51, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(letra52, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(letra25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(74, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
+                            .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra45, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letra35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(letra25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -579,7 +615,8 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -1109,6 +1146,39 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         pistaPalabraNoUsada = false;
     }//GEN-LAST:event_pistaPalabraActionPerformed
 
+    private void pistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaLetraActionPerformed
+        Random r = new Random();
+        int posicionLetraAleatoria = r.nextInt(5);
+        
+        if(pistaLetraNoUsada){
+            switch(contadorFila){
+                case 0:
+                    
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 5:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 10:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 15:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 20:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+            }
+        }
+        pistaLetra.setEnabled(false);
+        pistaLetraNoUsada = false;
+    }//GEN-LAST:event_pistaLetraActionPerformed
+
     
     
      
@@ -1182,6 +1252,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
     private javax.swing.JTextField letra53;
     private javax.swing.JTextField letra54;
     private javax.swing.JTextField letra55;
+    private javax.swing.JButton pistaLetra;
     private javax.swing.JButton pistaPalabra;
     // End of variables declaration//GEN-END:variables
 }
