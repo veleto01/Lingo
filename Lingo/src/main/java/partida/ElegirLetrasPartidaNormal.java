@@ -118,7 +118,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     
     private void cincoLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetrasActionPerformed
         
-        int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
+        /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
         
             if(numeroPalabrass>=1 && numeroPalabrass <=10){
@@ -128,7 +128,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
                  numeroPalabras.setBackground(Color.white);   
-            }
+            }*/
          
         
     }//GEN-LAST:event_cincoLetrasActionPerformed
@@ -142,7 +142,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     
     
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
-        int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
+        /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
        
             if(numeroPalabrass>=1 && numeroPalabrass <=10){
@@ -152,7 +152,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
                 numeroPalabras.setBackground(Color.white);   
-            }  
+            }  */
         
     }//GEN-LAST:event_seisLetras1ActionPerformed
 

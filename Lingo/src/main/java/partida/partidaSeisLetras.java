@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package partida;
 
 import java.awt.Color;
@@ -13,10 +10,7 @@ import urjc.poo.lingo.Clases.Usuario;
 import java.util.*;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Manuel
- */
+
 public class partidaSeisLetras extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;

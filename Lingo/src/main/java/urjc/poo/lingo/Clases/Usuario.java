@@ -34,7 +34,9 @@ public class Usuario {
         return admin;
     }
     
-    
+    public void actualizarPuntos(int p){
+        puntos += p;
+    }
     
     public String getContraseña() {
         return contraseña;
