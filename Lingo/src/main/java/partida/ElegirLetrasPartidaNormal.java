@@ -1,50 +1,59 @@
 package partida;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.io.BufferedReader;
+
 import javax.swing.JOptionPane;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.StreamTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import urjc.poo.lingo.Clases.Palabra;
 
 public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;
     Usuario usuario1;
     Usuario usuario2;
-    
-    
-    
-    
-    public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1,Usuario u2) {
+    Container cont = getContentPane();
+    Palabra[] palabraCincoLetras;
+    Palabra[] palabraSeisLetras;
+    int contadorpalabraCincoLetras=0;
+    int contadorpalabraSeisLetras=0;
+
+    public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1, Usuario u2) {
         almacenUsuarios = a;
         usuario1 = u1;
         usuario2 = u2;
+        palabraCincoLetras = new Palabra[100];
+        palabraSeisLetras = new Palabra[100];
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-     
-    public ElegirLetrasPartidaNormal(){
-        
+
+    public ElegirLetrasPartidaNormal() {
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cincoLetras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         seisLetras1 = new javax.swing.JButton();
-        numeroPalabras = new javax.swing.JTextField();
+        cincoLetras1 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        cincoLetras.setText("5 Letras");
-        cincoLetras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cincoLetrasActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Número de palabras de 1 a 10");
@@ -61,9 +70,17 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }
         });
 
-        numeroPalabras.addActionListener(new java.awt.event.ActionListener() {
+        cincoLetras1.setText("5 Letras");
+        cincoLetras1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroPalabrasActionPerformed(evt);
+                cincoLetras1ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Leer TXT");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
             }
         });
 
@@ -75,46 +92,45 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cincoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(numeroPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(114, 114, 114)
+                            .addComponent(jButton7))))
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(55, 55, 55)
+                    .addComponent(cincoLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(186, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cincoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numeroPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(121, 121, 121)
+                    .addComponent(cincoLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(143, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
-    
-    
-    
+ 
     
     private void cincoLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetrasActionPerformed
         
@@ -133,15 +149,9 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cincoLetrasActionPerformed
 
-    
-    
-    
-    
-    
-    
-    
-    
+
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
+
         /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
        
@@ -154,32 +164,73 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 numeroPalabras.setBackground(Color.white);   
             }  */
         
+
+        /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());
+
+        if (numeroPalabrass >= 1 && numeroPalabrass <= 10) {
+            ElegirPalabra partida = new ElegirPalabra(almacenUsuarios, usuario1, usuario2, numeroPalabrass, 6);
+            partida.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
+            numeroPalabras.setBackground(Color.white);
+        }*/
+
     }//GEN-LAST:event_seisLetras1ActionPerformed
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private void numeroPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroPalabrasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numeroPalabrasActionPerformed
+    private void cincoLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetras1ActionPerformed
 
-   
+    }//GEN-LAST:event_cincoLetras1ActionPerformed
+
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        String no = "no";
+
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.txt", "TXT");
+        fc.setFileFilter(filtro);
+        int seleccion = fc.showOpenDialog(cont);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero = fc.getSelectedFile();
+            String ruta = fichero.getAbsolutePath();
+            try {
+                StreamTokenizer st = new StreamTokenizer(new FileReader("" + ruta));
+                while (st.nextToken() != StreamTokenizer.TT_EOF) {
+                    if (st.ttype == StreamTokenizer.TT_WORD) {
+
+                        if (!st.sval.equals(no)) {
+             
+                           /*
+                            Error al comprobar la longitud del token, revisar
+                            */ 
+                            
+                            if (st.sval.length() == 5) {
+                                Palabra palabreja = new Palabra(st.sval);
+                                palabraCincoLetras[contadorpalabraCincoLetras]=palabreja;
+                                contadorpalabraCincoLetras+=1;                   
+                                System.out.println(palabraCincoLetras[contadorpalabraCincoLetras]);
+                                        
+                            } else {
+                                Palabra palabreja = new Palabra(st.sval);
+                                palabraSeisLetras[contadorpalabraSeisLetras]=palabreja;
+                                contadorpalabraSeisLetras+=1;
+                                System.out.println(st.sval);
+                            }
+                                
+                        }
+                    }
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error archivo", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -213,10 +264,10 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cincoLetras;
+    private javax.swing.JButton cincoLetras1;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField numeroPalabras;
     private javax.swing.JButton seisLetras1;
     // End of variables declaration//GEN-END:variables
 }
