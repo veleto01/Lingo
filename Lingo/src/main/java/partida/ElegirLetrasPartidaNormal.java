@@ -1,4 +1,3 @@
-
 package partida;
 
 import java.awt.Color;

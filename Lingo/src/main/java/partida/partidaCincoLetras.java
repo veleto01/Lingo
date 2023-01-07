@@ -745,6 +745,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             letras[i] = stringaux;
             contadorFila2+=1;
         }
+        
         for(int i = 0; i<5; i++){
             if(palabra.contains(letras[i])){
                 if(palabra.get(i).toLowerCase().equals(letras[i])){
@@ -758,9 +759,14 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
             contadorFila+=1;
         }
+        
+        
+        
         for(int i = 0; i<5 && esIgualEntero; i++){
             if(!esIgual[i]) esIgualEntero = false;
         }
+        
+        
         System.out.println(esIgualEntero.toString());
         
         
