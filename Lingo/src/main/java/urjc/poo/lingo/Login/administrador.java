@@ -50,7 +50,7 @@ public class administrador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Registrarse)
                     .addComponent(Baja))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,7 +59,7 @@ public class administrador extends javax.swing.JFrame {
                 .addComponent(Baja)
                 .addGap(18, 18, 18)
                 .addComponent(Registrarse)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();

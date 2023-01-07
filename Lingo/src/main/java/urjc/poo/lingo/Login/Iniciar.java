@@ -41,8 +41,6 @@ public class Iniciar extends javax.swing.JDialog{
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/manuelalejandrojimenezfernandez/Desktop/Universidad/POO/descarga.png")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,7 +56,7 @@ public class Iniciar extends javax.swing.JDialog{
                     .addGroup(layout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(jLabel1)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

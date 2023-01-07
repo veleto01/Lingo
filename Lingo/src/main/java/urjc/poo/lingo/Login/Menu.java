@@ -105,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(Jugar)
                 .addGap(18, 18, 18)
                 .addComponent(Admin)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
