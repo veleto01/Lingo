@@ -153,7 +153,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
 
         if (fichero != null) {
-            JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Palabras de 6 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
         }
