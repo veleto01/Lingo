@@ -9,6 +9,7 @@ import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
 import java.util.*;
 import javax.swing.JTextField;
+import java.util.Random;
 
 
 public class partidaSeisLetras extends javax.swing.JFrame {
@@ -21,6 +22,10 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     int contadorEnabled = 6;
     int contadorFila2 = 0;
     List<String> palabra;
+    boolean pistaPalabraNoUsada = true;
+    boolean pistaLetraNoUsada = true;
+    JTextField[] gridLetras = new JTextField[30];
+
     
     
     public partidaSeisLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala) {
@@ -31,6 +36,36 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         palabras = numeroPalabras;
         palabra = Arrays.asList(pala.split(""));
         this.setLocationRelativeTo(null);
+        gridLetras[0] = letra11;//0
+        gridLetras[1] = letra12;
+        gridLetras[2] = letra13;
+        gridLetras[3] = letra14;
+        gridLetras[4] = letra15;
+        gridLetras[5] = letra16;//6
+        gridLetras[6] = letra21;
+        gridLetras[7] = letra22;
+        gridLetras[8] = letra23;
+        gridLetras[9] = letra24;
+        gridLetras[10] = letra25;
+        gridLetras[11] = letra26;//12
+        gridLetras[12] = letra31;
+        gridLetras[13] = letra32;
+        gridLetras[14] = letra33;
+        gridLetras[15] = letra34;
+        gridLetras[16] = letra35;
+        gridLetras[17] = letra36;//18
+        gridLetras[18] = letra41;
+        gridLetras[19] = letra42;
+        gridLetras[20] = letra43;
+        gridLetras[21] = letra44;
+        gridLetras[22] = letra45;
+        gridLetras[23] = letra46;//24
+        gridLetras[24] = letra51;
+        gridLetras[25] = letra52;
+        gridLetras[26] = letra53;
+        gridLetras[27] = letra54;
+        gridLetras[28] = letra55;
+        gridLetras[29] = letra56;//30
     }
     
     public partidaSeisLetras(String pala){
@@ -83,10 +118,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         letra56 = new javax.swing.JTextField();
         letra54 = new javax.swing.JTextField();
         comprobar = new javax.swing.JButton();
+        pistaPalabra = new javax.swing.JButton();
+        pistaLetra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        letra12.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra12.setToolTipText("");
         letra12.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +138,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra13.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra13.setToolTipText("");
         letra13.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +152,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra11.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra11.setToolTipText("");
         letra11.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +166,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra15.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra15.setToolTipText("");
         letra15.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +180,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra16.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra16.setToolTipText("");
         letra16.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +194,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra21.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra21.setToolTipText("");
         letra21.setEnabled(false);
@@ -166,6 +209,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra22.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra22.setToolTipText("");
         letra22.setEnabled(false);
@@ -180,6 +224,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra23.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra23.setToolTipText("");
         letra23.setEnabled(false);
@@ -194,6 +239,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra14.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra14.setToolTipText("");
         letra14.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +253,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra25.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra25.setToolTipText("");
         letra25.setEnabled(false);
@@ -221,6 +268,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra26.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra26.setToolTipText("");
         letra26.setEnabled(false);
@@ -235,6 +283,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra31.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra31.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra31.setToolTipText("");
         letra31.setEnabled(false);
@@ -249,6 +298,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra32.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra32.setToolTipText("");
         letra32.setEnabled(false);
@@ -263,6 +313,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra24.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra24.setToolTipText("");
         letra24.setEnabled(false);
@@ -277,6 +328,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra33.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra33.setToolTipText("");
         letra33.setEnabled(false);
@@ -291,6 +343,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra35.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra35.setToolTipText("");
         letra35.setEnabled(false);
@@ -305,6 +358,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra36.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra36.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra36.setToolTipText("");
         letra36.setEnabled(false);
@@ -319,6 +373,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra41.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra41.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra41.setToolTipText("");
         letra41.setEnabled(false);
@@ -333,6 +388,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra42.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra42.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra42.setToolTipText("");
         letra42.setEnabled(false);
@@ -347,6 +403,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra43.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra43.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra43.setToolTipText("");
         letra43.setEnabled(false);
@@ -361,6 +418,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra44.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra44.setToolTipText("");
         letra44.setEnabled(false);
@@ -375,6 +433,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra45.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra45.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra45.setToolTipText("");
         letra45.setEnabled(false);
@@ -389,6 +448,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra46.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra46.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra46.setToolTipText("");
         letra46.setEnabled(false);
@@ -403,6 +463,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra51.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra51.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra51.setToolTipText("");
         letra51.setEnabled(false);
@@ -417,6 +478,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra34.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra34.setToolTipText("");
         letra34.setEnabled(false);
@@ -431,6 +493,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra53.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra53.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra53.setToolTipText("");
         letra53.setEnabled(false);
@@ -445,6 +508,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra52.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra52.setToolTipText("");
         letra52.setEnabled(false);
@@ -459,6 +523,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra55.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra55.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra55.setToolTipText("");
         letra55.setEnabled(false);
@@ -473,6 +538,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra56.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra56.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra56.setToolTipText("");
         letra56.setEnabled(false);
@@ -487,6 +553,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        letra54.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         letra54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         letra54.setToolTipText("");
         letra54.setEnabled(false);
@@ -508,14 +575,28 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaPalabra.setText("Pista de Palabra");
+        pistaPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pistaPalabraActionPerformed(evt);
+            }
+        });
+
+        pistaLetra.setText("Pista de Letra");
+        pistaLetra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pistaLetraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra31, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -530,8 +611,11 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                     .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                            .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pistaLetra))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -571,9 +655,9 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                             .addGap(32, 32, 32)
                                             .addComponent(letra46, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pistaPalabra)))
                 .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
@@ -619,8 +703,11 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                     .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra56, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
         );
 
@@ -1138,43 +1225,11 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra54KeyTyped
 
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-        JTextField[] gridLetras = new JTextField[30];
+
         String[] letras = new String[6];
         Boolean[] esIgual = new Boolean[6];
         for(int i = 0; i<6; i++) esIgual[i] = false;
         Boolean esIgualEntero = true;
-
-        gridLetras[0] = letra11;//0
-        gridLetras[1] = letra12;
-        gridLetras[2] = letra13;
-        gridLetras[3] = letra14;
-        gridLetras[4] = letra15;
-        gridLetras[5] = letra16;//6
-        gridLetras[6] = letra21;
-        gridLetras[7] = letra22;
-        gridLetras[8] = letra23;
-        gridLetras[9] = letra24;
-        gridLetras[10] = letra25;
-        gridLetras[11] = letra26;//12
-        gridLetras[12] = letra31;
-        gridLetras[13] = letra32;
-        gridLetras[14] = letra33;
-        gridLetras[15] = letra34;
-        gridLetras[16] = letra35;
-        gridLetras[17] = letra36;//18
-        gridLetras[18] = letra41;
-        gridLetras[19] = letra42;
-        gridLetras[20] = letra43;
-        gridLetras[21] = letra44;
-        gridLetras[22] = letra45;
-        gridLetras[23] = letra46;//24
-        gridLetras[24] = letra51;
-        gridLetras[25] = letra52;
-        gridLetras[26] = letra53;
-        gridLetras[27] = letra54;
-        gridLetras[28] = letra55;
-        gridLetras[29] = letra56;//30
-        
 
         for(int i = 0; i<6; i++){
             JTextField aux = gridLetras[contadorFila2];
@@ -1206,6 +1261,87 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_comprobarActionPerformed
+
+    private void pistaPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaPalabraActionPerformed
+            if(pistaPalabraNoUsada){
+            
+            switch(contadorFila){
+                case 0:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                
+                case 6:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                    
+                case 12:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                
+                case 18:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+                    
+                case 24:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    break;
+            }
+        }
+        pistaPalabra.setEnabled(false);
+        pistaPalabraNoUsada = false;
+    }//GEN-LAST:event_pistaPalabraActionPerformed
+
+    private void pistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaLetraActionPerformed
+        Random r1 = new Random();
+        int posicionLetraAleatoria = r1.nextInt(6);
+        
+        if(pistaLetraNoUsada){
+            switch(contadorFila){
+                case 0:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 6:
+                    gridLetras[posicionLetraAleatoria+6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+6].setBackground(Color.green);
+                    break;
+                case 12:
+                    gridLetras[posicionLetraAleatoria+12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+12].setBackground(Color.green);
+                    break;
+                case 18:
+                    gridLetras[posicionLetraAleatoria+18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+18].setBackground(Color.green);
+                    break;
+                case 24:
+                    gridLetras[posicionLetraAleatoria+24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+24].setBackground(Color.green);
+                    break;
+            }
+        }
+        pistaLetra.setEnabled(false);
+        pistaLetraNoUsada = false;
+    }//GEN-LAST:event_pistaLetraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1274,5 +1410,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     private javax.swing.JTextField letra54;
     private javax.swing.JTextField letra55;
     private javax.swing.JTextField letra56;
+    private javax.swing.JButton pistaLetra;
+    private javax.swing.JButton pistaPalabra;
     // End of variables declaration//GEN-END:variables
 }
