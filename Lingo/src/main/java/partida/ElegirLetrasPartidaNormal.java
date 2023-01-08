@@ -134,7 +134,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
  
     
     private void cincoLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetrasActionPerformed
-        
+        //NO VALE
         /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
         
@@ -152,7 +152,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
 
 
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
-
+        
         /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
         
        
