@@ -1,14 +1,15 @@
-
 package urjc.poo.lingo.Clases;
 
-/**
- *
- * @author Manuel
- */
+
 public class Palabra {
-    String Palabra;
+    String palabra;
     
     public Palabra(String s){
-        Palabra = s;
+        palabra = s;
+    }
+    
+    @Override
+    public String toString(){
+        return palabra;
     }
 }

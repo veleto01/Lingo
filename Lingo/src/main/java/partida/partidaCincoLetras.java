@@ -783,7 +783,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     }
                 }
 
-                if (!esIgualEntero && contadorFila <= 19) {
+                if (!esIgualEntero && contadorFila <= 20) {
 
                     //Este for habilita las 5 casillas siguientes si hay
                     for (int i = 0; i < 5; i++) {
@@ -792,28 +792,28 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     }
 
                 }
-                if (esIgualEntero && contadorFila <= 19) {
-
+                if (esIgualEntero && contadorFila <= 20) {
+                    JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                     switch (contadorFila) {
-                        case 4:
+                        case 5:
                             usuario1.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador1(5);
                             partidaJugando.setIntento1(5, palabraJugada);
                             break;
 
-                        case 9:
+                        case 10:
                             usuario1.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador1(4);
                             partidaJugando.setIntento1(4, palabraJugada);
                             break;
 
-                        case 14:
+                        case 15:
                             usuario1.actualizarPuntos(3);
                             partidaJugando.actualizarMarcador1(3);
                             partidaJugando.setIntento1(3, palabraJugada);
                             break;
 
-                        case 19:
+                        case 20:
                             usuario1.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador1(2);
                             partidaJugando.setIntento1(2, palabraJugada);
@@ -849,8 +849,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                         otraSesion.setVisible(true);
                     }
                 }
-                if (contadorFila == 24) {
+                if (contadorFila == 25) {
                     if (esIgualEntero) {
+                        JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario1.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador1(1);
                         partidaJugando.setIntento1(1, palabraJugada);
@@ -919,7 +920,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     }
                 }
 
-                if (!esIgualEntero && contadorFila <= 19) {
+                if (!esIgualEntero && contadorFila <= 20) {
 
                     //Este for habilita las 5 casillas siguientes si hay
                     for (int i = 0; i < 5; i++) {
@@ -928,28 +929,28 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     }
 
                 }
-                if (esIgualEntero && contadorFila <= 19) {
-
+                if (esIgualEntero && contadorFila <= 20) {
+                    JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                     switch (contadorFila) {
-                        case 4:
+                        case 5:
                             usuario2.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador2(5);
                             partidaJugando.setIntento2(5, palabraJugada);
                             break;
 
-                        case 9:
+                        case 10:
                             usuario2.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador2(4);
                             partidaJugando.setIntento2(4, palabraJugada);
                             break;
 
-                        case 14:
+                        case 15:
                             usuario2.actualizarPuntos(3);
                             partidaJugando.actualizarMarcador2(3);
                             partidaJugando.setIntento2(3, palabraJugada);
                             break;
 
-                        case 19:
+                        case 20:
                             usuario2.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador2(2);
                             partidaJugando.setIntento2(2, palabraJugada);
@@ -985,8 +986,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                         otraSesion.setVisible(true);
                     }
                 }
-                if (contadorFila == 24) {
+                if (contadorFila == 25) {
                     if (esIgualEntero) {
+                        JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario2.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador2(1);
                         partidaJugando.setIntento2(1, palabraJugada);
@@ -1371,7 +1373,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(5);
+                            partidaJugando.setIntento1(5, palabraJugada);
                             usuario1.actualizarPuntos(5);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 5:
@@ -1381,7 +1385,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(4);
+                            partidaJugando.setIntento1(4, palabraJugada);
                             usuario1.actualizarPuntos(4);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 10:
@@ -1391,7 +1397,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(3);
+                            partidaJugando.setIntento1(3, palabraJugada);
                             usuario1.actualizarPuntos(3);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack, haberlo usado la primera hombre.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 15:
@@ -1401,7 +1409,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(2);
+                            partidaJugando.setIntento1(2, palabraJugada);
                             usuario1.actualizarPuntos(2);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 puntitos crack, no lo uses en la fila 4 chaval.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 20:
@@ -1411,21 +1421,28 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(1);
+                            partidaJugando.setIntento1(1, palabraJugada);
                             usuario1.actualizarPuntos(1);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack, acuerdate de que al final no se puede usar tontito.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -3 puntitos crack", "", JOptionPane.INFORMATION_MESSAGE);
                     partidaJugando.actualizarMarcador1(-3);
                     usuario1.actualizarPuntos(-3);
                     if (palabraJugada == palabras) {
                         partidaJugando.setPistaPalabra1(false);
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
-
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
-
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
                         } else {
                             s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
                         }
                         JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
 
@@ -1457,6 +1474,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(5);
+                            partidaJugando.setIntento2(5, palabraJugada);
                             usuario2.actualizarPuntos(5);
                             break;
 
@@ -1467,6 +1485,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(4);
+                            partidaJugando.setIntento2(4, palabraJugada);
                             usuario2.actualizarPuntos(4);
                             break;
 
@@ -1477,6 +1496,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(3);
+                            partidaJugando.setIntento2(3, palabraJugada);
                             usuario2.actualizarPuntos(3);
                             break;
 
@@ -1487,6 +1507,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(2);
+                            partidaJugando.setIntento2(2, palabraJugada);
                             usuario2.actualizarPuntos(2);
                             break;
 
@@ -1497,6 +1518,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(1);
+                            partidaJugando.setIntento2(1, palabraJugada);
                             usuario2.actualizarPuntos(1);
                             break;
                     }
@@ -1506,12 +1528,16 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                         partidaJugando.setPistaPalabra2(false);
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
-
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
-
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
                         } else {
                             s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
                         }
                         JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
 
@@ -1535,7 +1561,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         } else {
 
-            //Pista palabra cuando no es entrenamiento
+            //Pista palabra cuando es entrenamiento
         }
     }//GEN-LAST:event_pistaPalabraActionPerformed
 
