@@ -793,30 +793,33 @@ public class partidaCincoLetras extends javax.swing.JFrame {
 
                 }
                 if (esIgualEntero && contadorFila <= 20) {
-                    JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                     switch (contadorFila) {
                         case 5:
                             usuario1.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador1(5);
                             partidaJugando.setIntento1(5, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 10:
                             usuario1.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador1(4);
                             partidaJugando.setIntento1(4, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 15:
                             usuario1.actualizarPuntos(3);
                             partidaJugando.actualizarMarcador1(3);
                             partidaJugando.setIntento1(3, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la tercera chaval, +3 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 20:
                             usuario1.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador1(2);
                             partidaJugando.setIntento1(2, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     if (palabraJugada == palabras) {
@@ -851,7 +854,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 }
                 if (contadorFila == 25) {
                     if (esIgualEntero) {
-                        JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario1.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador1(1);
                         partidaJugando.setIntento1(1, palabraJugada);
@@ -930,30 +933,33 @@ public class partidaCincoLetras extends javax.swing.JFrame {
 
                 }
                 if (esIgualEntero && contadorFila <= 20) {
-                    JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
                     switch (contadorFila) {
                         case 5:
                             usuario2.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador2(5);
                             partidaJugando.setIntento2(5, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 10:
                             usuario2.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador2(4);
                             partidaJugando.setIntento2(4, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 15:
                             usuario2.actualizarPuntos(3);
                             partidaJugando.actualizarMarcador2(3);
                             partidaJugando.setIntento2(3, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la tercera chaval, +3 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 20:
                             usuario2.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador2(2);
                             partidaJugando.setIntento2(2, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     if (palabraJugada == palabras) {
@@ -988,7 +994,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                 }
                 if (contadorFila == 25) {
                     if (esIgualEntero) {
-                        JOptionPane.showMessageDialog(null, "ACERTASTE", "", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario2.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador2(1);
                         partidaJugando.setIntento2(1, palabraJugada);
@@ -1426,7 +1432,6 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack, acuerdate de que al final no se puede usar tontito.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -3 puntitos crack", "", JOptionPane.INFORMATION_MESSAGE);
                     partidaJugando.actualizarMarcador1(-3);
                     usuario1.actualizarPuntos(-3);
                     if (palabraJugada == palabras) {
@@ -1476,6 +1481,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador2(5);
                             partidaJugando.setIntento2(5, palabraJugada);
                             usuario2.actualizarPuntos(5);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 5:
@@ -1487,6 +1493,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador2(4);
                             partidaJugando.setIntento2(4, palabraJugada);
                             usuario2.actualizarPuntos(4);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 10:
@@ -1498,6 +1505,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador2(3);
                             partidaJugando.setIntento2(3, palabraJugada);
                             usuario2.actualizarPuntos(3);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack, haberlo usado la primera hombre.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 15:
@@ -1509,6 +1517,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador2(2);
                             partidaJugando.setIntento2(2, palabraJugada);
                             usuario2.actualizarPuntos(2);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 puntitos crack, no lo uses en la fila 4 chaval.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 20:
@@ -1520,6 +1529,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador2(1);
                             partidaJugando.setIntento2(1, palabraJugada);
                             usuario2.actualizarPuntos(1);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack, acuerdate de que al final no se puede usar tontito.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     partidaJugando.actualizarMarcador2(-3);
