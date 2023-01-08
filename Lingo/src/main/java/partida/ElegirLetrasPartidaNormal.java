@@ -169,8 +169,8 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             Random r1 = new Random();
             int posicionAleatoria = r1.nextInt(contadorpalabraSeisLetras);
             //Creo arrayLocal de palabras
-            Palabra[] local = new Palabra[3];
-            for (int i = 0; i < 3; i++) {
+            Palabra[] local = new Palabra[numeroPalabras];
+            for (int i = 0; i < numeroPalabras; i++) {
                 if (palabraCincoLetras[posicionAleatoria] == null) {
                     posicionAleatoria = posicionAleatoria - 10;
                 }
