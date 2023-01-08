@@ -11,6 +11,7 @@ public class Identificar extends javax.swing.JDialog {
     private AlmacenUsuarios aU;
     Usuario admin = new Usuario("admin", "1234", true);
     Usuario prueba = new Usuario("Sergio", "1234");
+    Usuario usuario2 = new Usuario("Morales", "1234");
 
     public Identificar(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a) {
 
