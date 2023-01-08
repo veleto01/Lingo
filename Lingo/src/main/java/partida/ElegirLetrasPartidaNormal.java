@@ -216,13 +216,13 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                                 Palabra palabreja = new Palabra(st.sval);
                                 palabraCincoLetras[contadorpalabraCincoLetras]=palabreja;
                                 contadorpalabraCincoLetras+=1;                   
-                                System.out.println(palabraCincoLetras[contadorpalabraCincoLetras]);
+                                
                                         
                             } else {
                                 Palabra palabreja = new Palabra(st.sval);
                                 palabraSeisLetras[contadorpalabraSeisLetras]=palabreja;
                                 contadorpalabraSeisLetras+=1;
-                                System.out.println(st.sval);
+                                
                             }
                                 
                         }
