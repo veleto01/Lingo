@@ -8,12 +8,39 @@ public class Usuario {
     private int empatadas;
     private int perdidas;
     private int puntos;
+
+    public int getGanadas() {
+        return ganadas;
+    }
+
+    public int getEmpatadas() {
+        return empatadas;
+    }
+
+    public int getPerdidas() {
+        return perdidas;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
     private boolean admin;
 
     public Usuario(String nombre, String contraseña) {
 
         this.nombre = nombre;
         this.contraseña = contraseña;
+        
+    }
+    public Usuario(){}
+    public Usuario(String nombre, String contraseña,int gan,int empate,int per, int pun) {
+
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.ganadas = gan;
+        this.empatadas = empate;
+        this.perdidas= per;
+        this.puntos = pun;
         
     }
     

@@ -12,6 +12,8 @@ public class Identificar extends javax.swing.JDialog {
     Usuario admin = new Usuario("admin", "1234", true);
     Usuario prueba = new Usuario("Sergio", "1234");
     Usuario usuario2 = new Usuario("Morales", "1234");
+    Usuario PruebaPerfil = new Usuario("Pelos", "1234", 12, 14, 1, 123);
+    int index;
 
     public Identificar(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a) {
 
@@ -20,6 +22,8 @@ public class Identificar extends javax.swing.JDialog {
 
         aU.añadirUsuario(admin);
         aU.añadirUsuario(prueba);
+        aU.añadirUsuario(usuario2);
+        aU.añadirUsuario(PruebaPerfil);
 
         initComponents();
         this.setLocationRelativeTo(null);
@@ -162,14 +166,14 @@ public class Identificar extends javax.swing.JDialog {
                     for (int i = 0; i < aU.tamañoAlmacen(); i++) {
 
                         if (u.equals((aU.getUsu(i)))) {
-
+                            index = i;
                             esta = true;
 
                         }
                     }
                     if (esta) {
 
-                        Menu iden = new Menu(aU, u);
+                        Menu iden = new Menu(aU,(aU.getUsu(index)));
                         iden.setVisible(true);
                         this.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
