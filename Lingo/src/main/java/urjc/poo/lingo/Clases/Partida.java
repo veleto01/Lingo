@@ -44,11 +44,11 @@ public class Partida {
     }
     
     public void actualizarMarcador1(int puntos){
-        marcador1 += puntos;
+        marcador1 = marcador1 + puntos;
     }
     
     public void actualizarMarcador2(int puntos){
-        marcador2 += puntos;
+        marcador2 = marcador2 + puntos;
     }
     
     public void setIntento1(int numIntento, int palabraJugada){

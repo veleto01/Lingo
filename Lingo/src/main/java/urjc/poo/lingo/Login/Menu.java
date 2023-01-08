@@ -16,10 +16,9 @@ public class Menu extends javax.swing.JFrame {
     public Menu(AlmacenUsuarios a, Usuario u) {
         
         initComponents();
-        this.setLocationRelativeTo(null);
         aU = a;
         usu = u;
-        
+        this.setLocationRelativeTo(null);
     }
     
     
