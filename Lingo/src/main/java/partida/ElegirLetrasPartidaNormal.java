@@ -25,8 +25,8 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     Container cont = getContentPane();
     Palabra[] palabraCincoLetras;
     Palabra[] palabraSeisLetras;
-    int contadorpalabraCincoLetras=0;
-    int contadorpalabraSeisLetras=0;
+    int contadorpalabraCincoLetras = 0;
+    int contadorpalabraSeisLetras = 0;
     File fichero;
 
     public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1, Usuario u2) {
@@ -131,8 +131,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
- 
-    
+
     private void cincoLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetrasActionPerformed
         //NO VALE
         /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
@@ -146,45 +145,27 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
                  numeroPalabras.setBackground(Color.white);   
             }*/
-         
-        
+
+
     }//GEN-LAST:event_cincoLetrasActionPerformed
 
 
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
-        
-        /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());    
-        
-       
-            if(numeroPalabrass>=1 && numeroPalabrass <=10){
-                ElegirPalabra partida = new ElegirPalabra(almacenUsuarios,usuario1,usuario2,numeroPalabrass, 6);
-                partida.setVisible(true);
-                this.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
-                numeroPalabras.setBackground(Color.white);   
-            }  */
-        
 
-        /*int numeroPalabrass = Integer.parseInt(numeroPalabras.getText());
-
-        if (numeroPalabrass >= 1 && numeroPalabrass <= 10) {
-            ElegirPalabra partida = new ElegirPalabra(almacenUsuarios, usuario1, usuario2, numeroPalabrass, 6);
-            partida.setVisible(true);
-            this.setVisible(false);
+        if (fichero != null) {
+            JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "No has seleccionado un número de palabras correcta", "Numero palabras", JOptionPane.INFORMATION_MESSAGE);
-            numeroPalabras.setBackground(Color.white);
-        }*/
+            JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+        }
 
     }//GEN-LAST:event_seisLetras1ActionPerformed
 
     private void cincoLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetras1ActionPerformed
-            if(fichero!= null){
-                JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
-            }
+        if (fichero != null) {
+            JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_cincoLetras1ActionPerformed
 
 
@@ -207,28 +188,26 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                     if (st.ttype == StreamTokenizer.TT_WORD) {
 
                         if (!st.sval.equals(no)) {
-             
-                           /*
+
+                            /*
                             Error al comprobar la longitud del token, revisar
-                            */ 
-                            
+                             */
                             if (st.sval.length() == 5) {
                                 Palabra palabreja = new Palabra(st.sval);
-                                palabraCincoLetras[contadorpalabraCincoLetras]=palabreja;
-                                contadorpalabraCincoLetras+=1;                   
-                                
-                                        
+                                palabraCincoLetras[contadorpalabraCincoLetras] = palabreja;
+                                contadorpalabraCincoLetras += 1;
+
                             } else {
                                 Palabra palabreja = new Palabra(st.sval);
-                                palabraSeisLetras[contadorpalabraSeisLetras]=palabreja;
-                                contadorpalabraSeisLetras+=1;
-                                
+                                palabraSeisLetras[contadorpalabraSeisLetras] = palabreja;
+                                contadorpalabraSeisLetras += 1;
+
                             }
-                                
+
                         }
                     }
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error archivo", "Archivo", JOptionPane.INFORMATION_MESSAGE);
             }
 
