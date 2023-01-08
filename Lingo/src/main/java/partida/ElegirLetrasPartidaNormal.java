@@ -27,6 +27,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     Palabra[] palabraSeisLetras;
     int contadorpalabraCincoLetras=0;
     int contadorpalabraSeisLetras=0;
+    File fichero;
 
     public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1, Usuario u2) {
         almacenUsuarios = a;
@@ -179,7 +180,11 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     }//GEN-LAST:event_seisLetras1ActionPerformed
 
     private void cincoLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetras1ActionPerformed
-
+            if(fichero!= null){
+                JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
+            }
     }//GEN-LAST:event_cincoLetras1ActionPerformed
 
 
@@ -194,7 +199,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         int seleccion = fc.showOpenDialog(cont);
 
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            File fichero = fc.getSelectedFile();
+            fichero = fc.getSelectedFile();
             String ruta = fichero.getAbsolutePath();
             try {
                 StreamTokenizer st = new StreamTokenizer(new FileReader("" + ruta));
