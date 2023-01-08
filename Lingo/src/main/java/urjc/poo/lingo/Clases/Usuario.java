@@ -14,20 +14,21 @@ public class Usuario {
 
         this.nombre = nombre;
         this.contraseña = contraseña;
-
+        
     }
-
-    /*
-    Crear constructor para sumar / restar puntos
-     */
     
     public Usuario (String nombre, String contraseña, boolean admin){
+        
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.admin = admin;
+        
     }
+    
     public String getNombre() {
+       
         return nombre;
+        
     }
 
     public boolean isAdmin() {
@@ -36,6 +37,18 @@ public class Usuario {
     
     public void actualizarPuntos(int p){
         puntos += p;
+    }
+    
+    public void actualizarGanadas(int n){
+        ganadas += n;
+    }
+    
+    public void actualizarPerdidas(int n){
+        perdidas += n;
+    }
+    
+    public void actualizarEmpatadas(int n){
+        empatadas += n;
     }
     
     public String getContraseña() {

@@ -752,6 +752,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         Boolean esIgualEntero = true;
         if (!esEntrenamiento) {
             if (usuario1Jugando) {
+                //USUARIO 1
                 //Este for recoge las letras escritas en los jtextfield
                 for (int i = 0; i < 5; i++) {
                     JTextField aux = gridLetras[contadorFila2];
@@ -784,7 +785,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
 
                 if (!esIgualEntero && contadorFila <= 19) {
 
-                    //Este for habilita las 5 casillas siguientes
+                    //Este for habilita las 5 casillas siguientes si hay
                     for (int i = 0; i < 5; i++) {
                         gridLetras[this.contadorEnabled].enable();
                         contadorEnabled += 1;
@@ -821,20 +822,23 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     if (palabraJugada == palabras) {
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
-
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
-
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
                         } else {
                             s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
                         }
-                        JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
                         this.setVisible(false);
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
                         /*Menu nuevoMenu()*/
                     } else {
-                        //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
                         palabraJugada += 1;
                         Palabra[] aux = partidaJugando.getPalabras();
@@ -854,14 +858,18 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     if (palabraJugada == palabras) {
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
-
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
                             s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
-
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
                         } else {
                             s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
                         }
-                        JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
                         this.setVisible(false);
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
@@ -878,9 +886,9 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                         otraSesion.setVisible(true);
                     }
                 }
-
+                //FIN USUARIO 1
             } else {
-
+                //USUARIO 2
                 //Este for recoge las letras escritas en los jtextfield
                 for (int i = 0; i < 5; i++) {
                     JTextField aux = gridLetras[contadorFila2];
@@ -911,17 +919,110 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                     }
                 }
 
-                if (esIgualEntero) {
+                if (!esIgualEntero && contadorFila <= 19) {
 
-                } else {
-
-                    //Este for habilita las 5 casillas siguientes
+                    //Este for habilita las 5 casillas siguientes si hay
                     for (int i = 0; i < 5; i++) {
                         gridLetras[this.contadorEnabled].enable();
                         contadorEnabled += 1;
                     }
 
                 }
+                if (esIgualEntero && contadorFila <= 19) {
+
+                    switch (contadorFila) {
+                        case 4:
+                            usuario2.actualizarPuntos(5);
+                            partidaJugando.actualizarMarcador2(5);
+                            partidaJugando.setIntento2(5, palabraJugada);
+                            break;
+
+                        case 9:
+                            usuario2.actualizarPuntos(4);
+                            partidaJugando.actualizarMarcador2(4);
+                            partidaJugando.setIntento2(4, palabraJugada);
+                            break;
+
+                        case 14:
+                            usuario2.actualizarPuntos(3);
+                            partidaJugando.actualizarMarcador2(3);
+                            partidaJugando.setIntento2(3, palabraJugada);
+                            break;
+
+                        case 19:
+                            usuario2.actualizarPuntos(2);
+                            partidaJugando.actualizarMarcador2(2);
+                            partidaJugando.setIntento2(2, palabraJugada);
+                            break;
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaCincoLetras otraSesion = new partidaCincoLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                if (contadorFila == 24) {
+                    if (esIgualEntero) {
+                        usuario2.actualizarPuntos(1);
+                        partidaJugando.actualizarMarcador2(1);
+                        partidaJugando.setIntento2(1, palabraJugada);
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Empezar otra con el otro jugador
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaCincoLetras otraSesion = new partidaCincoLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                //FIN USUARIO 2
             }
         } else {
             //partida siendo entrenamiento
