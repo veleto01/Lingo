@@ -7,9 +7,12 @@ import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.Palabra;
 import java.util.*;
 import javax.swing.JTextField;
 import java.util.Random;
+import urjc.poo.lingo.Clases.Partida;
+import javax.swing.JOptionPane;
 
 
 public class partidaSeisLetras extends javax.swing.JFrame {
@@ -22,13 +25,19 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     int contadorEnabled = 6;
     int contadorFila2 = 0;
     List<String> palabra;
-    boolean pistaPalabraNoUsada = true;
-    boolean pistaLetraNoUsada = true;
+    boolean pistaPalabraNoUsada1;
+    boolean pistaPalabraNoUsada2;
     JTextField[] gridLetras = new JTextField[30];
+    boolean esEntrenamiento;
+    boolean usuario1Jugando;
+    Partida partidaJugando;
+    boolean pistaLetraNoUsada1;
+    boolean pistaLetraNoUsada2;
+    int palabraJugada;
 
     
     
-    public partidaSeisLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala) {
+    public partidaSeisLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala,Partida p,boolean usu1Jugando,boolean pistaLetra1, boolean pistaLetra2,boolean pistaPalabra1,boolean pistaPalabra2, int palaJugada) {
         initComponents();
         almacenUsuarios = a;
         usuario1 = u1;
@@ -36,6 +45,14 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         palabras = numeroPalabras;
         palabra = Arrays.asList(pala.split(""));
         this.setLocationRelativeTo(null);
+        usuario1Jugando = usu1Jugando;
+        partidaJugando = p;
+        esEntrenamiento = false;
+        pistaLetraNoUsada1 = pistaLetra1;
+        pistaLetraNoUsada2 = pistaLetra2;
+        pistaPalabraNoUsada1 = pistaPalabra1;
+        pistaPalabraNoUsada2 = pistaPalabra2;
+        palabraJugada = palaJugada;
         gridLetras[0] = letra11;//0
         gridLetras[1] = letra12;
         gridLetras[2] = letra13;
@@ -66,6 +83,19 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         gridLetras[27] = letra54;
         gridLetras[28] = letra55;
         gridLetras[29] = letra56;//30
+        if (!pistaPalabraNoUsada1 && usuario1Jugando) {
+            this.pistaPalabra.setEnabled(false);
+        }
+        if (!pistaPalabraNoUsada2 && !usuario1Jugando) {
+            this.pistaPalabra.setEnabled(false);
+        }
+        if (!pistaLetraNoUsada1 && usuario1Jugando) {
+            this.pistaPalabra.setEnabled(false);
+        }
+        if (!pistaLetraNoUsada2 && !usuario1Jugando) {
+            this.pistaPalabra.setEnabled(false);
+        }
+        this.setLocationRelativeTo(null);
     }
     
     public partidaSeisLetras(String pala){
@@ -1263,59 +1293,220 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_comprobarActionPerformed
 
     private void pistaPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaPalabraActionPerformed
-            if(pistaPalabraNoUsada){
-            
-            switch(contadorFila){
-                case 0:
+          String s;
+          if(!esEntrenamiento){
+              if(usuario1Jugando){
+                  if(pistaPalabraNoUsada1){
+                    switch(contadorFila){
+                    case 0:
                     for(int i = 0; i<6; i++){
                         gridLetras[contadorFila].setBackground(Color.green);
                         gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
                         contadorFila+=1;
                     }
+                    partidaJugando.actualizarMarcador1(5);
+                    partidaJugando.setIntento1(5, palabraJugada);
+                    usuario1.actualizarPuntos(5);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 
-                case 6:
+                    case 6:
                     for(int i = 0; i<6; i++){
                         gridLetras[contadorFila].setBackground(Color.green);
                         gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
                         contadorFila+=1;
                     }
+                    partidaJugando.actualizarMarcador1(4);
+                    partidaJugando.setIntento1(4, palabraJugada);
+                    usuario1.actualizarPuntos(4);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
                     break;
                     
-                case 12:
+                    case 12:
                     for(int i = 0; i<6; i++){
                         gridLetras[contadorFila].setBackground(Color.green);
                         gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
                         contadorFila+=1;
                     }
+                    partidaJugando.actualizarMarcador1(3);
+                    partidaJugando.setIntento1(3, palabraJugada);
+                    usuario1.actualizarPuntos(3);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 
-                case 18:
+                    case 18:
                     for(int i = 0; i<6; i++){
                         gridLetras[contadorFila].setBackground(Color.green);
                         gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
                         contadorFila+=1;
                     }
+                    partidaJugando.actualizarMarcador1(2);
+                    partidaJugando.setIntento1(2, palabraJugada);
+                    usuario1.actualizarPuntos(2);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
                     break;
                     
-                case 24:
+                    case 24:
                     for(int i = 0; i<6; i++){
                         gridLetras[contadorFila].setBackground(Color.green);
                         gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
                         contadorFila+=1;
                     }
+                    partidaJugando.actualizarMarcador1(1);
+                    partidaJugando.setIntento1(1, palabraJugada);
+                    usuario1.actualizarPuntos(1);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
                     break;
+                    }
+                    partidaJugando.actualizarMarcador1(-3);
+                    usuario1.actualizarPuntos(-3);
+                    if (palabraJugada == palabras) {
+                        partidaJugando.setPistaPalabra1(false);
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                       /*Menu nuevoMenu()*/
+                    }else{
+                         //Empezar otra con el otro jugador
+                        //Escoger otra palabra a jugar
+                        partidaJugando.setPistaPalabra1(false);
+                        pistaPalabraNoUsada1 = false;
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2,palabras, aux2, partidaJugando,false, pistaLetraNoUsada1, pistaLetraNoUsada2,pistaPalabraNoUsada1,pistaPalabraNoUsada2,palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+            }else{
+                  if(pistaPalabraNoUsada2){
+                      
+                    switch(contadorFila){
+                    case 0:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    partidaJugando.actualizarMarcador2(5);
+                    partidaJugando.setIntento2(5, palabraJugada);
+                    usuario2.actualizarPuntos(5);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                
+                    case 6:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    partidaJugando.actualizarMarcador2(4);
+                    partidaJugando.setIntento2(4, palabraJugada);
+                    usuario2.actualizarPuntos(4);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                    
+                    case 12:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    partidaJugando.actualizarMarcador2(3);
+                    partidaJugando.setIntento2(3, palabraJugada);
+                    usuario2.actualizarPuntos(3);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                
+                    case 18:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    partidaJugando.actualizarMarcador2(2);
+                    partidaJugando.setIntento2(2, palabraJugada);
+                    usuario2.actualizarPuntos(2);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                    
+                    case 24:
+                    for(int i = 0; i<6; i++){
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                        contadorFila+=1;
+                    }
+                    partidaJugando.actualizarMarcador2(1);
+                    partidaJugando.setIntento2(1, palabraJugada);
+                    usuario2.actualizarPuntos(1);
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                    }
+                    partidaJugando.actualizarMarcador2(-3);
+                    usuario2.actualizarPuntos(-3);
+                    if (palabraJugada == palabras) {
+                        partidaJugando.setPistaPalabra2(false);
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
+                        this.setVisible(false);
+                         //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    }else{
+                        //Empezar otra con el otro jugador
+                        //Escoger otra palabra a jugar
+                        partidaJugando.setPistaPalabra2(false);
+                        pistaPalabraNoUsada2 = false;
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2,palabras, aux2, partidaJugando,false, pistaLetraNoUsada1, pistaLetraNoUsada2,pistaPalabraNoUsada1,pistaPalabraNoUsada2,palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
             }
-        }
-        pistaPalabra.setEnabled(false);
-        pistaPalabraNoUsada = false;
+        }else{
+              //Pista palabra cuando es entrenamiento
+         }
+        
     }//GEN-LAST:event_pistaPalabraActionPerformed
 
     private void pistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaLetraActionPerformed
         Random r1 = new Random();
         int posicionLetraAleatoria = r1.nextInt(6);
+       if(!esEntrenamiento){     
+          if(usuario1Jugando){
+            if(pistaLetraNoUsada1){
         
-        if(pistaLetraNoUsada){
             switch(contadorFila){
                 case 0:
                     gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
@@ -1338,9 +1529,44 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                     gridLetras[posicionLetraAleatoria+24].setBackground(Color.green);
                     break;
             }
+            partidaJugando.actualizarMarcador1(-1);
+            usuario1.actualizarPuntos(-1);
         }
         pistaLetra.setEnabled(false);
-        pistaLetraNoUsada = false;
+        pistaLetraNoUsada1 = false;
+        }else{
+           if(pistaLetraNoUsada2){
+                 switch(contadorFila){
+                case 0:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 6:
+                    gridLetras[posicionLetraAleatoria+6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+6].setBackground(Color.green);
+                    break;
+                case 12:
+                    gridLetras[posicionLetraAleatoria+12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+12].setBackground(Color.green);
+                    break;
+                case 18:
+                    gridLetras[posicionLetraAleatoria+18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+18].setBackground(Color.green);
+                    break;
+                case 24:
+                    gridLetras[posicionLetraAleatoria+24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria+24].setBackground(Color.green);
+                    break;
+            }
+            partidaJugando.actualizarMarcador2(-1);
+            usuario2.actualizarPuntos(-1);
+           }
+           pistaLetra.setEnabled(false);
+           pistaLetraNoUsada2 = false;
+       }
+   }else{
+       //Pista letra cuando es entrenamiento
+   }
     }//GEN-LAST:event_pistaLetraActionPerformed
 
     /**
