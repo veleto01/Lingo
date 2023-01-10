@@ -6,11 +6,13 @@ import java.io.BufferedReader;
 
 import javax.swing.JOptionPane;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
+import urjc.poo.lingo.Clases.AlmacenPartidas;
 import urjc.poo.lingo.Clases.Usuario;
 import urjc.poo.lingo.Clases.Partida;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.StreamTokenizer;
 import java.util.Random;
 import java.util.logging.Level;
@@ -22,22 +24,28 @@ import urjc.poo.lingo.Clases.Palabra;
 public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;
+    AlmacenPartidas almacenPartidas;
     Usuario usuario1;
     Usuario usuario2;
     Container cont = getContentPane();
     Palabra[] palabraCincoLetras;
     Palabra[] palabraSeisLetras;
     int numeroPalabras;
-    int contadorpalabraCincoLetras = 0;
-    int contadorpalabraSeisLetras = 0;
+    int contadorpalabraCincoLetras;
+    int contadorpalabraSeisLetras;
+    static int partidasCreadas;
     File fichero;
-
-    public ElegirLetrasPartidaNormal(AlmacenUsuarios a, Usuario u1, Usuario u2) {
+    
+    public ElegirLetrasPartidaNormal(AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2) {
         almacenUsuarios = a;
+        almacenPartidas = p;
         usuario1 = u1;
         usuario2 = u2;
         palabraCincoLetras = new Palabra[100];
         palabraSeisLetras = new Palabra[100];
+        contadorpalabraCincoLetras = 0;
+        contadorpalabraSeisLetras = 0;
+        partidasCreadas = 0;
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -151,11 +159,31 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
 
         if (fichero != null) {
-            JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
-            //Necesito saber cuantas palabras hay configuradas por partida voy a suponer 3
+            JOptionPane.showMessageDialog(null, "Palabras de 6 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
             Random r1 = new Random();
-            int posicionAleatoria = r1.nextInt(contadorpalabraCincoLetras);
-
+            int posicionAleatoria = r1.nextInt(contadorpalabraSeisLetras);
+            //Creo arrayLocal de palabras
+            Palabra[] local = new Palabra[numeroPalabras];
+            //Lo lleno de palabras del fichero
+            for (int i = 0; i < numeroPalabras; i++) {
+                if (palabraSeisLetras[posicionAleatoria] == null) {
+                    posicionAleatoria = posicionAleatoria - 10;
+                }
+                local[i] = palabraSeisLetras[posicionAleatoria];
+                posicionAleatoria+=1;
+            }
+            Partida nuevaPartida = new Partida(usuario1, usuario2, local);
+            almacenPartidas.añadirPartida(nuevaPartida);
+            partidasCreadas += 1;
+            String aux = local[0].toString();
+            System.out.println(local[0].toString());
+            System.out.println(local[1].toString());
+            System.out.println(local[2].toString());
+            //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
+            partidaSeisLetras p1 = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, partidasCreadas-1, true, true, true, 0);
+            this.setVisible(false);
+            p1.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(null, "No has seleccionado el archivo txt", "Archivo", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -164,10 +192,8 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     private void cincoLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetras1ActionPerformed
         if (fichero != null) {
             JOptionPane.showMessageDialog(null, "Palabras de 5 letras seleccionadas del archivo txt correspondiente", "Archivo", JOptionPane.INFORMATION_MESSAGE);
-            //Necesito saber cuantas palabras hay configuradas por partida voy a suponer 3
-            numeroPalabras = 3;
             Random r1 = new Random();
-            int posicionAleatoria = r1.nextInt(contadorpalabraSeisLetras);
+            int posicionAleatoria = r1.nextInt(contadorpalabraCincoLetras);
             //Creo arrayLocal de palabras
             Palabra[] local = new Palabra[numeroPalabras];
             for (int i = 0; i < numeroPalabras; i++) {
@@ -178,6 +204,8 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 posicionAleatoria+=1;
             }
             Partida nuevaPartida = new Partida(usuario1, usuario2, local);
+            partidasCreadas += 1;
+            
             String aux = local[0].toString();
             //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
             partidaCincoLetras p1 = new partidaCincoLetras(almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, nuevaPartida, true, true, true, 0);
@@ -232,6 +260,16 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error archivo", "Archivo", JOptionPane.INFORMATION_MESSAGE);
             }
 
+        }try {
+            try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+                String line;
+                line = br.readLine();
+                String[] parts = line.split(" ");
+                String part2 = parts[1];
+                numeroPalabras = Integer.parseInt(part2);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }//GEN-LAST:event_jButton7ActionPerformed

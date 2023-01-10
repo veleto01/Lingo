@@ -1,6 +1,6 @@
 package partida;
 
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import javax.swing.*;
 
@@ -9,13 +9,15 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
+    AlmacenPartidas aP;
     Usuario usuario1;
     Usuario usuario2;
 
-    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a, Usuario u) {
+    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal, AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
 
         super(Iniciar, modal);
         aU = a;
+        aP = p;
         usuario1 = u;
 
         initComponents();
@@ -172,7 +174,7 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
                 if (esta) {
                     
                
-                    ElegirLetrasPartidaNormal partida = new ElegirLetrasPartidaNormal(aU,usuario1,usuario2);
+                    ElegirLetrasPartidaNormal partida = new ElegirLetrasPartidaNormal(aP, aU,usuario1,usuario2);
                     partida.setVisible(true);
                     this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);

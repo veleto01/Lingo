@@ -1,6 +1,6 @@
 package urjc.poo.lingo.Login;
 
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import javax.swing.*;
 
@@ -9,17 +9,18 @@ public class Identificar extends javax.swing.JDialog {
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
+    AlmacenPartidas aP;
     Usuario admin = new Usuario("admin", "1234", true);
     Usuario prueba = new Usuario("Sergio", "1234");
     Usuario usuario2 = new Usuario("Morales", "1234");
     Usuario PruebaPerfil = new Usuario("Pelos", "1234", 12, 14, 1, 123);
     int index;
 
-    public Identificar(javax.swing.JDialog Iniciar, boolean modal, AlmacenUsuarios a) {
+    public Identificar(javax.swing.JDialog Iniciar, boolean modal) {
 
         super(Iniciar, modal);
-        aU = a;
-
+        aU = new AlmacenUsuarios();
+        aP = new AlmacenPartidas();
         aU.añadirUsuario(admin);
         aU.añadirUsuario(prueba);
         aU.añadirUsuario(usuario2);
@@ -27,10 +28,6 @@ public class Identificar extends javax.swing.JDialog {
 
         initComponents();
         this.setLocationRelativeTo(null);
-    }
-
-    public Identificar(javax.swing.JDialog Iniciar, boolean modal) {
-        super(Iniciar, modal);
     }
 
     @SuppressWarnings("unchecked")
@@ -156,7 +153,7 @@ public class Identificar extends javax.swing.JDialog {
             } else {
 
                 if ((u.getNombre().equals(admin.getNombre())) && ((u.getContraseña().equals(admin.getContraseña())))) {
-                    Menu iden = new Menu(aU, admin);
+                    Menu iden = new Menu(aP, aU, admin);
                     iden.setVisible(true);
                     this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto como Administrador", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
@@ -173,7 +170,7 @@ public class Identificar extends javax.swing.JDialog {
                     }
                     if (esta) {
 
-                        Menu iden = new Menu(aU,(aU.getUsu(index)));
+                        Menu iden = new Menu(aP, aU,(aU.getUsu(index)));
                         iden.setVisible(true);
                         this.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);

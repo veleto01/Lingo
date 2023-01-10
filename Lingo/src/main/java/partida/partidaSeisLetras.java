@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
+import urjc.poo.lingo.Clases.AlmacenPartidas;
 import urjc.poo.lingo.Clases.Usuario;
 import urjc.poo.lingo.Clases.Palabra;
 import java.util.*;
@@ -16,26 +17,35 @@ import javax.swing.JOptionPane;
 public class partidaSeisLetras extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;
+    AlmacenPartidas almacenPartidas;
     Usuario usuario1;
     Usuario usuario2;
     int palabras;
     int contadorFila;
     int contadorEnabled;
     int contadorFila2;
+    int palabraJugada;
+    int index;
     List<String> palabra;
+    JTextField[] gridLetras;
     boolean pistaPalabraNoUsada1;
     boolean pistaPalabraNoUsada2;
-    JTextField[] gridLetras = new JTextField[30];
-    boolean esEntrenamiento;
     boolean usuario1Jugando;
+    boolean esEntrenamiento;
     Partida partidaJugando;
+    
+    
+    
     boolean pistaLetraNoUsada1;
     boolean pistaLetraNoUsada2;
-    int palabraJugada;
-
-    public partidaSeisLetras(AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean usu1Jugando, boolean pistaPalabra1, boolean pistaPalabra2, int palaJugada) {
+    
+    
+    
+    public partidaSeisLetras(AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada) {
         initComponents();
+        gridLetras = new JTextField[30];
         almacenUsuarios = a;
+        almacenPartidas = p;
         usuario1 = u1;
         usuario2 = u2;
         palabras = numeroPalabras;
@@ -43,14 +53,15 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         contadorFila = 0;
         contadorEnabled = 6;
         contadorFila2 = 0;
-        usuario1Jugando = usu1Jugando;
-        partidaJugando = p;
-        esEntrenamiento = false;
-        pistaLetraNoUsada1 = true;
-        pistaLetraNoUsada2 = true;
+        index = contadorPartida;
+        palabraJugada = palaJugada;
         pistaPalabraNoUsada1 = pistaPalabra1;
         pistaPalabraNoUsada2 = pistaPalabra2;
-        palabraJugada = palaJugada;
+        pistaLetraNoUsada1 = true;
+        pistaLetraNoUsada2 = true;
+        partidaJugando = almacenPartidas.getPartida(contadorPartida);
+        usuario1Jugando = usu1Jugando;
+        esEntrenamiento = false;
         gridLetras[0] = letra11;//0
         gridLetras[1] = letra12;
         gridLetras[2] = letra13;
@@ -87,7 +98,10 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         if (!pistaPalabraNoUsada2 && !usuario1Jugando) {
             this.pistaPalabra.setEnabled(false);
         }
+        if(usuario1Jugando) this.setTitle(u1.getNombre());
+        else this.setTitle(u2.getNombre());
         this.setLocationRelativeTo(null);
+        
     }
 
     public partidaSeisLetras(String pala) {
@@ -1277,43 +1291,299 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra54KeyTyped
 
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-
+        
         String[] letras = new String[6];
+        String s;
         Boolean[] esIgual = new Boolean[6];
         for (int i = 0; i < 6; i++) {
             esIgual[i] = false;
         }
         Boolean esIgualEntero = true;
-
-        for (int i = 0; i < 6; i++) {
-            JTextField aux = gridLetras[contadorFila2];
-            String stringaux = aux.getText().toLowerCase();
-            letras[i] = stringaux;
-            contadorFila2 += 1;
-        }
-        for (int i = 0; i < 6; i++) {
-            if (palabra.contains(letras[i])) {
-                if (palabra.get(i).toLowerCase().equals(letras[i])) {
-                    gridLetras[contadorFila].setBackground(Color.green);
-                    esIgual[i] = true;
-                } else {
-                    gridLetras[contadorFila].setBackground(Color.yellow);
+        if (!esEntrenamiento) {
+            if (usuario1Jugando) {
+                //USUARIO 1
+                //Este for recoge las letras escritas en los jtextfield
+                for (int i = 0; i < 6; i++) {
+                    JTextField aux = gridLetras[contadorFila2];
+                    String stringaux = aux.getText().toLowerCase();
+                    letras[i] = stringaux;
+                    contadorFila2 += 1;
                 }
-            } else {
-                gridLetras[contadorFila].setBackground(Color.gray);
-            }
-            contadorFila += 1;
-        }
-        for (int i = 0; i < 6 && esIgualEntero; i++) {
-            if (!esIgual[i]) {
-                esIgualEntero = false;
-            }
-        }
-        System.out.println(esIgualEntero.toString());
 
-        for (int i = 0; i < 6; i++) {
-            gridLetras[this.contadorEnabled].enable();
-            contadorEnabled += 1;
+                //Este for es el que comprueba y cambia las casillas de color
+                for (int i = 0; i < 6; i++) {
+                    if (palabra.contains(letras[i])) {
+                        if (palabra.get(i).toLowerCase().equals(letras[i])) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            esIgual[i] = true;
+                        } else {
+                            gridLetras[contadorFila].setBackground(Color.yellow);
+                        }
+                    } else {
+                        gridLetras[contadorFila].setBackground(Color.gray);
+                    }
+                    contadorFila += 1;
+                }
+
+                //Este for comprueba si se ha acertado la palabra
+                for (int i = 0; i < 6 && esIgualEntero; i++) {
+                    if (!esIgual[i]) {
+                        esIgualEntero = false;
+                    }
+                }
+
+                if (!esIgualEntero && contadorFila <= 24) {
+
+                    //Este for habilita las 5 casillas siguientes si hay
+                    for (int i = 0; i < 6; i++) {
+                        gridLetras[this.contadorEnabled].enable();
+                        contadorEnabled += 1;
+                    }
+
+                }
+                if (esIgualEntero && contadorFila <= 24) {
+                    switch (contadorFila) {
+                        case 6:
+                            usuario1.actualizarPuntos(5);
+                            partidaJugando.actualizarMarcador1(5);
+                            partidaJugando.setIntento1(5, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 12:
+                            usuario1.actualizarPuntos(4);
+                            partidaJugando.actualizarMarcador1(4);
+                            partidaJugando.setIntento1(4, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 18:
+                            usuario1.actualizarPuntos(3);
+                            partidaJugando.actualizarMarcador1(3);
+                            partidaJugando.setIntento1(3, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la tercera chaval, +3 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 24:
+                            usuario1.actualizarPuntos(2);
+                            partidaJugando.actualizarMarcador1(2);
+                            partidaJugando.setIntento1(2, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                if (contadorFila == 30) {
+                    if (esIgualEntero) {
+                        JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
+                        usuario1.actualizarPuntos(1);
+                        partidaJugando.actualizarMarcador1(1);
+                        partidaJugando.setIntento1(1, palabraJugada);
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu = Menu()*/
+                    } else {
+                        //Empezar otra con el otro jugador
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                //FIN USUARIO 1
+            } else {
+                //USUARIO 2
+                //Este for recoge las letras escritas en los jtextfield
+                for (int i = 0; i < 6; i++) {
+                    JTextField aux = gridLetras[contadorFila2];
+                    String stringaux = aux.getText().toLowerCase();
+                    letras[i] = stringaux;
+                    contadorFila2 += 1;
+                }
+
+                //Este for es el que comprueba y cambia las casillas de color
+                for (int i = 0; i < 6; i++) {
+                    if (palabra.contains(letras[i])) {
+                        if (palabra.get(i).toLowerCase().equals(letras[i])) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            esIgual[i] = true;
+                        } else {
+                            gridLetras[contadorFila].setBackground(Color.yellow);
+                        }
+                    } else {
+                        gridLetras[contadorFila].setBackground(Color.gray);
+                    }
+                    contadorFila += 1;
+                }
+
+                //Este for comprueba si se ha acertado la palabra
+                for (int i = 0; i < 6 && esIgualEntero; i++) {
+                    if (!esIgual[i]) {
+                        esIgualEntero = false;
+                    }
+                }
+
+                if (!esIgualEntero && contadorFila <= 24) {
+
+                    //Este for habilita las 5 casillas siguientes si hay
+                    for (int i = 0; i < 6; i++) {
+                        gridLetras[this.contadorEnabled].enable();
+                        contadorEnabled += 1;
+                    }
+
+                }
+                if (esIgualEntero && contadorFila <= 24) {
+                    switch (contadorFila) {
+                        case 6:
+                            usuario2.actualizarPuntos(5);
+                            partidaJugando.actualizarMarcador2(5);
+                            partidaJugando.setIntento2(5, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 12:
+                            usuario2.actualizarPuntos(4);
+                            partidaJugando.actualizarMarcador2(4);
+                            partidaJugando.setIntento2(4, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 18:
+                            usuario2.actualizarPuntos(3);
+                            partidaJugando.actualizarMarcador2(3);
+                            partidaJugando.setIntento2(3, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE a la tercera chaval, +3 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 24:
+                            usuario2.actualizarPuntos(2);
+                            partidaJugando.actualizarMarcador2(2);
+                            partidaJugando.setIntento2(2, palabraJugada);
+                            JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                if (contadorFila == 30) {
+                    if (esIgualEntero) {
+                        JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
+                        usuario2.actualizarPuntos(1);
+                        partidaJugando.actualizarMarcador2(1);
+                        partidaJugando.setIntento2(1, palabraJugada);
+                    }
+                    if (palabraJugada == palabras) {
+                        if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarGanadas(1);
+                            usuario2.actualizarPerdidas(1);
+                        } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
+                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            usuario1.actualizarPerdidas(1);
+                            usuario2.actualizarGanadas(1);
+                        } else {
+                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            usuario1.actualizarEmpatadas(1);
+                            usuario2.actualizarEmpatadas(1);
+                        }
+                        JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
+
+                        this.setVisible(false);
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Empezar otra con el otro jugador
+                        //Escoger otra palabra a jugar
+                        palabraJugada += 1;
+                        Palabra[] aux = partidaJugando.getPalabras();
+                        String aux2 = aux[palabraJugada].toString();
+                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        this.setVisible(false);
+                        otraSesion.setVisible(true);
+                    }
+                }
+                //FIN USUARIO 2
+            }
+        } else {
+            //partida siendo entrenamiento
+
         }
 
     }//GEN-LAST:event_comprobarActionPerformed
@@ -1414,8 +1684,8 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         palabraJugada += 1;
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
-                        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, false, pistaPalabraNoUsada1, pistaPalabraNoUsada2, palabraJugada);
+                        //Creo nueva partidaSeisLetras con todos los parametros casi iguales
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1514,7 +1784,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, true, pistaPalabraNoUsada1, pistaPalabraNoUsada2, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }

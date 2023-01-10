@@ -1,23 +1,27 @@
 package urjc.poo.lingo.Login;
 
 import javax.swing.JOptionPane;
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import partida.Modo;
 
 
 public class Menu extends javax.swing.JFrame {
 
-    
+    AlmacenPartidas aP;
     AlmacenUsuarios aU;
     Usuario usu;
     boolean adminBool;
             
-    public Menu(AlmacenUsuarios a, Usuario u) {
+    
+    
+    public Menu(AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
         
         initComponents();
+        aP = p;
         aU = a;
         usu = u;
+        
         this.setLocationRelativeTo(null);
     }
     
@@ -86,40 +90,34 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Admin)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                        .addComponent(Salir))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(Jugar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(Salir)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Admin)
+                            .addComponent(Jugar))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Salir)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Salir)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addComponent(Jugar)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(Admin)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,7 +125,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
         
-        Modo u = new Modo(new javax.swing.JFrame(),true, aU, usu);
+        Modo u = new Modo(new javax.swing.JFrame(),true, aP, aU, usu);
         u.setVisible(true);
         this.setVisible(false);
         

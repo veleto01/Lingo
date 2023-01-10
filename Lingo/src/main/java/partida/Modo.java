@@ -1,18 +1,20 @@
 
 package partida;
 
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import javax.swing.JOptionPane;
 
 
 public class Modo extends javax.swing.JDialog {
 
+    AlmacenPartidas aP;
     AlmacenUsuarios aU;
     Usuario usuario1;
     
-    public Modo(java.awt.Frame parent, boolean modal, AlmacenUsuarios a, Usuario u) {
+    public Modo(java.awt.Frame parent, boolean modal,AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
         super(parent, modal);
+        aP = p;
         aU = a;
         usuario1 = u;
         initComponents();
@@ -87,7 +89,7 @@ public class Modo extends javax.swing.JDialog {
     private void ContraotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraotroActionPerformed
         
         JOptionPane.showMessageDialog(null, "Inicie sesión con el segundo jugador", "Introducir segundo jugador", JOptionPane.INFORMATION_MESSAGE);
-        LoginSegundoJugador iden = new LoginSegundoJugador(new javax.swing.JDialog(),true, aU, usuario1);
+        LoginSegundoJugador iden = new LoginSegundoJugador(new javax.swing.JDialog(),true, aP, aU, usuario1);
         this.setVisible(false);
         iden.setVisible(true);
         

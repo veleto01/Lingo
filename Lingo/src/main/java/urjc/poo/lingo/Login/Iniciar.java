@@ -10,7 +10,7 @@ import urjc.poo.lingo.Clases.AlmacenUsuarios;
 
 public class Iniciar extends javax.swing.JDialog{
 
-    AlmacenUsuarios aU = new AlmacenUsuarios();;
+    
     
     
     public Iniciar() {
@@ -75,7 +75,7 @@ public class Iniciar extends javax.swing.JDialog{
 
     private void IdentificateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificateActionPerformed
 
-        Identificar iden = new Identificar(new javax.swing.JDialog(),true, aU);
+        Identificar iden = new Identificar(new javax.swing.JDialog(),true);
         this.setVisible(false);
         iden.setVisible(true);
         
