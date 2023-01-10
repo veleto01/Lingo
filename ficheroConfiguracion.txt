@@ -17,9 +17,9 @@ anulo
 abaca
 ahora
 6
-Espada
-Maleta
-Ciervo
+espada
+maleta
+ciervo
 nachos
 actual
 equipo
