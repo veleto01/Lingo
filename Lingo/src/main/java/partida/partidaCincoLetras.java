@@ -1429,7 +1429,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
                             partidaJugando.actualizarMarcador1(1);
                             partidaJugando.setIntento1(1, palabraJugada);
                             usuario1.actualizarPuntos(1);
-                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack, acuerdate de que al final no se puede usar tontito.", "", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack, acuerdate de que al final no se debe usar tontito.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     partidaJugando.actualizarMarcador1(-3);
