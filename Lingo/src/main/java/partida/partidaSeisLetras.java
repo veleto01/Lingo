@@ -1,4 +1,3 @@
-
 package partida;
 
 import java.awt.Color;
@@ -14,16 +13,15 @@ import java.util.Random;
 import urjc.poo.lingo.Clases.Partida;
 import javax.swing.JOptionPane;
 
-
 public class partidaSeisLetras extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;
     Usuario usuario1;
     Usuario usuario2;
     int palabras;
-    int contadorFila = 0;
-    int contadorEnabled = 6;
-    int contadorFila2 = 0;
+    int contadorFila;
+    int contadorEnabled;
+    int contadorFila2;
     List<String> palabra;
     boolean pistaPalabraNoUsada1;
     boolean pistaPalabraNoUsada2;
@@ -35,21 +33,21 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     boolean pistaLetraNoUsada2;
     int palabraJugada;
 
-    
-    
-    public partidaSeisLetras(AlmacenUsuarios a, Usuario u1,Usuario u2, int numeroPalabras, String pala,Partida p,boolean usu1Jugando,boolean pistaLetra1, boolean pistaLetra2,boolean pistaPalabra1,boolean pistaPalabra2, int palaJugada) {
+    public partidaSeisLetras(AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean usu1Jugando, boolean pistaPalabra1, boolean pistaPalabra2, int palaJugada) {
         initComponents();
         almacenUsuarios = a;
         usuario1 = u1;
         usuario2 = u2;
         palabras = numeroPalabras;
         palabra = Arrays.asList(pala.split(""));
-        this.setLocationRelativeTo(null);
+        contadorFila = 0;
+        contadorEnabled = 6;
+        contadorFila2 = 0;
         usuario1Jugando = usu1Jugando;
         partidaJugando = p;
         esEntrenamiento = false;
-        pistaLetraNoUsada1 = pistaLetra1;
-        pistaLetraNoUsada2 = pistaLetra2;
+        pistaLetraNoUsada1 = true;
+        pistaLetraNoUsada2 = true;
         pistaPalabraNoUsada1 = pistaPalabra1;
         pistaPalabraNoUsada2 = pistaPalabra2;
         palabraJugada = palaJugada;
@@ -89,23 +87,47 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         if (!pistaPalabraNoUsada2 && !usuario1Jugando) {
             this.pistaPalabra.setEnabled(false);
         }
-        if (!pistaLetraNoUsada1 && usuario1Jugando) {
-            this.pistaPalabra.setEnabled(false);
-        }
-        if (!pistaLetraNoUsada2 && !usuario1Jugando) {
-            this.pistaPalabra.setEnabled(false);
-        }
         this.setLocationRelativeTo(null);
     }
-    
-    public partidaSeisLetras(String pala){
+
+    public partidaSeisLetras(String pala) {
         initComponents();
         palabra = Arrays.asList(pala.split(""));
+        gridLetras[0] = letra11;//0
+        gridLetras[1] = letra12;
+        gridLetras[2] = letra13;
+        gridLetras[3] = letra14;
+        gridLetras[4] = letra15;
+        gridLetras[5] = letra16;//6
+        gridLetras[6] = letra21;
+        gridLetras[7] = letra22;
+        gridLetras[8] = letra23;
+        gridLetras[9] = letra24;
+        gridLetras[10] = letra25;
+        gridLetras[11] = letra26;//12
+        gridLetras[12] = letra31;
+        gridLetras[13] = letra32;
+        gridLetras[14] = letra33;
+        gridLetras[15] = letra34;
+        gridLetras[16] = letra35;
+        gridLetras[17] = letra36;//18
+        gridLetras[18] = letra41;
+        gridLetras[19] = letra42;
+        gridLetras[20] = letra43;
+        gridLetras[21] = letra44;
+        gridLetras[22] = letra45;
+        gridLetras[23] = letra46;//24
+        gridLetras[24] = letra51;
+        gridLetras[25] = letra52;
+        gridLetras[26] = letra53;
+        gridLetras[27] = letra54;
+        gridLetras[28] = letra55;
+        gridLetras[29] = letra56;//30
         this.setLocationRelativeTo(null);
     }
-    
+
     public partidaSeisLetras() {
-       
+
     }
 
     /**
@@ -750,12 +772,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra12KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra12.getText().length() >= 1){
+        if (letra12.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -766,13 +788,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra13ActionPerformed
 
     private void letra13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra13KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra13.getText().length() >= 1){
+        if (letra13.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -783,13 +805,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra11ActionPerformed
 
     private void letra11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra11KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra11.getText().length() >= 1){
+        if (letra11.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -801,12 +823,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra15KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra15.getText().length() >= 1){
+        if (letra15.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -818,12 +840,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra16KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra16.getText().length() >= 1){
+        if (letra16.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -834,13 +856,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra21ActionPerformed
 
     private void letra21KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra21KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra21.getText().length() >= 1){
+        if (letra21.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -851,13 +873,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra22ActionPerformed
 
     private void letra22KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra22KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra22.getText().length() >= 1){
+        if (letra22.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -868,13 +890,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra23ActionPerformed
 
     private void letra23KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra23KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra23.getText().length() >= 1){
+        if (letra23.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -886,12 +908,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra14KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra14.getText().length() >= 1){
+        if (letra14.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -903,12 +925,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra25KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra25KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra25.getText().length() >= 1){
+        if (letra25.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -919,13 +941,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra26ActionPerformed
 
     private void letra26KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra26KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra26.getText().length() >= 1){
+        if (letra26.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -936,13 +958,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra31ActionPerformed
 
     private void letra31KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra31KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra31.getText().length() >= 1){
+        if (letra31.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -953,13 +975,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra32ActionPerformed
 
     private void letra32KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra32KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra32.getText().length() >= 1){
+        if (letra32.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -971,12 +993,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra24KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra24KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra24.getText().length() >= 1){
+        if (letra24.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -987,13 +1009,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra33ActionPerformed
 
     private void letra33KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra33KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra33.getText().length() >= 1){
+        if (letra33.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1005,12 +1027,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra35KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra35KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra35.getText().length() >= 1){
+        if (letra35.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1021,13 +1043,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra36ActionPerformed
 
     private void letra36KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra36KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra36.getText().length() >= 1){
+        if (letra36.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1039,12 +1061,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra41KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra41KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra41.getText().length() >= 1){
+        if (letra41.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1056,12 +1078,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra42KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra42KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra42.getText().length() >= 1){
+        if (letra42.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1073,12 +1095,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra43KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra43KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra43.getText().length() >= 1){
+        if (letra43.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1090,12 +1112,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra44KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra44KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra44.getText().length() >= 1){
+        if (letra44.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1106,13 +1128,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra45ActionPerformed
 
     private void letra45KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra45KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra45.getText().length() >= 1){
+        if (letra45.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1123,13 +1145,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra46ActionPerformed
 
     private void letra46KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra46KeyTyped
-      char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra46.getText().length() >= 1){
+        if (letra46.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1141,12 +1163,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra51KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra51KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra51.getText().length() >= 1){
+        if (letra51.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1157,13 +1179,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra34ActionPerformed
 
     private void letra34KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra34KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra34.getText().length() >= 1){
+        if (letra34.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1175,12 +1197,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra53KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra53KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra53.getText().length() >= 1){
+        if (letra53.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1192,12 +1214,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra52KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra52KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra52.getText().length() >= 1){
+        if (letra52.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1208,13 +1230,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra55ActionPerformed
 
     private void letra55KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra55KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra55.getText().length() >= 1){
+        if (letra55.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1225,13 +1247,13 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra56ActionPerformed
 
     private void letra56KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra56KeyTyped
-       char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra56.getText().length() >= 1){
+        if (letra56.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1243,12 +1265,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     private void letra54KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_letra54KeyTyped
         char c = evt.getKeyChar();
-        if(Character.isLowerCase(c)){
-            String cad = (""+c).toUpperCase();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
             c = cad.charAt(0);
             evt.setKeyChar(c);
         }
-        if(letra54.getText().length() >= 1){
+        if (letra54.getText().length() >= 1) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -1258,105 +1280,109 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
         String[] letras = new String[6];
         Boolean[] esIgual = new Boolean[6];
-        for(int i = 0; i<6; i++) esIgual[i] = false;
+        for (int i = 0; i < 6; i++) {
+            esIgual[i] = false;
+        }
         Boolean esIgualEntero = true;
 
-        for(int i = 0; i<6; i++){
+        for (int i = 0; i < 6; i++) {
             JTextField aux = gridLetras[contadorFila2];
             String stringaux = aux.getText().toLowerCase();
             letras[i] = stringaux;
-            contadorFila2+=1;
+            contadorFila2 += 1;
         }
-        for(int i = 0; i<6; i++){
-            if(palabra.contains(letras[i])){
-                if(palabra.get(i).toLowerCase().equals(letras[i])){
+        for (int i = 0; i < 6; i++) {
+            if (palabra.contains(letras[i])) {
+                if (palabra.get(i).toLowerCase().equals(letras[i])) {
                     gridLetras[contadorFila].setBackground(Color.green);
                     esIgual[i] = true;
-                }else{
+                } else {
                     gridLetras[contadorFila].setBackground(Color.yellow);
                 }
-            }else{
+            } else {
                 gridLetras[contadorFila].setBackground(Color.gray);
             }
-            contadorFila+=1;
+            contadorFila += 1;
         }
-        for(int i = 0; i<6 && esIgualEntero; i++){
-            if(!esIgual[i]) esIgualEntero = false;
+        for (int i = 0; i < 6 && esIgualEntero; i++) {
+            if (!esIgual[i]) {
+                esIgualEntero = false;
+            }
         }
         System.out.println(esIgualEntero.toString());
 
-        for(int i = 0; i<6; i++){
+        for (int i = 0; i < 6; i++) {
             gridLetras[this.contadorEnabled].enable();
-            contadorEnabled+=1;
+            contadorEnabled += 1;
         }
 
     }//GEN-LAST:event_comprobarActionPerformed
 
     private void pistaPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaPalabraActionPerformed
-          String s;
-          if(!esEntrenamiento){
-              if(usuario1Jugando){
-                  if(pistaPalabraNoUsada1){
-                    switch(contadorFila){
-                    case 0:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador1(5);
-                    partidaJugando.setIntento1(5, palabraJugada);
-                    usuario1.actualizarPuntos(5);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                
-                    case 6:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador1(4);
-                    partidaJugando.setIntento1(4, palabraJugada);
-                    usuario1.actualizarPuntos(4);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                    
-                    case 12:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador1(3);
-                    partidaJugando.setIntento1(3, palabraJugada);
-                    usuario1.actualizarPuntos(3);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                
-                    case 18:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador1(2);
-                    partidaJugando.setIntento1(2, palabraJugada);
-                    usuario1.actualizarPuntos(2);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                    
-                    case 24:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador1(1);
-                    partidaJugando.setIntento1(1, palabraJugada);
-                    usuario1.actualizarPuntos(1);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
+        String s;
+        if (!esEntrenamiento) {
+            if (usuario1Jugando) {
+                if (pistaPalabraNoUsada1) {
+                    switch (contadorFila) {
+                        case 0:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador1(5);
+                            partidaJugando.setIntento1(5, palabraJugada);
+                            usuario1.actualizarPuntos(5);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 6:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador1(4);
+                            partidaJugando.setIntento1(4, palabraJugada);
+                            usuario1.actualizarPuntos(4);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 12:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador1(3);
+                            partidaJugando.setIntento1(3, palabraJugada);
+                            usuario1.actualizarPuntos(3);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 18:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador1(2);
+                            partidaJugando.setIntento1(2, palabraJugada);
+                            usuario1.actualizarPuntos(2);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 24:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador1(1);
+                            partidaJugando.setIntento1(1, palabraJugada);
+                            usuario1.actualizarPuntos(1);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
                     }
                     partidaJugando.actualizarMarcador1(-3);
                     usuario1.actualizarPuntos(-3);
@@ -1379,9 +1405,9 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
                         this.setVisible(false);
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                       /*Menu nuevoMenu()*/
-                    }else{
-                         //Empezar otra con el otro jugador
+                        /*Menu nuevoMenu()*/
+                    } else {
+                        //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
                         partidaJugando.setPistaPalabra1(false);
                         pistaPalabraNoUsada1 = false;
@@ -1389,74 +1415,74 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2,palabras, aux2, partidaJugando,false, pistaLetraNoUsada1, pistaLetraNoUsada2,pistaPalabraNoUsada1,pistaPalabraNoUsada2,palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, false, pistaPalabraNoUsada1, pistaPalabraNoUsada2, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
                 }
-            }else{
-                  if(pistaPalabraNoUsada2){
-                      
-                    switch(contadorFila){
-                    case 0:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador2(5);
-                    partidaJugando.setIntento2(5, palabraJugada);
-                    usuario2.actualizarPuntos(5);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                
-                    case 6:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador2(4);
-                    partidaJugando.setIntento2(4, palabraJugada);
-                    usuario2.actualizarPuntos(4);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                    
-                    case 12:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador2(3);
-                    partidaJugando.setIntento2(3, palabraJugada);
-                    usuario2.actualizarPuntos(3);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                
-                    case 18:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador2(2);
-                    partidaJugando.setIntento2(2, palabraJugada);
-                    usuario2.actualizarPuntos(2);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                    
-                    case 24:
-                    for(int i = 0; i<6; i++){
-                        gridLetras[contadorFila].setBackground(Color.green);
-                        gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
-                        contadorFila+=1;
-                    }
-                    partidaJugando.actualizarMarcador2(1);
-                    partidaJugando.setIntento2(1, palabraJugada);
-                    usuario2.actualizarPuntos(1);
-                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
-                    break;
+            } else {
+                if (pistaPalabraNoUsada2) {
+
+                    switch (contadorFila) {
+                        case 0:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador2(5);
+                            partidaJugando.setIntento2(5, palabraJugada);
+                            usuario2.actualizarPuntos(5);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 6:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador2(4);
+                            partidaJugando.setIntento2(4, palabraJugada);
+                            usuario2.actualizarPuntos(4);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 12:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador2(3);
+                            partidaJugando.setIntento2(3, palabraJugada);
+                            usuario2.actualizarPuntos(3);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 18:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador2(2);
+                            partidaJugando.setIntento2(2, palabraJugada);
+                            usuario2.actualizarPuntos(2);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+
+                        case 24:
+                            for (int i = 0; i < 6; i++) {
+                                gridLetras[contadorFila].setBackground(Color.green);
+                                gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                                contadorFila += 1;
+                            }
+                            partidaJugando.actualizarMarcador2(1);
+                            partidaJugando.setIntento2(1, palabraJugada);
+                            usuario2.actualizarPuntos(1);
+                            JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
+                            break;
                     }
                     partidaJugando.actualizarMarcador2(-3);
                     usuario2.actualizarPuntos(-3);
@@ -1477,9 +1503,9 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         }
                         JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
                         this.setVisible(false);
-                         //Crear un nuevo menu con todo configurado con lo que ya hay.
+                        //Crear un nuevo menu con todo configurado con lo que ya hay.
                         /*Menu nuevoMenu()*/
-                    }else{
+                    } else {
                         //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
                         partidaJugando.setPistaPalabra2(false);
@@ -1488,85 +1514,83 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2,palabras, aux2, partidaJugando,false, pistaLetraNoUsada1, pistaLetraNoUsada2,pistaPalabraNoUsada1,pistaPalabraNoUsada2,palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenUsuarios, usuario1, usuario2, palabras, aux2, partidaJugando, true, pistaPalabraNoUsada1, pistaPalabraNoUsada2, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
                 }
             }
-        }else{
-              //Pista palabra cuando es entrenamiento
-         }
-        
+        } else {
+            //Pista palabra cuando es entrenamiento
+        }
+
     }//GEN-LAST:event_pistaPalabraActionPerformed
 
     private void pistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pistaLetraActionPerformed
         Random r1 = new Random();
         int posicionLetraAleatoria = r1.nextInt(6);
-       if(!esEntrenamiento){     
-          if(usuario1Jugando){
-            if(pistaLetraNoUsada1){
-        
-            switch(contadorFila){
-                case 0:
-                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
-                    break;
-                case 6:
-                    gridLetras[posicionLetraAleatoria+6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+6].setBackground(Color.green);
-                    break;
-                case 12:
-                    gridLetras[posicionLetraAleatoria+12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+12].setBackground(Color.green);
-                    break;
-                case 18:
-                    gridLetras[posicionLetraAleatoria+18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+18].setBackground(Color.green);
-                    break;
-                case 24:
-                    gridLetras[posicionLetraAleatoria+24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+24].setBackground(Color.green);
-                    break;
+        if (!esEntrenamiento) {
+            if (usuario1Jugando) {
+                if (pistaLetraNoUsada1) {
+
+                    switch (contadorFila) {
+                        case 0:
+                            gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                            break;
+                        case 6:
+                            gridLetras[posicionLetraAleatoria + 6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 6].setBackground(Color.green);
+                            break;
+                        case 12:
+                            gridLetras[posicionLetraAleatoria + 12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 12].setBackground(Color.green);
+                            break;
+                        case 18:
+                            gridLetras[posicionLetraAleatoria + 18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 18].setBackground(Color.green);
+                            break;
+                        case 24:
+                            gridLetras[posicionLetraAleatoria + 24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 24].setBackground(Color.green);
+                            break;
+                    }
+                    partidaJugando.actualizarMarcador1(-1);
+                    usuario1.actualizarPuntos(-1);
+                    partidaJugando.setPistaLetra1(false, palabraJugada);
+                    pistaLetra.setEnabled(false);
+                }
+            } else {
+                if (pistaLetraNoUsada2) {
+                    switch (contadorFila) {
+                        case 0:
+                            gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                            break;
+                        case 6:
+                            gridLetras[posicionLetraAleatoria + 6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 6].setBackground(Color.green);
+                            break;
+                        case 12:
+                            gridLetras[posicionLetraAleatoria + 12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 12].setBackground(Color.green);
+                            break;
+                        case 18:
+                            gridLetras[posicionLetraAleatoria + 18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 18].setBackground(Color.green);
+                            break;
+                        case 24:
+                            gridLetras[posicionLetraAleatoria + 24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                            gridLetras[posicionLetraAleatoria + 24].setBackground(Color.green);
+                            break;
+                    }
+                    partidaJugando.actualizarMarcador2(-1);
+                    usuario2.actualizarPuntos(-1);
+                }
             }
-            partidaJugando.actualizarMarcador1(-1);
-            usuario1.actualizarPuntos(-1);
+        } else {
+            //Pista letra cuando es entrenamiento
         }
-        pistaLetra.setEnabled(false);
-        pistaLetraNoUsada1 = false;
-        }else{
-           if(pistaLetraNoUsada2){
-                 switch(contadorFila){
-                case 0:
-                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
-                    break;
-                case 6:
-                    gridLetras[posicionLetraAleatoria+6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+6].setBackground(Color.green);
-                    break;
-                case 12:
-                    gridLetras[posicionLetraAleatoria+12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+12].setBackground(Color.green);
-                    break;
-                case 18:
-                    gridLetras[posicionLetraAleatoria+18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+18].setBackground(Color.green);
-                    break;
-                case 24:
-                    gridLetras[posicionLetraAleatoria+24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
-                    gridLetras[posicionLetraAleatoria+24].setBackground(Color.green);
-                    break;
-            }
-            partidaJugando.actualizarMarcador2(-1);
-            usuario2.actualizarPuntos(-1);
-           }
-           pistaLetra.setEnabled(false);
-           pistaLetraNoUsada2 = false;
-       }
-   }else{
-       //Pista letra cuando es entrenamiento
-   }
     }//GEN-LAST:event_pistaLetraActionPerformed
 
     /**
