@@ -80,6 +80,8 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         if (!pistaPalabraNoUsada2 && !usuario1Jugando) {
             this.pistaPalabra.setEnabled(false);
         }
+        if(usuario1Jugando) this.setTitle(u1.getNombre());
+        else this.setTitle(u2.getNombre());
         this.setLocationRelativeTo(null);
 
     }
@@ -114,6 +116,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
         gridLetras[23] = letra54;
         gridLetras[24] = letra55;
         this.setLocationRelativeTo(null);
+       
     }
 
     public partidaCincoLetras() {
