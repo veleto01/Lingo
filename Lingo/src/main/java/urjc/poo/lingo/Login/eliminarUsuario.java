@@ -44,7 +44,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         Tcontraseña = new javax.swing.JTextField();
-        Registrarse = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -59,10 +59,10 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
         });
 
-        Registrarse.setText("Registrarse");
-        Registrarse.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarseActionPerformed(evt);
+                EliminarActionPerformed(evt);
             }
         });
 
@@ -106,8 +106,8 @@ public class eliminarUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(Cancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(Registrarse)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addComponent(Eliminar)))
                 .addGap(80, 80, 80))
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
@@ -129,7 +129,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
                     .addComponent(Tcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Registrarse)
+                    .addComponent(Eliminar)
                     .addComponent(Cancelar))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -141,7 +141,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_TcontraseñaActionPerformed
 
-    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
 
         String texto = Tcontraseña.getText();
         String texto2 = Tusuario1.getText();
@@ -192,7 +192,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
         }
 
-    }//GEN-LAST:event_RegistrarseActionPerformed
+    }//GEN-LAST:event_EliminarActionPerformed
 
     private void Tusuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tusuario1ActionPerformed
 
@@ -242,7 +242,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
-    private javax.swing.JButton Registrarse;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JTextField Tcontraseña;
     private javax.swing.JTextField Tusuario1;
     private javax.swing.JLabel jLabel1;

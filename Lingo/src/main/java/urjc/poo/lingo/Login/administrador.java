@@ -104,20 +104,22 @@ public class administrador extends javax.swing.JFrame {
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
         eliminarUsuario iden = new eliminarUsuario(new javax.swing.JDialog(),true, aU,usu,aP,aPa);
+        this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_BajaActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
 
         Registrar iden = new Registrar( aU,usu,aP,aPa);
+        this.dispose();
         iden.setVisible(true);
 
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         perfilesAdministrador ventana = new perfilesAdministrador(aU,usu,aP,aPa);
+        this.dispose();
         ventana.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
