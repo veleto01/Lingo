@@ -4,20 +4,24 @@ import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import javax.swing.*;
 
+
 public class LoginSegundoJugador extends javax.swing.JDialog {
 
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
     AlmacenPartidas aP;
+    AlmacenPalabras aPa;
     Usuario usuario1;
     Usuario usuario2;
+    int index;
 
-    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal, AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
+    public LoginSegundoJugador(javax.swing.JDialog Iniciar, boolean modal, AlmacenPartidas p, AlmacenUsuarios a, AlmacenPalabras pa, Usuario u) {
 
         super(Iniciar, modal);
         aU = a;
         aP = p;
+        aPa = pa;
         usuario1 = u;
 
         initComponents();
@@ -71,6 +75,11 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
         });
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +172,7 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
                             
                         }else{
                             
+                            index = i;
                             esta = true;
                             
                         }
@@ -174,7 +184,7 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
                 if (esta) {
                     
                
-                    ElegirLetrasPartidaNormal partida = new ElegirLetrasPartidaNormal(aP, aU,usuario1,usuario2);
+                    ElegirLetrasPartidaNormal partida = new ElegirLetrasPartidaNormal(aPa, aP, aU,usuario1,aU.getUsu(index));
                     partida.setVisible(true);
                     this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
@@ -193,6 +203,12 @@ public class LoginSegundoJugador extends javax.swing.JDialog {
 
 
     }//GEN-LAST:event_TusuarioActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        this.dispose();
+        Modo nuevoModo = new Modo(new javax.swing.JFrame(), true, aP, aU, aPa, usuario1);
+        nuevoModo.setVisible(true);
+    }//GEN-LAST:event_CancelarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,22 +10,26 @@ public class Identificar extends javax.swing.JDialog {
     private String contraseña;
     private AlmacenUsuarios aU;
     AlmacenPartidas aP;
+    AlmacenPalabras aPa;
     Usuario admin = new Usuario("admin", "1234", true);
-    Usuario prueba = new Usuario("Sergio", "1234");
-    Usuario usuario2 = new Usuario("Morales", "1234");
-    Usuario PruebaPerfil = new Usuario("Pelos", "1234", 12, 14, 1, 123);
+    
     int index;
 
+     public Identificar(javax.swing.JDialog Iniciar, boolean modal, AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras pa) {
+
+        super(Iniciar, modal);
+        aU = u;
+        aP = p;
+        aPa = pa;
+        aU.añadirUsuario(admin);
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
+    
     public Identificar(javax.swing.JDialog Iniciar, boolean modal) {
 
         super(Iniciar, modal);
-        aU = new AlmacenUsuarios();
-        aP = new AlmacenPartidas();
         aU.añadirUsuario(admin);
-        aU.añadirUsuario(prueba);
-        aU.añadirUsuario(usuario2);
-        aU.añadirUsuario(PruebaPerfil);
-
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -73,6 +77,11 @@ public class Identificar extends javax.swing.JDialog {
         });
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,9 +162,9 @@ public class Identificar extends javax.swing.JDialog {
             } else {
 
                 if ((u.getNombre().equals(admin.getNombre())) && ((u.getContraseña().equals(admin.getContraseña())))) {
-                    Menu iden = new Menu(aP, aU, admin);
+                    Menu iden = new Menu(aP, aU, aPa, admin);
+                    this.dispose();
                     iden.setVisible(true);
-                    this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto como Administrador", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     boolean esta = false;
@@ -170,9 +179,9 @@ public class Identificar extends javax.swing.JDialog {
                     }
                     if (esta) {
 
-                        Menu iden = new Menu(aP, aU,(aU.getUsu(index)));
+                        Menu iden = new Menu(aP, aU, aPa, (aU.getUsu(index)));
+                        this.dispose();
                         iden.setVisible(true);
-                        this.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Inicio de sesion correcto", "Acceso concedido", JOptionPane.INFORMATION_MESSAGE);
 
                     } else {
@@ -190,6 +199,12 @@ public class Identificar extends javax.swing.JDialog {
 
 
     }//GEN-LAST:event_TusuarioActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        this.dispose();
+        Iniciar i = new Iniciar(aP, aU, aPa, true);
+        i.setVisible(true);
+    }//GEN-LAST:event_CancelarActionPerformed
 
     /**
      * @param args the command line arguments

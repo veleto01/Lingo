@@ -3,6 +3,7 @@ package partida;
 
 import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
+import urjc.poo.lingo.Login.Menu;
 import javax.swing.JOptionPane;
 
 
@@ -10,12 +11,14 @@ public class Modo extends javax.swing.JDialog {
 
     AlmacenPartidas aP;
     AlmacenUsuarios aU;
+    AlmacenPalabras aPa;
     Usuario usuario1;
     
-    public Modo(java.awt.Frame parent, boolean modal,AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
+    public Modo(java.awt.Frame parent, boolean modal,AlmacenPartidas p, AlmacenUsuarios a, AlmacenPalabras pa, Usuario u) {
         super(parent, modal);
         aP = p;
         aU = a;
+        aPa = pa;
         usuario1 = u;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -31,7 +34,8 @@ public class Modo extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         Contraotro = new javax.swing.JButton();
-        Entrenamiento = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -46,30 +50,39 @@ public class Modo extends javax.swing.JDialog {
             }
         });
 
-        Entrenamiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Entrenamiento.setText("Entrenamiento");
-        Entrenamiento.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setText("Cancelar");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EntrenamientoActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Próximos modos en un futuro");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 53, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Contraotro)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Entrenamiento)
-                        .addGap(118, 118, 118))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Salir)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Contraotro)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel2)))
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,9 +91,11 @@ public class Modo extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(Contraotro)
-                .addGap(18, 18, 18)
-                .addComponent(Entrenamiento)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(21, 21, 21)
+                .addComponent(Salir)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -89,17 +104,17 @@ public class Modo extends javax.swing.JDialog {
     private void ContraotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraotroActionPerformed
         
         JOptionPane.showMessageDialog(null, "Inicie sesión con el segundo jugador", "Introducir segundo jugador", JOptionPane.INFORMATION_MESSAGE);
-        LoginSegundoJugador iden = new LoginSegundoJugador(new javax.swing.JDialog(),true, aP, aU, usuario1);
+        LoginSegundoJugador iden = new LoginSegundoJugador(new javax.swing.JDialog(),true, aP, aU, aPa, usuario1);
         this.setVisible(false);
         iden.setVisible(true);
         
     }//GEN-LAST:event_ContraotroActionPerformed
 
-    private void EntrenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrenamientoActionPerformed
-        elegirLetrasEntrenamiento entrenamiento = new elegirLetrasEntrenamiento();
-        this.setVisible(false);
-        entrenamiento.setVisible(true);
-    }//GEN-LAST:event_EntrenamientoActionPerformed
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        this.dispose();
+        Menu nuevoMenu = new Menu(aP, aU, aPa, usuario1);
+        nuevoMenu.setVisible(true);
+    }//GEN-LAST:event_SalirActionPerformed
 
   
     public static void main(String args[]) {
@@ -144,7 +159,8 @@ public class Modo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Contraotro;
-    private javax.swing.JButton Entrenamiento;
+    private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

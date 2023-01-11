@@ -1,8 +1,7 @@
 package urjc.poo.lingo.Login;
 
-import urjc.poo.lingo.Clases.AlmacenPartidas;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Clases.Usuario;
+
+import urjc.poo.lingo.Clases.*;
 
 /**
  *
@@ -13,13 +12,24 @@ public class perrfilJugador extends javax.swing.JFrame {
     Usuario usu = new Usuario();
     AlmacenUsuarios aU;
     AlmacenPartidas aP;
+<<<<<<< Updated upstream
 
     public perrfilJugador(AlmacenUsuarios a, Usuario u,AlmacenPartidas app) {
+=======
+    AlmacenPalabras aPa;
+
+    public perrfilJugador(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
+>>>>>>> Stashed changes
         initComponents();
         this.setLocationRelativeTo(null);
         usu = u;
+        aP = p;
         aU = a;
+<<<<<<< Updated upstream
         aP = app;
+=======
+        aPa = pa;
+>>>>>>> Stashed changes
         usuario.setText(usu.getNombre());
         ganadas.setText(Integer.toString(usu.getGanadas()));
         empatadas.setText(String.valueOf(usu.getEmpatadas()));
@@ -42,7 +52,7 @@ public class perrfilJugador extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
         usuario = new javax.swing.JTextField();
         ganadas = new javax.swing.JTextField();
         perdidas = new javax.swing.JTextField();
@@ -73,11 +83,11 @@ public class perrfilJugador extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
         jLabel6.setText("Puntos totales:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
 
@@ -142,7 +152,7 @@ public class perrfilJugador extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(perdidas, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
-                                        .addComponent(jButton1))))
+                                        .addComponent(Salir))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -178,7 +188,7 @@ public class perrfilJugador extends javax.swing.JFrame {
                         .addGap(37, 37, 37))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jButton1)
+                        .addComponent(Salir)
                         .addGap(8, 8, 8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -193,11 +203,17 @@ public class perrfilJugador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< Updated upstream
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Menu iden = new Menu(aP,aU,usu);
+=======
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        this.dispose();
+        Menu iden = new Menu(aP, aU, aPa, usu);
+>>>>>>> Stashed changes
         iden.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_SalirActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
 
@@ -255,9 +271,9 @@ public class perrfilJugador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Salir;
     private javax.swing.JTextField empatadas;
     private javax.swing.JTextField ganadas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

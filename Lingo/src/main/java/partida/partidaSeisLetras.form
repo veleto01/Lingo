@@ -25,9 +25,90 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="letra33" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="letra43" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="letra53" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="letra23" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="letra13" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="marcadorJugador1" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jugador1" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="letra54" min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="letra55" min="-2" pref="44" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="letra56" min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="letra45" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra35" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra25" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra15" min="-2" pref="44" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="letra16" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra46" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra26" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="letra36" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="pistaPalabra" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="letra14" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="letra24" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="letra44" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="letra34" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="VS" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="marcadorJugador2" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jugador2" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+              <Component id="Terminar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="pistaLetra" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="letra41" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="letra31" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
@@ -48,76 +129,28 @@
                           <Component id="letra12" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="pistaLetra" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="letra33" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="letra43" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="letra53" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="letra23" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="letra13" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="letra14" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="letra24" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="letra44" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="letra34" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="letra54" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace pref="32" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="letra55" min="-2" pref="44" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="letra56" min="-2" pref="44" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="letra15" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="letra35" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="letra25" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="letra26" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="letra16" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="letra36" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="letra45" min="-2" pref="44" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="letra46" min="-2" pref="44" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="comprobar" min="-2" pref="120" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="pistaPalabra" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="comprobar" min="-2" pref="120" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jugador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="VS" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="marcadorJugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="marcadorJugador2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="letra12" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra13" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -162,13 +195,15 @@
                   <Component id="letra55" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="letra56" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="comprobar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="pistaPalabra" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                   <Component id="pistaLetra" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Terminar" min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -611,6 +646,41 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pistaLetraActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Terminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Terminar Entrenamiento"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TerminarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jugador1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="13" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="jugador1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jugador2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="13" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="jugador2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="VS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="marcadorJugador1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="marcadorJugador2">
     </Component>
   </SubComponents>
 </Form>

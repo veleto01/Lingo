@@ -2,22 +2,21 @@ package partida;
 
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 import java.util.Arrays;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Clases.AlmacenPartidas;
-import urjc.poo.lingo.Clases.Usuario;
-import urjc.poo.lingo.Clases.Palabra;
+import urjc.poo.lingo.Clases.*;
 import java.util.*;
 import javax.swing.JTextField;
 import java.util.Random;
 import urjc.poo.lingo.Clases.Partida;
 import javax.swing.JOptionPane;
+import urjc.poo.lingo.Login.Iniciar;
+import urjc.poo.lingo.Login.Menu;
 
 public class partidaSeisLetras extends javax.swing.JFrame {
 
     private AlmacenUsuarios almacenUsuarios;
     AlmacenPartidas almacenPartidas;
+    AlmacenPalabras almacenPalabras;
     Usuario usuario1;
     Usuario usuario2;
     int palabras;
@@ -33,19 +32,17 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     boolean usuario1Jugando;
     boolean esEntrenamiento;
     Partida partidaJugando;
-    
-    
-    
     boolean pistaLetraNoUsada1;
     boolean pistaLetraNoUsada2;
-    
-    
-    
-    public partidaSeisLetras(AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada) {
+    boolean pistaPalabraNoUsadaEntrenamiento;
+    Entrenamiento entrenamiento;
+
+    public partidaSeisLetras(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada) {
         initComponents();
         gridLetras = new JTextField[30];
         almacenUsuarios = a;
         almacenPartidas = p;
+        almacenPalabras = pa;
         usuario1 = u1;
         usuario2 = u2;
         palabras = numeroPalabras;
@@ -98,15 +95,38 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         if (!pistaPalabraNoUsada2 && !usuario1Jugando) {
             this.pistaPalabra.setEnabled(false);
         }
-        if(usuario1Jugando) this.setTitle(u1.getNombre());
-        else this.setTitle(u2.getNombre());
+        if (usuario1Jugando) {
+            this.setTitle(u1.getNombre());
+        } else {
+            this.setTitle(u2.getNombre());
+        }
+        if (!esEntrenamiento) {
+            Terminar.show(false);
+        }
+        jugador1.setText(usuario1.getNombre());
+        jugador2.setText(usuario2.getNombre());
+        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
+        marcadorJugador1.setEditable(false);
+        marcadorJugador2.setEditable(false);
         this.setLocationRelativeTo(null);
-        
+
     }
 
-    public partidaSeisLetras(String pala) {
+    public partidaSeisLetras(AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra) {
+
         initComponents();
+        gridLetras = new JTextField[30];
         palabra = Arrays.asList(pala.split(""));
+        entrenamiento = e;
+        almacenPalabras = pa;
+        almacenUsuarios = u;
+        almacenPartidas = p;
+        pistaPalabraNoUsadaEntrenamiento = pistaPalabra;
+        esEntrenamiento = true;
+        contadorFila = 0;
+        contadorEnabled = 6;
+        contadorFila2 = 0;
         gridLetras[0] = letra11;//0
         gridLetras[1] = letra12;
         gridLetras[2] = letra13;
@@ -137,6 +157,15 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         gridLetras[27] = letra54;
         gridLetras[28] = letra55;
         gridLetras[29] = letra56;//30
+        if (!pistaPalabraNoUsadaEntrenamiento) {
+            this.pistaPalabra.setEnabled(false);
+        }
+        jugador1.show(false);
+        jugador2.show(false);
+        VS.show(false);
+        marcadorJugador1.show(false);
+        marcadorJugador2.show(false);
+        this.setTitle("ENTRENAMIENTO");
         this.setLocationRelativeTo(null);
     }
 
@@ -186,6 +215,12 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         comprobar = new javax.swing.JButton();
         pistaPalabra = new javax.swing.JButton();
         pistaLetra = new javax.swing.JButton();
+        Terminar = new javax.swing.JButton();
+        jugador1 = new javax.swing.JLabel();
+        jugador2 = new javax.swing.JLabel();
+        VS = new javax.swing.JLabel();
+        marcadorJugador1 = new javax.swing.JTextField();
+        marcadorJugador2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -655,13 +690,91 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        Terminar.setText("Terminar Entrenamiento");
+        Terminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TerminarActionPerformed(evt);
+            }
+        });
+
+        jugador1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jugador1.setText("jugador1");
+
+        jugador2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jugador2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jugador2.setText("jugador2");
+
+        VS.setText("VS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(marcadorJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(letra56, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(letra45, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra35, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra25, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(letra16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra46, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra26, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letra36, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(57, 57, 57))
+                                    .addComponent(pistaPalabra)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(VS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(marcadorJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(145, 145, 145))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(Terminar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pistaLetra)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(letra41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -677,59 +790,24 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                     .addComponent(letra42, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(letra32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(letra22, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pistaLetra))
+                            .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(letra33, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra43, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra53, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra23, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(letra24, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(letra44, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(letra34, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(letra56, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(letra15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(letra35, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(letra25, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(letra26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(letra16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(letra36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(letra45, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(32, 32, 32)
-                                            .addComponent(letra46, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pistaPalabra)))
-                .addGap(57, 57, 57))
+                .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jugador1)
+                    .addComponent(jugador2)
+                    .addComponent(VS))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(marcadorJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marcadorJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(letra12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -769,12 +847,14 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                     .addComponent(letra54, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra55, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(letra56, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                .addGap(18, 18, 18)
+                .addComponent(Terminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -1291,7 +1371,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }//GEN-LAST:event_letra54KeyTyped
 
     private void comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobarActionPerformed
-        
+
         String[] letras = new String[6];
         String s;
         Boolean[] esIgual = new Boolean[6];
@@ -1346,14 +1426,14 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         case 6:
                             usuario1.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador1(5);
-                            partidaJugando.setIntento1(5, palabraJugada);
+                            partidaJugando.setIntento1(1, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 12:
                             usuario1.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador1(4);
-                            partidaJugando.setIntento1(4, palabraJugada);
+                            partidaJugando.setIntento1(2, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
@@ -1367,36 +1447,42 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         case 24:
                             usuario1.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador1(2);
-                            partidaJugando.setIntento1(2, palabraJugada);
+                            partidaJugando.setIntento1(4, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     if (palabraJugada == palabras) {
+                        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+                        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Escoger otra palabra a jugar
                         palabraJugada += 1;
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1406,27 +1492,33 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario1.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador1(1);
-                        partidaJugando.setIntento1(1, palabraJugada);
+                        partidaJugando.setIntento1(5, palabraJugada);
                     }
                     if (palabraJugada == palabras) {
+                        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+                        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu = Menu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
@@ -1434,7 +1526,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1486,14 +1578,14 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         case 6:
                             usuario2.actualizarPuntos(5);
                             partidaJugando.actualizarMarcador2(5);
-                            partidaJugando.setIntento2(5, palabraJugada);
+                            partidaJugando.setIntento2(1, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
                         case 12:
                             usuario2.actualizarPuntos(4);
                             partidaJugando.actualizarMarcador2(4);
-                            partidaJugando.setIntento2(4, palabraJugada);
+                            partidaJugando.setIntento2(2, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
 
@@ -1507,36 +1599,40 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         case 24:
                             usuario2.actualizarPuntos(2);
                             partidaJugando.actualizarMarcador2(2);
-                            partidaJugando.setIntento2(2, palabraJugada);
+                            partidaJugando.setIntento2(4, palabraJugada);
                             JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
                     }
                     if (palabraJugada == palabras) {
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Escoger otra palabra a jugar
                         palabraJugada += 1;
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1546,27 +1642,33 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                         usuario2.actualizarPuntos(1);
                         partidaJugando.actualizarMarcador2(1);
-                        partidaJugando.setIntento2(1, palabraJugada);
+                        partidaJugando.setIntento2(5, palabraJugada);
                     }
                     if (palabraJugada == palabras) {
+                        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+                        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Fin de Partida", JOptionPane.INFORMATION_MESSAGE);
 
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
@@ -1574,16 +1676,104 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
                 }
                 //FIN USUARIO 2
             }
-        } else {
-            //partida siendo entrenamiento
 
+        } else {
+            //ENTRENAMIENTO
+            //Este for recoge las letras escritas en los jtextfield
+            for (int i = 0; i < 6; i++) {
+                JTextField aux = gridLetras[contadorFila2];
+                String stringaux = aux.getText().toLowerCase();
+                letras[i] = stringaux;
+                contadorFila2 += 1;
+            }
+
+            //Este for es el que comprueba y cambia las casillas de color
+            for (int i = 0; i < 6; i++) {
+                if (palabra.contains(letras[i])) {
+                    if (palabra.get(i).toLowerCase().equals(letras[i])) {
+                        gridLetras[contadorFila].setBackground(Color.green);
+                        esIgual[i] = true;
+                    } else {
+                        gridLetras[contadorFila].setBackground(Color.yellow);
+                    }
+                } else {
+                    gridLetras[contadorFila].setBackground(Color.gray);
+                }
+                contadorFila += 1;
+            }
+
+            //Este for comprueba si se ha acertado la palabra
+            for (int i = 0; i < 6 && esIgualEntero; i++) {
+                if (!esIgual[i]) {
+                    esIgualEntero = false;
+                }
+            }
+
+            if (!esIgualEntero && contadorFila <= 24) {
+
+                //Este for habilita las 6 casillas siguientes si hay
+                for (int i = 0; i < 6; i++) {
+                    gridLetras[this.contadorEnabled].enable();
+                    contadorEnabled += 1;
+                }
+
+            }
+            if (esIgualEntero && contadorFila <= 24) {
+                switch (contadorFila) {
+                    case 6:
+                        entrenamiento.actualizarPuntos(5);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE a la primera crack, +5 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 12:
+                        entrenamiento.actualizarPuntos(4);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE a la segunda, no esta mal, +4 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 18:
+                        entrenamiento.actualizarPuntos(3);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE a la tercera chaval, +3 puntos.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 24:
+                        entrenamiento.actualizarPuntos(2);
+                        JOptionPane.showMessageDialog(null, "ACERTASTE, por poquito casi se te lia, +2 puntitos.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+                //Escoger otra palabra a jugar
+                int contadorSeisLetras = almacenPalabras.getContador6();
+                Random r1 = new Random();
+                int posicionAleatoria = r1.nextInt(contadorSeisLetras);
+                Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
+                String aux2 = aux[posicionAleatoria].toString();
+                //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                this.setVisible(false);
+                otraSesion.setVisible(true);
+            }
+            if (contadorFila == 30) {
+                if (esIgualEntero) {
+                    JOptionPane.showMessageDialog(null, "ACERTASTE +1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
+                    entrenamiento.actualizarPuntos(1);
+                }
+                //Escoger otra palabra a jugar
+                int contadorSeisLetras = almacenPalabras.getContador6();
+                Random r1 = new Random();
+                int posicionAleatoria = r1.nextInt(contadorSeisLetras);
+                Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
+                String aux2 = aux[posicionAleatoria].toString();
+                //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                this.setVisible(false);
+                otraSesion.setVisible(true);
+            }
         }
 
     }//GEN-LAST:event_comprobarActionPerformed
@@ -1601,7 +1791,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(5);
-                            partidaJugando.setIntento1(5, palabraJugada);
+                            partidaJugando.setIntento1(1, palabraJugada);
                             usuario1.actualizarPuntos(5);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1613,7 +1803,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(4);
-                            partidaJugando.setIntento1(4, palabraJugada);
+                            partidaJugando.setIntento1(2, palabraJugada);
                             usuario1.actualizarPuntos(4);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1637,7 +1827,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(2);
-                            partidaJugando.setIntento1(2, palabraJugada);
+                            partidaJugando.setIntento1(4, palabraJugada);
                             usuario1.actualizarPuntos(2);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1649,7 +1839,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador1(1);
-                            partidaJugando.setIntento1(1, palabraJugada);
+                            partidaJugando.setIntento1(5, palabraJugada);
                             usuario1.actualizarPuntos(1);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1657,25 +1847,31 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                     partidaJugando.actualizarMarcador1(-3);
                     usuario1.actualizarPuntos(-3);
                     if (palabraJugada == palabras) {
+                        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+                        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
                         partidaJugando.setPistaPalabra1(false);
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
 
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
@@ -1685,7 +1881,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //Creo nueva partidaSeisLetras con todos los parametros casi iguales
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1701,7 +1897,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(5);
-                            partidaJugando.setIntento2(5, palabraJugada);
+                            partidaJugando.setIntento2(1, palabraJugada);
                             usuario2.actualizarPuntos(5);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1713,7 +1909,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(4);
-                            partidaJugando.setIntento2(4, palabraJugada);
+                            partidaJugando.setIntento2(2, palabraJugada);
                             usuario2.actualizarPuntos(4);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1737,7 +1933,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(2);
-                            partidaJugando.setIntento2(2, palabraJugada);
+                            partidaJugando.setIntento2(4, palabraJugada);
                             usuario2.actualizarPuntos(2);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1749,7 +1945,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                 contadorFila += 1;
                             }
                             partidaJugando.actualizarMarcador2(1);
-                            partidaJugando.setIntento2(1, palabraJugada);
+                            partidaJugando.setIntento2(5, palabraJugada);
                             usuario2.actualizarPuntos(1);
                             JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
                             break;
@@ -1757,24 +1953,30 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                     partidaJugando.actualizarMarcador2(-3);
                     usuario2.actualizarPuntos(-3);
                     if (palabraJugada == palabras) {
+                        marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
+                        marcadorJugador2.setText(Integer.toString(partidaJugando.getMarcador2()));
                         partidaJugando.setPistaPalabra2(false);
                         if (partidaJugando.getMarcador1() > partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 1 con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Ha ganado " + usuario1.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarGanadas(1);
                             usuario2.actualizarPerdidas(1);
+                            partidaJugando.setGanadorJugador1(true);
                         } else if (partidaJugando.getMarcador1() < partidaJugando.getMarcador2()) {
-                            s = "Ha ganado el jugador 2 con una puntuación de " + partidaJugando.getMarcador2();
+                            s = "Ha ganado " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador2();
                             usuario1.actualizarPerdidas(1);
                             usuario2.actualizarGanadas(1);
+                            partidaJugando.setGanadorJugador1(false);
                         } else {
-                            s = "Han quedado empate los jugadores con una puntuación de " + partidaJugando.getMarcador1();
+                            s = "Han quedado empate " + usuario1.getNombre() + " y " + usuario2.getNombre() + " con una puntuación de " + partidaJugando.getMarcador1();
                             usuario1.actualizarEmpatadas(1);
                             usuario2.actualizarEmpatadas(1);
+                            partidaJugando.setEmpataron(true);
                         }
                         JOptionPane.showMessageDialog(null, s, "Final Partida", JOptionPane.INFORMATION_MESSAGE);
-                        this.setVisible(false);
+                        this.dispose();
                         //Crear un nuevo menu con todo configurado con lo que ya hay.
-                        /*Menu nuevoMenu()*/
+                        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+                        nuevoMenu.setVisible(true);
                     } else {
                         //Empezar otra con el otro jugador
                         //Escoger otra palabra a jugar
@@ -1784,7 +1986,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1792,6 +1994,74 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         } else {
             //Pista palabra cuando es entrenamiento
+            if (pistaPalabraNoUsadaEntrenamiento) {
+
+                switch (contadorFila) {
+                    case 0:
+                        for (int i = 0; i < 6; i++) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                            contadorFila += 1;
+                        }
+                        entrenamiento.actualizarPuntos(5);
+                        JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +2 puntitos crack, siempre usalo la primera.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 6:
+                        for (int i = 0; i < 6; i++) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                            contadorFila += 1;
+                        }
+                        entrenamiento.actualizarPuntos(4);
+                        JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, +1 puntitos crack, era mejor usarlo antes", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 12:
+                        for (int i = 0; i < 6; i++) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                            contadorFila += 1;
+                        }
+                        entrenamiento.actualizarPuntos(3);
+                        JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, 0 puntitos crack,haberlo usado la primera hombre. ", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 18:
+                        for (int i = 0; i < 6; i++) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                            contadorFila += 1;
+                        }
+                        entrenamiento.actualizarPuntos(2);
+                        JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -1 punto", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+
+                    case 24:
+                        for (int i = 0; i < 6; i++) {
+                            gridLetras[contadorFila].setBackground(Color.green);
+                            gridLetras[contadorFila].setText(palabra.get(i).toUpperCase());
+                            contadorFila += 1;
+                        }
+                        entrenamiento.actualizarPuntos(1);
+                        JOptionPane.showMessageDialog(null, "Utilizaste comodin de palabra, -2 puntitos crack.", "", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                }
+                entrenamiento.actualizarPuntos(-3);
+                entrenamiento.setPistaPalabraNoUsada(false);
+                pistaPalabraNoUsadaEntrenamiento = false;
+                //Escoger otra palabra a jugar
+                int contadorSeisLetras = almacenPalabras.getContador6();
+                Random r1 = new Random();
+                int posicionAleatoria = r1.nextInt(contadorSeisLetras);
+                Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
+                String aux2 = aux[posicionAleatoria].toString();
+                //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                this.setVisible(false);
+                otraSesion.setVisible(true);
+
+            }
         }
 
     }//GEN-LAST:event_pistaPalabraActionPerformed
@@ -1825,6 +2095,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                             gridLetras[posicionLetraAleatoria + 24].setBackground(Color.green);
                             break;
                     }
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de letra, -1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                     partidaJugando.actualizarMarcador1(-1);
                     usuario1.actualizarPuntos(-1);
                     partidaJugando.setPistaLetra1(false, palabraJugada);
@@ -1854,14 +2125,57 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                             gridLetras[posicionLetraAleatoria + 24].setBackground(Color.green);
                             break;
                     }
+                    JOptionPane.showMessageDialog(null, "Utilizaste comodin de letra, -1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
                     partidaJugando.actualizarMarcador2(-1);
                     usuario2.actualizarPuntos(-1);
+                    partidaJugando.setPistaLetra2(false, palabraJugada);
+                    pistaLetra.setEnabled(false);
                 }
             }
         } else {
-            //Pista letra cuando es entrenamiento
+            //pista letra cuando es entrenamiento
+            switch (contadorFila) {
+                case 0:
+                    gridLetras[posicionLetraAleatoria].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria].setBackground(Color.green);
+                    break;
+                case 6:
+                    gridLetras[posicionLetraAleatoria + 6].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria + 6].setBackground(Color.green);
+                    break;
+                case 12:
+                    gridLetras[posicionLetraAleatoria + 12].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria + 12].setBackground(Color.green);
+                    break;
+                case 18:
+                    gridLetras[posicionLetraAleatoria + 18].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria + 18].setBackground(Color.green);
+                    break;
+                case 24:
+                    gridLetras[posicionLetraAleatoria + 24].setText(palabra.get(posicionLetraAleatoria).toUpperCase());
+                    gridLetras[posicionLetraAleatoria + 24].setBackground(Color.green);
+                    break;
+            }
+            JOptionPane.showMessageDialog(null, "Utilizaste comodin de letra, -1 puntito", "", JOptionPane.INFORMATION_MESSAGE);
+            entrenamiento.actualizarPuntos(-1);
+            pistaLetra.setEnabled(false);
         }
     }//GEN-LAST:event_pistaLetraActionPerformed
+
+    private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
+
+        String s = "Acabaste el entrenamiento con: ";
+        s = s + entrenamiento.getPuntos() + " puntos y ";
+        if (pistaPalabraNoUsadaEntrenamiento) {
+            s = s + "sin haber usado la pista de palabra";
+        } else {
+            s = s + "habiendo usado la pista de palabra";
+        }
+        JOptionPane.showMessageDialog(null, s, "FIN DE ENTRENAMIENTO", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        Iniciar i = new Iniciar(almacenPartidas, almacenUsuarios, almacenPalabras, true);
+        i.setVisible(true);
+    }//GEN-LAST:event_TerminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1899,7 +2213,11 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Terminar;
+    private javax.swing.JLabel VS;
     private javax.swing.JButton comprobar;
+    private javax.swing.JLabel jugador1;
+    private javax.swing.JLabel jugador2;
     private javax.swing.JTextField letra11;
     private javax.swing.JTextField letra12;
     private javax.swing.JTextField letra13;
@@ -1930,6 +2248,8 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     private javax.swing.JTextField letra54;
     private javax.swing.JTextField letra55;
     private javax.swing.JTextField letra56;
+    private javax.swing.JTextField marcadorJugador1;
+    private javax.swing.JTextField marcadorJugador2;
     private javax.swing.JButton pistaLetra;
     private javax.swing.JButton pistaPalabra;
     // End of variables declaration//GEN-END:variables
