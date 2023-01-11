@@ -1,10 +1,11 @@
+
 package urjc.poo.lingo;
 
 import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Login.Iniciar;
 
 
-public class LingoStart {
+public class Lingo {
 
     public static void main(String[] args) {
         AlmacenPartidas p = new AlmacenPartidas();
@@ -18,6 +19,6 @@ public class LingoStart {
         aU.añadirUsuario(PruebaPerfil);
         Iniciar ini = new Iniciar(p, aU, aPa, false);
         ini.setVisible(true);
-        
     }
+    
 }
