@@ -12,12 +12,14 @@ public class perrfilJugador extends javax.swing.JFrame {
 
     Usuario usu = new Usuario();
     AlmacenUsuarios aU;
+    AlmacenPartidas aP;
 
-    public perrfilJugador(AlmacenUsuarios a, Usuario u) {
+    public perrfilJugador(AlmacenUsuarios a, Usuario u,AlmacenPartidas app) {
         initComponents();
         this.setLocationRelativeTo(null);
         usu = u;
         aU = a;
+        aP = app;
         usuario.setText(usu.getNombre());
         ganadas.setText(Integer.toString(usu.getGanadas()));
         empatadas.setText(String.valueOf(usu.getEmpatadas()));
@@ -192,7 +194,7 @@ public class perrfilJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu iden = new Menu(aU, usu);
+        Menu iden = new Menu(aP,aU,usu);
         iden.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

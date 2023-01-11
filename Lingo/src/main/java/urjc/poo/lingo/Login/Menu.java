@@ -141,7 +141,7 @@ public class Menu extends javax.swing.JFrame {
     private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
         
         if (usu.isAdmin()){
-            administrador admin = new administrador ( aU, usu);
+            administrador admin = new administrador ( aU, usu,aP);
             admin.setVisible(true);
             this.setVisible(false);
         }else{
@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        perrfilJugador perfil = new perrfilJugador(aU, usu);
+        perrfilJugador perfil = new perrfilJugador(aU, usu,aP);
         perfil.setVisible(true);
         this.setVisible(false);
         

@@ -1,6 +1,7 @@
 package urjc.poo.lingo.Login;
 
 import javax.swing.JFrame;
+import urjc.poo.lingo.Clases.AlmacenPartidas;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.Usuario;
 
@@ -9,11 +10,13 @@ public class administrador extends javax.swing.JFrame {
 
     AlmacenUsuarios aU;
     Usuario usu;
-    public administrador( AlmacenUsuarios a, Usuario uusu) {
+    AlmacenPartidas aP;
+    public administrador( AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap) {
         initComponents();
         this.setLocationRelativeTo(null);
         aU = a;
         usu = uusu;
+        aP= ap;
     }
 
     public administrador(){
@@ -24,6 +27,7 @@ public class administrador extends javax.swing.JFrame {
 
         Baja = new javax.swing.JButton();
         Registrarse = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +45,13 @@ public class administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Perfil de jugadores");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -50,7 +61,11 @@ public class administrador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Registrarse)
                     .addComponent(Baja))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,22 +74,31 @@ public class administrador extends javax.swing.JFrame {
                 .addComponent(Baja)
                 .addGap(18, 18, 18)
                 .addComponent(Registrarse)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
-        
+        eliminarUsuario iden = new eliminarUsuario(new javax.swing.JDialog(),true, aU,usu,aP);
+        iden.setVisible(true);
     }//GEN-LAST:event_BajaActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
 
-        Registrar iden = new Registrar(new javax.swing.JDialog(),true, aU);
+        Registrar iden = new Registrar( aU,usu,aP);
         iden.setVisible(true);
 
     }//GEN-LAST:event_RegistrarseActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        perfilesAdministrador ventana = new perfilesAdministrador(aU,usu,aP);
+        ventana.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,5 +138,6 @@ public class administrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Baja;
     private javax.swing.JButton Registrarse;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
