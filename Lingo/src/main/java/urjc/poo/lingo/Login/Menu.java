@@ -19,8 +19,7 @@ public class Menu extends javax.swing.JFrame {
     boolean adminBool;
     private FileOutputStream file;
     private ObjectOutputStream output;
-    UsuariosOutput usuarioEscribir;
-    PartidasOutout partidasEscribir;
+
 
     public Menu(AlmacenPartidas p, AlmacenUsuarios a, AlmacenPalabras apa, Usuario u) {
 
@@ -29,8 +28,6 @@ public class Menu extends javax.swing.JFrame {
         aU = a;
         aPa = apa;
         usu = u;
-        usuarioEscribir = new UsuariosOutput();
-        partidasEscribir = new PartidasOutout();
         this.setTitle("Usuario activo: " + usu.getNombre());
 
         this.setLocationRelativeTo(null);
@@ -49,9 +46,6 @@ public class Menu extends javax.swing.JFrame {
         Admin = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         Perfil = new javax.swing.JButton();
-        Perfil1 = new javax.swing.JButton();
-        guardarUsuarios = new javax.swing.JButton();
-        guardarPartidas = new javax.swing.JButton();
         ranking = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,28 +84,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        Perfil1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Perfil1.setText("Estadísticas vs otro jugador");
-        Perfil1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Perfil1ActionPerformed(evt);
-            }
-        });
-
-        guardarUsuarios.setText("Guardar usuarios");
-        guardarUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarUsuariosActionPerformed(evt);
-            }
-        });
-
-        guardarPartidas.setText("Guardar partidas");
-        guardarPartidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarPartidasActionPerformed(evt);
-            }
-        });
-
         ranking.setText("Rankings");
         ranking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,20 +100,14 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                        .addComponent(Salir))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Salir, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(guardarUsuarios, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Jugar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(guardarPartidas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Jugar)
                             .addComponent(Perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Admin)
-                            .addComponent(Perfil1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ranking, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -151,25 +117,16 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Salir)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(guardarUsuarios)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Jugar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(guardarPartidas)))
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(Jugar)
                 .addGap(18, 18, 18)
                 .addComponent(Admin)
                 .addGap(18, 18, 18)
                 .addComponent(Perfil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(ranking)
-                .addGap(18, 18, 18)
-                .addComponent(Perfil1)
-                .addGap(15, 15, 15))
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -212,35 +169,6 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_PerfilActionPerformed
 
-    private void Perfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Perfil1ActionPerformed
-        perfilOtroJugador estadisticas = new perfilOtroJugador(aU, usu, aP, aPa);
-        estadisticas.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_Perfil1ActionPerformed
-
-    private void guardarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarUsuariosActionPerformed
-        try {
-            usuarioEscribir.eliminar();
-            usuarioEscribir.abrir();
-            usuarioEscribir.escribirUsuario(aU);
-            usuarioEscribir.cerrar();
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_guardarUsuariosActionPerformed
-
-
-    private void guardarPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPartidasActionPerformed
-        try {
-           partidasEscribir.eliminar();
-            partidasEscribir.abrir();
-            partidasEscribir.escribirUsuario(aP);
-            partidasEscribir.cerrar();
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_guardarPartidasActionPerformed
 
     private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
        Rankings Ranking = new Rankings(aU,aPa,aP, true, usu);
@@ -286,10 +214,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Admin;
     private javax.swing.JButton Jugar;
     private javax.swing.JButton Perfil;
-    private javax.swing.JButton Perfil1;
     private javax.swing.JButton Salir;
-    private javax.swing.JButton guardarPartidas;
-    private javax.swing.JButton guardarUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton ranking;
     // End of variables declaration//GEN-END:variables

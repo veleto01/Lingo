@@ -19,9 +19,9 @@ import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.AlmacenPalabras;
 import urjc.poo.lingo.Clases.Palabra;
 import urjc.poo.lingo.Clases.Partida;
-import urjc.poo.lingo.Clases.PartidasInput;
+
 import urjc.poo.lingo.Clases.Usuario;
-import urjc.poo.lingo.Clases.UsuariosInput;
+
 import urjc.poo.lingo.Clases.gestorFichero;
 
 public class Iniciar extends javax.swing.JDialog {
@@ -29,8 +29,7 @@ public class Iniciar extends javax.swing.JDialog {
     AlmacenPartidas almacenPartidas;
     AlmacenUsuarios almacenUsuarios;
     AlmacenPalabras almacenPalabras;
-    UsuariosInput entrada;
-    PartidasInput partidaEntrada;
+
 
     Container cont = getContentPane();
     Palabra[] palabraCincoLetras;
@@ -82,8 +81,6 @@ public class Iniciar extends javax.swing.JDialog {
         cargarAlmacenes = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        LeerFichero1 = new javax.swing.JButton();
-        CargarPartidas = new javax.swing.JButton();
 
         LeerFichero2.setText("Cargar usuarios");
         LeerFichero2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,20 +126,6 @@ public class Iniciar extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carge el fichero antes de entrar al juego por favor");
 
-        LeerFichero1.setText("Cargar usuarios");
-        LeerFichero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LeerFichero1ActionPerformed(evt);
-            }
-        });
-
-        CargarPartidas.setText("Cargar partidas");
-        CargarPartidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargarPartidasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,11 +147,7 @@ public class Iniciar extends javax.swing.JDialog {
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(LeerFichero1)
-                .addGap(18, 18, 18)
-                .addComponent(CargarPartidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cargarAlmacenes)
                 .addGap(48, 48, 48))
         );
@@ -184,10 +163,7 @@ public class Iniciar extends javax.swing.JDialog {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LeerFichero1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CargarPartidas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cargarAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cargarAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -275,42 +251,9 @@ public class Iniciar extends javax.swing.JDialog {
         cargarAlmacenes.setEnabled(false);
     }//GEN-LAST:event_cargarAlmacenesActionPerformed
 
-    private void LeerFichero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerFichero1ActionPerformed
-
-        entrada = new UsuariosInput();
-        try {
-            entrada.abrirFichero(); 
-            usuario_a_registrar = entrada.leer();
-            almacenUsuarios.añadirUsuario(usuario_a_registrar);
-            entrada.cerrar();
-        } catch (IOException ex) {
-            Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-                Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-
-    }//GEN-LAST:event_LeerFichero1ActionPerformed
-
     private void LeerFichero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerFichero2ActionPerformed
 
     }//GEN-LAST:event_LeerFichero2ActionPerformed
-
-    private void CargarPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarPartidasActionPerformed
-
-        partidaEntrada = new PartidasInput();
-        try {
-            partidaEntrada.abrirFichero(); 
-            partida_a_registrar = partidaEntrada.leer();
-            almacenPartidas.añadirPartida(partida_a_registrar);
-            partidaEntrada.cerrar();
-        } catch (IOException ex) {
-            Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-                Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-    }//GEN-LAST:event_CargarPartidasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,10 +299,8 @@ public class Iniciar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CargarPartidas;
     private javax.swing.JButton Entrenamiento;
     private javax.swing.JButton Identificate;
-    private javax.swing.JButton LeerFichero1;
     private javax.swing.JButton LeerFichero2;
     private javax.swing.JButton cargarAlmacenes;
     private javax.swing.JLabel jLabel1;
