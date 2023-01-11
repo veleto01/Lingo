@@ -42,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         Admin = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         Perfil = new javax.swing.JButton();
+        Rankings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Rankings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Rankings.setText("Rankings");
+        Rankings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RankingsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,6 +101,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(Salir))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Rankings)
                             .addComponent(Perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Admin)
                             .addComponent(Jugar))
@@ -111,7 +121,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(Admin)
                 .addGap(18, 18, 18)
                 .addComponent(Perfil)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Rankings)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,6 +166,13 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_PerfilActionPerformed
 
+    private void RankingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RankingsActionPerformed
+        Rankings Ranking = new Rankings(aU,aPa,aP);
+        
+        Ranking.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_RankingsActionPerformed
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -192,6 +211,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Admin;
     private javax.swing.JButton Jugar;
     private javax.swing.JButton Perfil;
+    private javax.swing.JButton Rankings;
     private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

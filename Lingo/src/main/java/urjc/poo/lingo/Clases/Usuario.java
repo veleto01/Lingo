@@ -1,6 +1,7 @@
 package urjc.poo.lingo.Clases;
 
-public class Usuario {
+public class Usuario implements Comparable {
+    
 
     private String nombre;
     private String contraseña;
@@ -8,6 +9,8 @@ public class Usuario {
     private int empatadas;
     private int perdidas;
     private int puntos;
+    
+    
 
     public int getGanadas() {
         return ganadas;
@@ -106,4 +109,9 @@ public class Usuario {
                 && p.getContraseña().equals(getContraseña()));
     }
 
+    @Override
+    public int compareTo (Object otro) {
+    Usuario p = (Usuario) otro;
+    return nombre.compareTo (p.getNombre());
+    }
 }

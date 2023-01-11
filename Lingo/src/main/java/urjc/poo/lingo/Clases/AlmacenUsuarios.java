@@ -14,11 +14,13 @@ public class AlmacenUsuarios {
     public void añadirUsuario(Usuario u) {
         
         usu.add(u);
+        
     }
     
     public void eliminarUsuario(Usuario u){
     
         usu.remove(u);
+        
     }
     
     public Usuario getUsu(int i) {
@@ -28,6 +30,10 @@ public class AlmacenUsuarios {
     public int tamañoAlmacen(){
         
         return usu.size();
+    }
+    
+    public ArrayList<Usuario> getArraylist(){
+        return usu;
     }
     
     @Override
