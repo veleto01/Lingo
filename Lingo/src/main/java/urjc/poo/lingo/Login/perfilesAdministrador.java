@@ -213,10 +213,15 @@ public class perfilesAdministrador extends javax.swing.JFrame {
         int indexNombre = perfilJugador.getSelectedIndex();
         
         usuario.setText(aU.getUsu(indexNombre).getNombre());       
-        ganadas.setText(Integer.toString( aU.getUsu(indexNombre).getGanadas()   ));
+        ganadas.setText(Integer.toString( aU.getUsu(indexNombre).getGanadas()));
         empatadas.setText(String.valueOf(aU.getUsu(indexNombre).getEmpatadas()));
         perdidas.setText(String.valueOf(aU.getUsu(indexNombre).getPerdidas()));
         puntosTotales.setText(String.valueOf(aU.getUsu(indexNombre).getPuntos()));
+        usuario.setEditable(false);
+        ganadas.setEditable(false);
+        empatadas.setEditable(false);
+        perdidas.setEditable(false);
+        puntosTotales.setEditable(false);
 
     }//GEN-LAST:event_perfilJugadorActionPerformed
 

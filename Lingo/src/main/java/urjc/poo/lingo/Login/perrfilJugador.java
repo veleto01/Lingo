@@ -28,6 +28,11 @@ public class perrfilJugador extends javax.swing.JFrame {
         empatadas.setText(String.valueOf(usu.getEmpatadas()));
         perdidas.setText(String.valueOf(usu.getPerdidas()));
         puntosTotales.setText(String.valueOf(usu.getPuntos()));
+        usuario.setEditable(false);
+        ganadas.setEditable(false);
+        empatadas.setEditable(false);
+        perdidas.setEditable(false);
+        puntosTotales.setEditable(false);
     }
 
     public perrfilJugador() {
