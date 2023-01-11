@@ -23,6 +23,10 @@ public class AlmacenPartidas {
         return partidas.get(i);
     }
     
+    public ArrayList getAlmacen(){
+        return partidas;
+    }
+    
     public int getPartidasCreadas(){
         return partidasCreadas;
     }

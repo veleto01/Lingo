@@ -30,6 +30,7 @@ public class administrador extends javax.swing.JFrame {
         Registrarse = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
+        infoPartidas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,38 +66,51 @@ public class administrador extends javax.swing.JFrame {
             }
         });
 
+        infoPartidas.setBackground(new java.awt.Color(255, 255, 255));
+        infoPartidas.setText("Informacion Partidas");
+        infoPartidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoPartidasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(114, 114, 114))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Salir)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Registrarse)
-                    .addComponent(Baja))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Registrarse)
+                            .addComponent(Baja))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(infoPartidas)))
+                .addGap(37, 37, 37)
+                .addComponent(Salir)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(Salir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Baja)
-                .addGap(18, 18, 18)
-                .addComponent(Registrarse)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(Salir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(Baja)
+                        .addGap(18, 18, 18)
+                        .addComponent(Registrarse)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(infoPartidas)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,7 +124,7 @@ public class administrador extends javax.swing.JFrame {
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
 
-        Registrar iden = new Registrar( aU,usu,aP,aPa);
+        Registrar iden = new Registrar(aU,usu,aP,aPa);
         this.dispose();
         iden.setVisible(true);
 
@@ -128,6 +142,12 @@ public class administrador extends javax.swing.JFrame {
         Menu nuevoMenu = new Menu(aP, aU, aPa, usu);
         nuevoMenu.setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void infoPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPartidasActionPerformed
+        InfoPartidas i = new InfoPartidas(aP, aU, aPa, usu);
+        this.dispose();
+        i.setVisible(true);
+    }//GEN-LAST:event_infoPartidasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +188,7 @@ public class administrador extends javax.swing.JFrame {
     private javax.swing.JButton Baja;
     private javax.swing.JButton Registrarse;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton infoPartidas;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

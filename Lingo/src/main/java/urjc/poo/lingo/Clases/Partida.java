@@ -105,22 +105,30 @@ public class Partida {
         //intentos por palabra jugador 1
         msg = msg + "\nEl jugador 1 acertó en los siguientes intentos por palabra:\n";
         if (palabras % 2 == 0) {
-            for (int i = 0; i < palabrasPartida.length / 2; i++) {
-                msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador1].toString() + " el jugador " + jugador1.getNombre() + " acertó en el intento " + (intentos1[i]) + "\n";
+            for (int i = 0; i < palabras / 2; i++) {
+                msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador1].toString() + " el jugador " + jugador1.getNombre();
+                if(intentos1[i] == 0) msg = msg + " no acertó\n";
+                else msg = msg + " acertó en el intento " + (intentos1[i]) + "\n";
                 contadorPalabrasJugadasPorJugador1 += 2;
             }
         } else {
-            for (int i = 0; i <= palabrasPartida.length / 2; i++) {
-                msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador2].toString() + " el jugador " + jugador2.getNombre() + " acertó en el intento " + (intentos1[i]) + "\n";
-                contadorPalabrasJugadasPorJugador2 += 2;
+            for (int i = 0; i <= palabras / 2; i++) {
+                msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador1].toString() + " el jugador " + jugador1.getNombre();
+                if(intentos1[i] == 0) msg = msg + " no acertó\n";
+                else msg = msg + " acertó en el intento " + (intentos1[i]) + "\n";
+                contadorPalabrasJugadasPorJugador1 += 2;
             }
         }
         //intentos por palabra jugador 2
         msg = msg + "El jugador 2 acertó en los siguientes intentos por palabra:\n";
         for (int i = 0; i < palabrasPartida.length / 2; i++) {
-            msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador2].toString() + " el jugador " + jugador2.getNombre() + " acertó en el intento " + (intentos1[i]) + "\n";
+            msg = msg + "Para la palabra " + palabrasPartida[contadorPalabrasJugadasPorJugador2].toString() + " el jugador " + jugador2.getNombre();
+                if(intentos2[i] == 0) msg = msg + " no acertó\n";
+                else msg = msg + " acertó en el intento " + (intentos2[i]) + "\n";
             contadorPalabrasJugadasPorJugador2 += 2;
         }
+        contadorPalabrasJugadasPorJugador1 = 0;
+        contadorPalabrasJugadasPorJugador2 = 1;
         //pistas de letra por palabra jugador 1
         msg = msg + "El jugador 1 usó las pistas de letra en las siguientes palabras:\n";
         if (palabras % 2 == 0) {
