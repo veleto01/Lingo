@@ -13,6 +13,7 @@ public class AlmacenPalabras{
     int numeroPalabras;
     int contadorPalabrasCincoLetras;
     int contadorPalabrasSeisLetras;
+    String primeraLetraOculta;
     
     public AlmacenPalabras(){
         palabrasCincoLetras = new Palabra[100];
@@ -20,6 +21,7 @@ public class AlmacenPalabras{
         numeroPalabras = 0;
         contadorPalabrasCincoLetras = 0;
         contadorPalabrasSeisLetras = 0;
+        primeraLetraOculta = "";
     }
 
     public void setPalabrasCincoLetras(Palabra[] palabras){
@@ -37,6 +39,10 @@ public class AlmacenPalabras{
     public void setContador(int contador5, int contador6){
         contadorPalabrasCincoLetras = contador5;
         contadorPalabrasSeisLetras = contador6;
+    }
+    
+    public void setPrimeraLetra(String s){
+        primeraLetraOculta = s;
     }
     
     public int getContador5(){
@@ -59,6 +65,9 @@ public class AlmacenPalabras{
         return numeroPalabras;
     }
     
+    public String getPrimeraLetraOculta(){
+        return primeraLetraOculta;
+    }
     
     
 }

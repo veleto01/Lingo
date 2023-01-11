@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import urjc.poo.lingo.Clases.Palabra;
+import urjc.poo.lingo.Login.Menu;
 
 public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
 
@@ -29,7 +30,8 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     int contadorpalabraCincoLetras;
     int contadorpalabraSeisLetras;
     int partidasCreadas;
-    
+    boolean primeraLetraOculta;
+
     public ElegirLetrasPartidaNormal(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2) {
         almacenUsuarios = a;
         almacenPartidas = p;
@@ -58,6 +60,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         seisLetras1 = new javax.swing.JButton();
         cincoLetras1 = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,21 +82,32 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }
         });
 
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(cincoLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel2))
+                        .addContainerGap()
+                        .addComponent(Cancelar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(cincoLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +117,9 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cincoLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(seisLetras1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(Cancelar)
+                .addContainerGap())
         );
 
         pack();
@@ -130,58 +146,65 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
 
     private void seisLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisLetras1ActionPerformed
 
-            JOptionPane.showMessageDialog(null, "A JUGAR", "", JOptionPane.INFORMATION_MESSAGE);
-            Random r1 = new Random();
-            int posicionAleatoria = r1.nextInt(contadorpalabraSeisLetras);
-            //Creo arrayLocal de palabras
-            Palabra[] local = new Palabra[numeroPalabras];
-            //Lo lleno de palabras del fichero
-            for (int i = 0; i < numeroPalabras; i++) {
-                if (palabraSeisLetras[posicionAleatoria] == null) {
-                    posicionAleatoria = posicionAleatoria - 10;
-                }
-                local[i] = palabraSeisLetras[posicionAleatoria];
-                posicionAleatoria+=1;
+        JOptionPane.showMessageDialog(null, "A JUGAR", "", JOptionPane.INFORMATION_MESSAGE);
+        Random r1 = new Random();
+        int posicionAleatoria = r1.nextInt(contadorpalabraSeisLetras);
+        //Creo arrayLocal de palabras
+        Palabra[] local = new Palabra[numeroPalabras];
+        //Lo lleno de palabras del fichero
+        for (int i = 0; i < numeroPalabras; i++) {
+            if (palabraSeisLetras[posicionAleatoria] == null) {
+                posicionAleatoria = posicionAleatoria - 10;
             }
-            Partida nuevaPartida = new Partida(usuario1, usuario2, local);
-            almacenPartidas.añadirPartida(nuevaPartida);
-            partidasCreadas = partidasCreadas + 1;
-            String aux = local[0].toString();
-            //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
-            partidaSeisLetras p1 = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, partidasCreadas-1, true, true, true, 0);
-            this.setVisible(false);
-            p1.setVisible(true);
-            
-        
+            local[i] = palabraSeisLetras[posicionAleatoria];
+            posicionAleatoria += 1;
+        }
+        Partida nuevaPartida = new Partida(usuario1, usuario2, local);
+        almacenPartidas.añadirPartida(nuevaPartida);
+        partidasCreadas = partidasCreadas + 1;
+        String aux = local[0].toString();
+        primeraLetraOculta = almacenPalabras.getPrimeraLetraOculta().equals("no");
+        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
+        partidaSeisLetras p1 = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, partidasCreadas - 1, true, true, true, 0, primeraLetraOculta);
+        this.setVisible(false);
+        p1.setVisible(true);
+
+
     }//GEN-LAST:event_seisLetras1ActionPerformed
 
     private void cincoLetras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoLetras1ActionPerformed
-       
-            JOptionPane.showMessageDialog(null, "A JUGAR", "", JOptionPane.INFORMATION_MESSAGE);
-            Random r1 = new Random();
-            int posicionAleatoria = r1.nextInt(contadorpalabraCincoLetras);
-            //Creo arrayLocal de palabras
-            Palabra[] local = new Palabra[numeroPalabras];
-            for (int i = 0; i < numeroPalabras; i++) {
-                if (palabraCincoLetras[posicionAleatoria] == null) {
-                    posicionAleatoria = posicionAleatoria - 10;
-                }
-                local[i] = palabraCincoLetras[posicionAleatoria];
-                posicionAleatoria+=1;
+
+        JOptionPane.showMessageDialog(null, "A JUGAR", "", JOptionPane.INFORMATION_MESSAGE);
+        Random r1 = new Random();
+        int posicionAleatoria = r1.nextInt(contadorpalabraCincoLetras);
+        //Creo arrayLocal de palabras
+        Palabra[] local = new Palabra[numeroPalabras];
+        for (int i = 0; i < numeroPalabras; i++) {
+            if (palabraCincoLetras[posicionAleatoria] == null) {
+                posicionAleatoria = posicionAleatoria - 10;
             }
-            Partida nuevaPartida = new Partida(usuario1, usuario2, local);
-            almacenPartidas.añadirPartida(nuevaPartida);
-            partidasCreadas = partidasCreadas + 1;
-            
-            String aux = local[0].toString();
-            //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
-            partidaCincoLetras p1 = new partidaCincoLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, partidasCreadas - 1, true, true, true, 0);
-            this.setVisible(false);
-            p1.setVisible(true);
-        
+            local[i] = palabraCincoLetras[posicionAleatoria];
+            posicionAleatoria += 1;
+        }
+        Partida nuevaPartida = new Partida(usuario1, usuario2, local);
+        almacenPartidas.añadirPartida(nuevaPartida);
+        partidasCreadas = partidasCreadas + 1;
+        String aux = local[0].toString();
+        primeraLetraOculta = almacenPalabras.getPrimeraLetraOculta().equals("no");
+        //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
+        partidaCincoLetras p1 = new partidaCincoLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, numeroPalabras - 1, aux, partidasCreadas - 1, true, true, true, 0, primeraLetraOculta);
+        this.setVisible(false);
+        p1.setVisible(true);
+
 
     }//GEN-LAST:event_cincoLetras1ActionPerformed
 
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        //AlmacenPartidas p, AlmacenUsuarios a, AlmacenPalabras apa, Usuario u
+        this.dispose();
+        Menu nuevoMenu = new Menu(almacenPartidas, almacenUsuarios, almacenPalabras, usuario1);
+        nuevoMenu.setVisible(true);
+    }//GEN-LAST:event_CancelarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -216,6 +239,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
     private javax.swing.JButton cincoLetras1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton seisLetras1;

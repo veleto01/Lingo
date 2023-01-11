@@ -12,6 +12,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
     AlmacenPartidas aP;
     int contadorPalabraCincoLetras;
     int contadorPalabraSeisLetras;
+    boolean primeraLetraOculta;
     
     
     public elegirLetrasEntrenamiento(AlmacenPalabras apa, AlmacenUsuarios u, AlmacenPartidas a) {
@@ -21,6 +22,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
         aP = a;
         contadorPalabraCincoLetras = aPa.getContador5();
         contadorPalabraSeisLetras = aPa.getContador6();
+        primeraLetraOculta = aPa.getPrimeraLetraOculta().equals("no");
         this.setLocationRelativeTo(null);
     }
     
@@ -109,7 +111,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
         Palabra[] palabrasCinco = aPa.getPalabrasCincoLetras();
         String aux = palabrasCinco[posicionAleatoria].toString();
         Entrenamiento e = new Entrenamiento();
-        partidaCincoLetras partida = new partidaCincoLetras(aP, aU, aPa, e, aux, true);
+        partidaCincoLetras partida = new partidaCincoLetras(aP, aU, aPa, e, aux, true, primeraLetraOculta);
         partida.setVisible(true);
         this.dispose();
         
@@ -123,7 +125,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
         Palabra[] palabrasSeis = aPa.getPalabrasSeisLetras();
         String aux = palabrasSeis[posicionAleatoria].toString();
         Entrenamiento e = new Entrenamiento();
-        partidaSeisLetras partida = new partidaSeisLetras(aP, aU, aPa, e, aux, true);
+        partidaSeisLetras partida = new partidaSeisLetras(aP, aU, aPa, e, aux, true, primeraLetraOculta);
         partida.setVisible(true);
         this.dispose();
        

@@ -35,9 +35,10 @@ public class partidaSeisLetras extends javax.swing.JFrame {
     boolean pistaLetraNoUsada1;
     boolean pistaLetraNoUsada2;
     boolean pistaPalabraNoUsadaEntrenamiento;
+    boolean primeraLetraOculta;
     Entrenamiento entrenamiento;
 
-    public partidaSeisLetras(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada) {
+    public partidaSeisLetras(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada, boolean pLetraOculta) {
         initComponents();
         gridLetras = new JTextField[30];
         almacenUsuarios = a;
@@ -56,6 +57,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         pistaPalabraNoUsada2 = pistaPalabra2;
         pistaLetraNoUsada1 = true;
         pistaLetraNoUsada2 = true;
+        primeraLetraOculta = pLetraOculta;
         partidaJugando = almacenPartidas.getPartida(contadorPartida);
         usuario1Jugando = usu1Jugando;
         esEntrenamiento = false;
@@ -103,6 +105,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         if (!esEntrenamiento) {
             Terminar.show(false);
         }
+        if(!primeraLetraOculta && contadorFila < 6) gridLetras[0].setText(palabra.get(0).toUpperCase());
         jugador1.setText(usuario1.getNombre());
         jugador2.setText(usuario2.getNombre());
         marcadorJugador1.setText(Integer.toString(partidaJugando.getMarcador1()));
@@ -113,7 +116,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
 
     }
 
-    public partidaSeisLetras(AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra) {
+    public partidaSeisLetras(AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra, boolean pLetraOculta) {
 
         initComponents();
         gridLetras = new JTextField[30];
@@ -123,6 +126,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         almacenUsuarios = u;
         almacenPartidas = p;
         pistaPalabraNoUsadaEntrenamiento = pistaPalabra;
+        primeraLetraOculta = pLetraOculta;
         esEntrenamiento = true;
         contadorFila = 0;
         contadorEnabled = 6;
@@ -160,6 +164,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
         if (!pistaPalabraNoUsadaEntrenamiento) {
             this.pistaPalabra.setEnabled(false);
         }
+        if(!primeraLetraOculta && contadorFila < 6) gridLetras[0].setText(palabra.get(0).toUpperCase());
         jugador1.show(false);
         jugador2.show(false);
         VS.show(false);
@@ -1482,7 +1487,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenPartidas p, AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, int contadorPartida, boolean pistaPalabra1, boolean pistaPalabra2, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1526,7 +1531,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1632,7 +1637,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1676,7 +1681,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1754,7 +1759,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                 Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
                 String aux2 = aux[posicionAleatoria].toString();
                 //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
-                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento, primeraLetraOculta);
                 this.setVisible(false);
                 otraSesion.setVisible(true);
             }
@@ -1770,7 +1775,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                 Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
                 String aux2 = aux[posicionAleatoria].toString();
                 //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
-                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento, primeraLetraOculta);
                 this.setVisible(false);
                 otraSesion.setVisible(true);
             }
@@ -1881,7 +1886,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //Creo nueva partidaSeisLetras con todos los parametros casi iguales
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, false, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -1986,7 +1991,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                         Palabra[] aux = partidaJugando.getPalabras();
                         String aux2 = aux[palabraJugada].toString();
                         //AlmacenUsuarios a, Usuario u1, Usuario u2, int numeroPalabras, String pala, Partida p, boolean pistaPalabra, boolean usu1Jugando, int palaJugada
-                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada);
+                        partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPalabras, almacenPartidas, almacenUsuarios, usuario1, usuario2, palabras, aux2, index, pistaPalabraNoUsada1, pistaPalabraNoUsada2, true, palabraJugada, primeraLetraOculta);
                         this.setVisible(false);
                         otraSesion.setVisible(true);
                     }
@@ -2057,7 +2062,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                 Palabra[] aux = almacenPalabras.getPalabrasSeisLetras();
                 String aux2 = aux[posicionAleatoria].toString();
                 //AlmacenPalabras pa, Entrenamiento e, String pala, boolean pistaPalabra
-                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento);
+                partidaSeisLetras otraSesion = new partidaSeisLetras(almacenPartidas, almacenUsuarios, almacenPalabras, entrenamiento, aux2, pistaPalabraNoUsadaEntrenamiento, primeraLetraOculta);
                 this.setVisible(false);
                 otraSesion.setVisible(true);
 

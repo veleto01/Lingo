@@ -67,6 +67,11 @@ public class eliminarUsuario extends javax.swing.JFrame {
         });
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Eliminar Usuario");
@@ -193,6 +198,13 @@ public class eliminarUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Tusuario1ActionPerformed
 
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        //AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap, AlmacenPalabras apa
+        this.dispose();
+        administrador a = new administrador(aU, usu, aP, aPa);
+        a.setVisible(true);
+    }//GEN-LAST:event_CancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,7 +244,6 @@ public class eliminarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton Cancelar;
     private javax.swing.JButton Registrarse;
     private javax.swing.JTextField Tcontraseña;
-    private javax.swing.JTextField Tusuario;
     private javax.swing.JTextField Tusuario1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
