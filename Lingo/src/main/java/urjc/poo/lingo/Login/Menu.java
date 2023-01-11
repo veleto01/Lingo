@@ -137,7 +137,7 @@ public class Menu extends javax.swing.JFrame {
         
         if (usu.isAdmin()){
             administrador admin = new administrador ( aU, usu,aP,aPa);
-
+            admin.setVisible(true);
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Este usuario no es Administrador", "Usuario no válido", JOptionPane.INFORMATION_MESSAGE);
