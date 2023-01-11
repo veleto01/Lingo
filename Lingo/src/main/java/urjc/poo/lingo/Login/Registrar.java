@@ -71,6 +71,11 @@ public class Registrar extends javax.swing.JDialog {
         });
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,6 +201,13 @@ public class Registrar extends javax.swing.JDialog {
 
 
     }//GEN-LAST:event_RegistrarseActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+       //AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap, AlmacenPalabras apa
+       this.dispose();
+       administrador a = new administrador(aU, t, aP, aPa);
+       a.setVisible(true);
+    }//GEN-LAST:event_CancelarActionPerformed
 
     /**
      * @param args the command line arguments

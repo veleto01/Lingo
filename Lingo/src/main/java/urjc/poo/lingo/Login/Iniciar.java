@@ -34,6 +34,7 @@ public class Iniciar extends javax.swing.JDialog{
     int contadorpalabraCincoLetras;
     int contadorpalabraSeisLetras;
     boolean activado;
+    String primeraLetraOculta;
     File fichero;
     
     public Iniciar(AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras apa, boolean act) {
@@ -221,6 +222,7 @@ public class Iniciar extends javax.swing.JDialog{
                 line = br.readLine();
                 String[] parts = line.split(" ");
                 String part2 = parts[1];
+                primeraLetraOculta = parts[2];
                 numeroPalabras = Integer.parseInt(part2);
             }
         } catch (IOException e) {
@@ -230,6 +232,7 @@ public class Iniciar extends javax.swing.JDialog{
         almacenPalabras.setPalabrasCincoLetras(palabraCincoLetras);
         almacenPalabras.setPalabrasSeisLetras(palabraSeisLetras);
         almacenPalabras.setContador(contadorpalabraCincoLetras, contadorpalabraSeisLetras);
+        almacenPalabras.setPrimeraLetra(primeraLetraOculta);
         activado = true;
         Entrenamiento.setEnabled(true);
         Identificate.setEnabled(true);

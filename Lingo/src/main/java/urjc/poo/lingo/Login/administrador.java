@@ -29,9 +29,11 @@ public class administrador extends javax.swing.JFrame {
         Baja = new javax.swing.JButton();
         Registrarse = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Baja.setBackground(new java.awt.Color(255, 255, 255));
         Baja.setText("Dar de baja");
         Baja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -39,6 +41,7 @@ public class administrador extends javax.swing.JFrame {
             }
         });
 
+        Registrarse.setBackground(new java.awt.Color(255, 255, 255));
         Registrarse.setText("Registrarse");
         Registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +49,7 @@ public class administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Perfil de jugadores");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,25 +57,40 @@ public class administrador extends javax.swing.JFrame {
             }
         });
 
+        Salir.setBackground(new java.awt.Color(255, 255, 255));
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Salir)
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Registrarse)
                     .addComponent(Baja))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(12, 12, 12)
+                .addComponent(Salir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Baja)
                 .addGap(18, 18, 18)
                 .addComponent(Registrarse)
@@ -85,21 +104,30 @@ public class administrador extends javax.swing.JFrame {
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
         eliminarUsuario iden = new eliminarUsuario(new javax.swing.JDialog(),true, aU,usu,aP,aPa);
+        this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_BajaActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
 
         Registrar iden = new Registrar( aU,usu,aP,aPa);
+        this.dispose();
         iden.setVisible(true);
 
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         perfilesAdministrador ventana = new perfilesAdministrador(aU,usu,aP,aPa);
+        this.dispose();
         ventana.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        //AlmacenPartidas p, AlmacenUsuarios a, AlmacenPalabras apa, Usuario u
+        this.dispose();
+        Menu nuevoMenu = new Menu(aP, aU, aPa, usu);
+        nuevoMenu.setVisible(true);
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +167,7 @@ public class administrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Baja;
     private javax.swing.JButton Registrarse;
+    private javax.swing.JButton Salir;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
