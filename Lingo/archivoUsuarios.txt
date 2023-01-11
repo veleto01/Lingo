@@ -1,0 +1,23 @@
+Usuario admin:
+
+usuario: admin
+pw: 1234
+
+
+
+
+
+
+Usuario normal:
+
+usuario: Sergio
+pw:1234
+
+usuario: Morales
+pw:1234
+
+usuario: Carlos
+pw: 1234
+
+
+El único usuario que contiene estadísticas precargadas ya es el usuario de "carlos"
