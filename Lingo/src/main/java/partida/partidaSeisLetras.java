@@ -674,6 +674,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        comprobar.setBackground(new java.awt.Color(255, 255, 255));
         comprobar.setText("Comprobar");
         comprobar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -681,6 +682,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaPalabra.setBackground(new java.awt.Color(255, 255, 255));
         pistaPalabra.setText("Pista de Palabra");
         pistaPalabra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -688,6 +690,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaLetra.setBackground(new java.awt.Color(255, 255, 255));
         pistaLetra.setText("Pista de Letra");
         pistaLetra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -695,6 +698,7 @@ public class partidaSeisLetras extends javax.swing.JFrame {
             }
         });
 
+        Terminar.setBackground(new java.awt.Color(255, 255, 255));
         Terminar.setText("Terminar Entrenamiento");
         Terminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -754,9 +758,9 @@ public class partidaSeisLetras extends javax.swing.JFrame {
                                             .addComponent(letra16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(letra46, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(letra26, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(letra36, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(57, 57, 57))
-                                    .addComponent(pistaPalabra)))
+                                            .addComponent(letra36, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(pistaPalabra))
+                                .addGap(57, 57, 57))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(letra14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)

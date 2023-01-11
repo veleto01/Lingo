@@ -59,6 +59,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
         });
 
+        Eliminar.setBackground(new java.awt.Color(255, 255, 255));
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +67,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
             }
         });
 
+        Cancelar.setBackground(new java.awt.Color(255, 255, 255));
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

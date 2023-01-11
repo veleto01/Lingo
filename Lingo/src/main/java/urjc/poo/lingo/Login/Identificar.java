@@ -69,6 +69,7 @@ public class Identificar extends javax.swing.JDialog {
             }
         });
 
+        Entrar.setBackground(new java.awt.Color(255, 255, 255));
         Entrar.setText("Entrar");
         Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class Identificar extends javax.swing.JDialog {
             }
         });
 
+        Cancelar.setBackground(new java.awt.Color(255, 255, 255));
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

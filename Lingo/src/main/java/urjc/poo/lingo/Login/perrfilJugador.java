@@ -81,6 +81,7 @@ public class perrfilJugador extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
         jLabel6.setText("Puntos totales:");
 
+        Salir.setBackground(new java.awt.Color(255, 255, 255));
         Salir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {

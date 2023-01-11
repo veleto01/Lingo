@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package urjc.poo.lingo.Clases;
 
-/**
- *
- * @author morla
- */
-public class ComparatorRankingV {
-    
+import java.util.Comparator;
+
+public class ComparatorRankingV implements Comparator {
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Usuario u1 = (Usuario) o1;
+        Usuario u2 = (Usuario) o2;
+        return u2.getGanadas() - u1.getGanadas();
+    }
 }

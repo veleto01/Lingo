@@ -68,6 +68,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
         jLabel2.setText("Elija el número de letras");
         jLabel2.setToolTipText("");
 
+        seisLetras1.setBackground(new java.awt.Color(255, 255, 255));
         seisLetras1.setText("6 Letras");
         seisLetras1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +76,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }
         });
 
+        cincoLetras1.setBackground(new java.awt.Color(255, 255, 255));
         cincoLetras1.setText("5 Letras");
         cincoLetras1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +84,7 @@ public class ElegirLetrasPartidaNormal extends javax.swing.JFrame {
             }
         });
 
+        Cancelar.setBackground(new java.awt.Color(255, 255, 255));
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

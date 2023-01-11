@@ -42,6 +42,7 @@ public class Modo extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
         jLabel1.setText("ELIJA EL MODO");
 
+        Contraotro.setBackground(new java.awt.Color(255, 255, 255));
         Contraotro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Contraotro.setText("1 vs 1 contra otro jugador");
         Contraotro.addActionListener(new java.awt.event.ActionListener() {
@@ -50,6 +51,7 @@ public class Modo extends javax.swing.JDialog {
             }
         });
 
+        Salir.setBackground(new java.awt.Color(255, 255, 255));
         Salir.setText("Cancelar");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

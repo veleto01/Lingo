@@ -560,6 +560,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        comprobar.setBackground(new java.awt.Color(255, 255, 255));
         comprobar.setText("Comprobar");
         comprobar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -567,6 +568,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaPalabra.setBackground(new java.awt.Color(255, 255, 255));
         pistaPalabra.setText("Pista de Palabra");
         pistaPalabra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -574,6 +576,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        pistaLetra.setBackground(new java.awt.Color(255, 255, 255));
         pistaLetra.setText("Pista de Letra");
         pistaLetra.setMaximumSize(new java.awt.Dimension(117, 25));
         pistaLetra.setMinimumSize(new java.awt.Dimension(117, 25));
@@ -584,6 +587,7 @@ public class partidaCincoLetras extends javax.swing.JFrame {
             }
         });
 
+        Terminar.setBackground(new java.awt.Color(255, 255, 255));
         Terminar.setText("Terminar Entrenamiento");
         Terminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

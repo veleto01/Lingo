@@ -514,6 +514,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="comprobar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Comprobar"/>
       </Properties>
       <Events>
@@ -522,6 +525,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="pistaPalabra">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Pista de Palabra"/>
       </Properties>
       <Events>
@@ -530,6 +536,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="pistaLetra">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Pista de Letra"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[117, 25]"/>
@@ -547,6 +556,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Terminar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Terminar Entrenamiento"/>
       </Properties>
       <Events>

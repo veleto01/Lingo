@@ -112,6 +112,6 @@ public class Usuario implements Comparable {
     @Override
     public int compareTo (Object otro) {
     Usuario p = (Usuario) otro;
-    return nombre.compareTo (p.getNombre());
+    return nombre.compareToIgnoreCase(p.getNombre());
     }
 }

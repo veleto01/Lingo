@@ -63,6 +63,7 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
 
+        Registrarse.setBackground(new java.awt.Color(255, 255, 255));
         Registrarse.setText("Registrarse");
         Registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
 
+        Cancelar.setBackground(new java.awt.Color(255, 255, 255));
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

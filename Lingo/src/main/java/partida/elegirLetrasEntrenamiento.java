@@ -42,6 +42,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        cincoLetras.setBackground(new java.awt.Color(255, 255, 255));
         cincoLetras.setText("5 Letras");
         cincoLetras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +50,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
             }
         });
 
+        seisLetras1.setBackground(new java.awt.Color(255, 255, 255));
         seisLetras1.setText("6 Letras");
         seisLetras1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +63,7 @@ public class elegirLetrasEntrenamiento extends javax.swing.JFrame {
         jLabel2.setText("Elija el número de letras para jugar");
         jLabel2.setToolTipText("");
 
+        Cancelar.setBackground(new java.awt.Color(255, 255, 255));
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

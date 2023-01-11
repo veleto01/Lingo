@@ -49,6 +49,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setText("MENU");
 
+        Jugar.setBackground(new java.awt.Color(255, 255, 255));
         Jugar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Jugar.setText("Jugar");
         Jugar.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +58,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Admin.setBackground(new java.awt.Color(255, 255, 255));
         Admin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Admin.setText("Modo Administrador");
         Admin.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +67,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Salir.setBackground(new java.awt.Color(255, 255, 255));
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +75,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Perfil.setBackground(new java.awt.Color(255, 255, 255));
         Perfil.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Perfil.setText("Perfil");
         Perfil.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +84,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Rankings.setBackground(new java.awt.Color(255, 255, 255));
         Rankings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Rankings.setText("Rankings");
         Rankings.addActionListener(new java.awt.event.ActionListener() {
@@ -121,9 +126,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(Admin)
                 .addGap(18, 18, 18)
                 .addComponent(Perfil)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(Rankings)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -167,10 +172,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_PerfilActionPerformed
 
     private void RankingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RankingsActionPerformed
-        Rankings Ranking = new Rankings(aU,aPa,aP);
+        Rankings Ranking = new Rankings(aU,aPa,aP, true, usu);
         
+        this.dispose();
         Ranking.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_RankingsActionPerformed
 
     
