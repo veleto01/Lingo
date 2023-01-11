@@ -6,6 +6,8 @@ import urjc.poo.lingo.Clases.*;
 
 public class AlmacenPartidas {
     
+    Partida p;
+    int index;
     private ArrayList<Partida> partidas;
     private int partidasCreadas;
     
@@ -23,10 +25,20 @@ public class AlmacenPartidas {
         return partidas.get(i);
     }
     
+
     public ArrayList getAlmacen(){
         return partidas;
     }
     
+
+    public int tamañoAlmacen(){
+        
+        return partidas.size();
+    }
+    
+    
+    
+
     public int getPartidasCreadas(){
         return partidasCreadas;
     }

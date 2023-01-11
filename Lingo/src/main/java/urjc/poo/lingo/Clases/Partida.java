@@ -1,9 +1,10 @@
 package urjc.poo.lingo.Clases;
 
+import java.io.Serializable;
 import urjc.poo.lingo.Clases.*;
 
-public class Partida {
-
+public class Partida implements Serializable{
+    Partida partidaBuscada;
     Usuario jugador1, jugador2;
     int marcador1, marcador2;
     Palabra[] palabrasPartida;
@@ -27,6 +28,9 @@ public class Partida {
         pistaLetraNoUsada2 = new boolean[palaPartida.length];
     }
 
+    public Partida(){
+    }
+    
     public void setPistaPalabra1(boolean usada) {
         pistaPalabraNoUsada1 = usada;
     }
@@ -78,7 +82,19 @@ public class Partida {
     public Palabra[] getPalabras() {
         return palabrasPartida.clone();
     }
-
+    
+    public Usuario getUsuario1(){
+        return jugador1;
+    }
+    
+    
+    public Usuario getUsuario2(){
+        return jugador2;
+    }
+    
+    
+    
+    
     @Override
     public String toString() {
         int contadorPalabrasJugadasPorJugador1 = 0;

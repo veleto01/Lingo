@@ -1,4 +1,3 @@
-
 package urjc.poo.lingo.Login;
 
 import java.awt.Container;
@@ -7,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StreamTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -17,16 +18,20 @@ import urjc.poo.lingo.Clases.AlmacenPartidas;
 import urjc.poo.lingo.Clases.AlmacenUsuarios;
 import urjc.poo.lingo.Clases.AlmacenPalabras;
 import urjc.poo.lingo.Clases.Palabra;
+import urjc.poo.lingo.Clases.Partida;
+import urjc.poo.lingo.Clases.PartidasInput;
 import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.UsuariosInput;
+import urjc.poo.lingo.Clases.gestorFichero;
 
+public class Iniciar extends javax.swing.JDialog {
 
-
-
-public class Iniciar extends javax.swing.JDialog{
-    
     AlmacenPartidas almacenPartidas;
     AlmacenUsuarios almacenUsuarios;
     AlmacenPalabras almacenPalabras;
+    UsuariosInput entrada;
+    PartidasInput partidaEntrada;
+
     Container cont = getContentPane();
     Palabra[] palabraCincoLetras;
     Palabra[] palabraSeisLetras;
@@ -36,9 +41,11 @@ public class Iniciar extends javax.swing.JDialog{
     boolean activado;
     String primeraLetraOculta;
     File fichero;
-    
+    Usuario usuario_a_registrar;
+    Partida partida_a_registrar;
+
     public Iniciar(AlmacenPartidas p, AlmacenUsuarios u, AlmacenPalabras apa, boolean act) {
-        
+
         initComponents();
         almacenPartidas = p;
         almacenUsuarios = u;
@@ -48,36 +55,47 @@ public class Iniciar extends javax.swing.JDialog{
         numeroPalabras = 0;
         contadorpalabraCincoLetras = 0;
         contadorpalabraSeisLetras = 0;
+        usuario_a_registrar = new Usuario();
+        partida_a_registrar = new Partida();
         activado = act;
-        if(activado){
+        if (activado) {
             Entrenamiento.setEnabled(true);
             Identificate.setEnabled(true);
-            LeerFichero.setEnabled(false);
+            cargarAlmacenes.setEnabled(false);
         }
-        this.setLocationRelativeTo(null);       
+        this.setLocationRelativeTo(null);
     }
-    
+
     public Iniciar() {
-        
+
         initComponents();
-        this.setLocationRelativeTo(null);       
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LeerFichero2 = new javax.swing.JButton();
         Identificate = new javax.swing.JButton();
         Entrenamiento = new javax.swing.JButton();
-        LeerFichero = new javax.swing.JButton();
+        cargarAlmacenes = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        LeerFichero1 = new javax.swing.JButton();
+        CargarPartidas = new javax.swing.JButton();
+
+        LeerFichero2.setText("Cargar usuarios");
+        LeerFichero2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeerFichero2ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LINGO");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        Identificate.setBackground(new java.awt.Color(255, 255, 255));
         Identificate.setText("Identifícate");
         Identificate.setEnabled(false);
         Identificate.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +104,6 @@ public class Iniciar extends javax.swing.JDialog{
             }
         });
 
-        Entrenamiento.setBackground(new java.awt.Color(255, 255, 255));
         Entrenamiento.setText("Entrenamiento");
         Entrenamiento.setEnabled(false);
         Entrenamiento.setMaximumSize(new java.awt.Dimension(93, 25));
@@ -98,11 +115,10 @@ public class Iniciar extends javax.swing.JDialog{
             }
         });
 
-        LeerFichero.setBackground(new java.awt.Color(255, 255, 255));
-        LeerFichero.setText("Leer TXT");
-        LeerFichero.addActionListener(new java.awt.event.ActionListener() {
+        cargarAlmacenes.setText("Leer TXT");
+        cargarAlmacenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LeerFicheroActionPerformed(evt);
+                cargarAlmacenesActionPerformed(evt);
             }
         });
 
@@ -112,6 +128,20 @@ public class Iniciar extends javax.swing.JDialog{
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carge el fichero antes de entrar al juego por favor");
+
+        LeerFichero1.setText("Cargar usuarios");
+        LeerFichero1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeerFichero1ActionPerformed(evt);
+            }
+        });
+
+        CargarPartidas.setText("Cargar partidas");
+        CargarPartidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargarPartidasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,20 +154,23 @@ public class Iniciar extends javax.swing.JDialog{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(Identificate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(103, 103, 103)
-                                .addComponent(Entrenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(186, 186, 186)
-                                .addComponent(LeerFichero)))
+                        .addGap(56, 56, 56)
+                        .addComponent(Identificate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(Entrenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 44, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(LeerFichero1)
+                .addGap(18, 18, 18)
+                .addComponent(CargarPartidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(cargarAlmacenes)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,9 +183,12 @@ public class Iniciar extends javax.swing.JDialog{
                     .addComponent(Entrenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LeerFichero, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LeerFichero1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CargarPartidas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cargarAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,11 +196,10 @@ public class Iniciar extends javax.swing.JDialog{
 
     private void IdentificateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificateActionPerformed
 
-        Identificar iden = new Identificar(new javax.swing.JDialog(),true, almacenPartidas, almacenUsuarios, almacenPalabras);
+        Identificar iden = new Identificar(new javax.swing.JDialog(), true, almacenPartidas, almacenUsuarios, almacenPalabras);
         this.dispose();
         iden.setVisible(true);
-        
-        
+
 
     }//GEN-LAST:event_IdentificateActionPerformed
 
@@ -174,7 +209,7 @@ public class Iniciar extends javax.swing.JDialog{
         e.setVisible(true);
     }//GEN-LAST:event_EntrenamientoActionPerformed
 
-    private void LeerFicheroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerFicheroActionPerformed
+    private void cargarAlmacenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarAlmacenesActionPerformed
 
         String no = "no";
 
@@ -196,7 +231,7 @@ public class Iniciar extends javax.swing.JDialog{
 
                             /*
                             Error al comprobar la longitud del token, revisar
-                            */
+                             */
                             if (st.sval.length() == 5) {
                                 Palabra palabreja = new Palabra(st.sval);
                                 palabraCincoLetras[contadorpalabraCincoLetras] = palabreja;
@@ -216,7 +251,8 @@ public class Iniciar extends javax.swing.JDialog{
                 JOptionPane.showMessageDialog(null, "Error archivo", "Archivo", JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }try {
+        }
+        try {
             try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
                 String line;
                 line = br.readLine();
@@ -236,8 +272,45 @@ public class Iniciar extends javax.swing.JDialog{
         activado = true;
         Entrenamiento.setEnabled(true);
         Identificate.setEnabled(true);
-        LeerFichero.setEnabled(false);
-    }//GEN-LAST:event_LeerFicheroActionPerformed
+        cargarAlmacenes.setEnabled(false);
+    }//GEN-LAST:event_cargarAlmacenesActionPerformed
+
+    private void LeerFichero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerFichero1ActionPerformed
+
+        entrada = new UsuariosInput();
+        try {
+            entrada.abrirFichero(); 
+            usuario_a_registrar = entrada.leer();
+            almacenUsuarios.añadirUsuario(usuario_a_registrar);
+            entrada.cerrar();
+        } catch (IOException ex) {
+            Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+                Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+    }//GEN-LAST:event_LeerFichero1ActionPerformed
+
+    private void LeerFichero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerFichero2ActionPerformed
+
+    }//GEN-LAST:event_LeerFichero2ActionPerformed
+
+    private void CargarPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarPartidasActionPerformed
+
+        partidaEntrada = new PartidasInput();
+        try {
+            partidaEntrada.abrirFichero(); 
+            partida_a_registrar = partidaEntrada.leer();
+            almacenPartidas.añadirPartida(partida_a_registrar);
+            partidaEntrada.cerrar();
+        } catch (IOException ex) {
+            Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+                Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }//GEN-LAST:event_CargarPartidasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,7 +341,6 @@ public class Iniciar extends javax.swing.JDialog{
         //</editor-fold>
 
         /* Create and display the dialog */
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Iniciar dialog = new Iniciar();
@@ -284,9 +356,12 @@ public class Iniciar extends javax.swing.JDialog{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CargarPartidas;
     private javax.swing.JButton Entrenamiento;
     private javax.swing.JButton Identificate;
-    private javax.swing.JButton LeerFichero;
+    private javax.swing.JButton LeerFichero1;
+    private javax.swing.JButton LeerFichero2;
+    private javax.swing.JButton cargarAlmacenes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

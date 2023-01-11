@@ -32,10 +32,15 @@ public class AlmacenUsuarios {
         return usu.size();
     }
     
+
     public ArrayList<Usuario> getArraylist(){
         return usu;
     }
     
+
+    
+   
+
     @Override
     public String toString(){
         String a = "";

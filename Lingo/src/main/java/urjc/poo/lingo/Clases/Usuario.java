@@ -1,7 +1,12 @@
 package urjc.poo.lingo.Clases;
 
-public class Usuario implements Comparable {
+
     
+
+import java.io.Serializable;
+
+public class Usuario implements Serializable,Comparable{
+
 
     private String nombre;
     private String contraseña;
