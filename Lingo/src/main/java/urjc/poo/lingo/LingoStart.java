@@ -1,11 +1,10 @@
-
 package urjc.poo.lingo;
-import urjc.poo.lingo.Clases.*;
 
+import urjc.poo.lingo.Clases.*;
 import urjc.poo.lingo.Login.Iniciar;
 
 
-public class Lingo {
+public class LingoStart {
 
     public static void main(String[] args) {
         AlmacenPartidas p = new AlmacenPartidas();

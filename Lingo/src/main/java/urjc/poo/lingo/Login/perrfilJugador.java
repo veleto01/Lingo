@@ -12,24 +12,17 @@ public class perrfilJugador extends javax.swing.JFrame {
     Usuario usu = new Usuario();
     AlmacenUsuarios aU;
     AlmacenPartidas aP;
-<<<<<<< Updated upstream
-
-    public perrfilJugador(AlmacenUsuarios a, Usuario u,AlmacenPartidas app) {
-=======
     AlmacenPalabras aPa;
+  
 
     public perrfilJugador(AlmacenPalabras pa, AlmacenPartidas p, AlmacenUsuarios a, Usuario u) {
->>>>>>> Stashed changes
+
         initComponents();
         this.setLocationRelativeTo(null);
         usu = u;
         aP = p;
         aU = a;
-<<<<<<< Updated upstream
-        aP = app;
-=======
         aPa = pa;
->>>>>>> Stashed changes
         usuario.setText(usu.getNombre());
         ganadas.setText(Integer.toString(usu.getGanadas()));
         empatadas.setText(String.valueOf(usu.getEmpatadas()));
@@ -203,14 +196,11 @@ public class perrfilJugador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu iden = new Menu(aP,aU,usu);
-=======
+
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         this.dispose();
         Menu iden = new Menu(aP, aU, aPa, usu);
->>>>>>> Stashed changes
+
         iden.setVisible(true);
         
     }//GEN-LAST:event_SalirActionPerformed

@@ -4,11 +4,7 @@
  */
 package urjc.poo.lingo.Login;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import urjc.poo.lingo.Clases.AlmacenPartidas;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 
 /**
  *
@@ -19,14 +15,16 @@ public class perfilesAdministrador extends javax.swing.JFrame {
     Usuario usu = new Usuario();
     AlmacenUsuarios aU;
     AlmacenPartidas aP;
+    AlmacenPalabras aPa;
     String[] nombres;
 
-    public perfilesAdministrador(AlmacenUsuarios a, Usuario u, AlmacenPartidas app) {
+    public perfilesAdministrador(AlmacenUsuarios a, Usuario u, AlmacenPartidas app, AlmacenPalabras p) {
         initComponents();
         this.setLocationRelativeTo(null);
         aU = a;
         usu = u;
         aP = app;
+        aPa = p;
         int tamañoAlmacen = aU.tamañoAlmacen();
         nombres = new String[tamañoAlmacen];
 
@@ -223,7 +221,7 @@ public class perfilesAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_perfilJugadorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu iden = new Menu(aP, aU, usu);
+        Menu iden = new Menu(aP, aU, aPa, usu);
         iden.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

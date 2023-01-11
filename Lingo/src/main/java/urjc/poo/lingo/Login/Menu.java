@@ -136,12 +136,8 @@ public class Menu extends javax.swing.JFrame {
     private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
         
         if (usu.isAdmin()){
-<<<<<<< Updated upstream
-            administrador admin = new administrador ( aU, usu,aP);
-=======
-            administrador admin = new administrador (aU, usu);
->>>>>>> Stashed changes
-            admin.setVisible(true);
+            administrador admin = new administrador ( aU, usu,aP,aPa);
+
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Este usuario no es Administrador", "Usuario no válido", JOptionPane.INFORMATION_MESSAGE);
@@ -149,13 +145,10 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AdminActionPerformed
 
-<<<<<<< Updated upstream
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        perrfilJugador perfil = new perrfilJugador(aU, usu,aP);
-=======
+
     private void PerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilActionPerformed
         perrfilJugador perfil = new perrfilJugador(aPa, aP, aU, usu);
->>>>>>> Stashed changes
+
         perfil.setVisible(true);
         this.setVisible(false);
         

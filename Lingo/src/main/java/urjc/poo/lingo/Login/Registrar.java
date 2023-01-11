@@ -1,25 +1,25 @@
 package urjc.poo.lingo.Login;
 
-import urjc.poo.lingo.Clases.Usuario;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
+import urjc.poo.lingo.Clases.*;
 import java.awt.Dialog;
 import javax.swing.JOptionPane;
-import urjc.poo.lingo.Clases.AlmacenPartidas;
 
 public class Registrar extends javax.swing.JDialog {
 
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
-     AlmacenPartidas aP;
-     Usuario t;
+    AlmacenPalabras aPa;
+    AlmacenPartidas aP;
+    Usuario t;
 
-    public Registrar(AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap) {
+    public Registrar(AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap, AlmacenPalabras apa) {
 
         initComponents();
         aU = a;
         t = uusu;
-        aP= ap;
+        aP = ap;
+        aPa = apa;
         this.setLocationRelativeTo(null);
 
     }
@@ -185,7 +185,7 @@ public class Registrar extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Usuario válido", JOptionPane.INFORMATION_MESSAGE);
                         aU.añadirUsuario(usu);
 
-                        Menu iden = new Menu(aP, aU, t);
+                        Menu iden = new Menu(aP, aU, aPa, t);
                         iden.setVisible(true);
                         this.setVisible(false);
                     }

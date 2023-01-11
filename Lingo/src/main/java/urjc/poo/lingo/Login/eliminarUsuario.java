@@ -5,9 +5,7 @@
 package urjc.poo.lingo.Login;
 
 import javax.swing.JOptionPane;
-import urjc.poo.lingo.Clases.AlmacenPartidas;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Clases.Usuario;
+import urjc.poo.lingo.Clases.*;
 
 /**
  *
@@ -18,16 +16,18 @@ public class eliminarUsuario extends javax.swing.JFrame {
     private String nombre;
     private String contraseña;
     private AlmacenUsuarios aU;
+    AlmacenPalabras aPa;
     int index;
 
     Usuario usu;
     AlmacenPartidas aP;
 
-    public eliminarUsuario(javax.swing.JDialog parent, boolean modal, AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap) {
+    public eliminarUsuario(javax.swing.JDialog parent, boolean modal, AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap, AlmacenPalabras apa) {
         initComponents();
         aU = a;
         usu = uusu;
         aP = ap;
+        aPa = apa;
         this.setLocationRelativeTo(null);
     }
 
@@ -174,7 +174,7 @@ public class eliminarUsuario extends javax.swing.JFrame {
 
                     JOptionPane.showMessageDialog(null, "Usuario ya ha sido eliminado", "Eliminado con exito", JOptionPane.INFORMATION_MESSAGE);
                     
-                    Menu iden = new Menu(aP, aU, usu);
+                    Menu iden = new Menu(aP, aU, aPa, usu);
                     iden.setVisible(true);
                     this.setVisible(false);
 

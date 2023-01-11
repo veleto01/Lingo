@@ -1,9 +1,8 @@
 package urjc.poo.lingo.Login;
 
 import javax.swing.JFrame;
-import urjc.poo.lingo.Clases.AlmacenPartidas;
-import urjc.poo.lingo.Clases.AlmacenUsuarios;
-import urjc.poo.lingo.Clases.Usuario;
+
+import urjc.poo.lingo.Clases.*;
 
 
 public class administrador extends javax.swing.JFrame {
@@ -11,11 +10,13 @@ public class administrador extends javax.swing.JFrame {
     AlmacenUsuarios aU;
     Usuario usu;
     AlmacenPartidas aP;
-    public administrador( AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap) {
+    AlmacenPalabras aPa;
+    public administrador( AlmacenUsuarios a, Usuario uusu, AlmacenPartidas ap, AlmacenPalabras apa) {
         initComponents();
         this.setLocationRelativeTo(null);
         aU = a;
         usu = uusu;
+        aPa = apa;
         aP= ap;
     }
 
@@ -83,19 +84,19 @@ public class administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
-        eliminarUsuario iden = new eliminarUsuario(new javax.swing.JDialog(),true, aU,usu,aP);
+        eliminarUsuario iden = new eliminarUsuario(new javax.swing.JDialog(),true, aU,usu,aP,aPa);
         iden.setVisible(true);
     }//GEN-LAST:event_BajaActionPerformed
 
     private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
 
-        Registrar iden = new Registrar( aU,usu,aP);
+        Registrar iden = new Registrar( aU,usu,aP,aPa);
         iden.setVisible(true);
 
     }//GEN-LAST:event_RegistrarseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        perfilesAdministrador ventana = new perfilesAdministrador(aU,usu,aP);
+        perfilesAdministrador ventana = new perfilesAdministrador(aU,usu,aP,aPa);
         ventana.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
