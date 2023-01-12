@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author Manuel
  */
 public class gestorFichero<T> {
-    private File fichero;
+  private File fichero;
     private ArrayList<T> datos;
 
     public gestorFichero(String fichero) {
@@ -29,7 +29,10 @@ public class gestorFichero<T> {
         this.datos = new ArrayList();
         obtenerDatos();
     }
-    
+
+    /**
+     * Obtiene todos los datos de un fichero serializado y los mete en una lista
+     */
     public void obtenerDatos() {
 
         if (fichero.exists()) {
@@ -53,15 +56,17 @@ public class gestorFichero<T> {
         }
 
     }
-    
-    
-    
-    
-    
-    
+
+    /**
+     * Guarda el elemento T en el fichero y en la lista
+     *
+     * @param elemento
+     */
     public void guardarDato(T elemento) {
 
         if (fichero.exists() && fichero.length() > 0) {
+
+            // Uso MiObjectOutputStream para evitar problemas de cabecera
             try (MiObjectOutputStream oos = new MiObjectOutputStream(new FileOutputStream(fichero, true))) {
 
                 oos.writeObject(elemento);
@@ -74,6 +79,8 @@ public class gestorFichero<T> {
             }
 
         } else {
+
+            // Uso ObjectOutputStream para crear la cabecera
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero))) {
 
                 oos.writeObject(elemento);
@@ -87,13 +94,19 @@ public class gestorFichero<T> {
         }
 
     }
-    
-    
-    
+
+    /**
+     * Obtengo los datos
+     *
+     * @return
+     */
     public ArrayList<T> getDatos() {
         return datos;
     }
 
+    /**
+     * Muestra los datos de la lista, la clase debe tener un toString
+     */
     public void mostrarDatos() {
         for (T e : datos) {
             System.out.println(e);

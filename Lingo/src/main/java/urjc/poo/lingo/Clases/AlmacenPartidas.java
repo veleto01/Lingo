@@ -37,7 +37,9 @@ public class AlmacenPartidas {
     }
     
     
-    
+    public ArrayList<Partida> getArraylist(){
+        return partidas;
+    }
 
     public int getPartidasCreadas(){
         return partidasCreadas;

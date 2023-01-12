@@ -1,9 +1,10 @@
 
 package urjc.poo.lingo.Clases;
+import java.io.Serializable;
 import java.util.*;
 
 
-public class AlmacenUsuarios {
+public class AlmacenUsuarios implements Serializable{
     
     private ArrayList<Usuario> usu = new ArrayList();
 
@@ -36,9 +37,6 @@ public class AlmacenUsuarios {
     public ArrayList<Usuario> getArraylist(){
         return usu;
     }
-    
-
-    
    
 
     @Override

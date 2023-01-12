@@ -8,7 +8,7 @@ import urjc.poo.lingo.Login.Iniciar;
 public class Lingo {
 
     public static void main(String[] args) {
-        AlmacenPartidas p = new AlmacenPartidas();
+       /* AlmacenPartidas p = new AlmacenPartidas();
         AlmacenUsuarios aU = new AlmacenUsuarios();
         AlmacenPalabras aPa = new AlmacenPalabras();
         Usuario prueba = new Usuario("Sergio", "1234");
@@ -16,11 +16,11 @@ public class Lingo {
         Usuario PruebaPerfil = new Usuario("Carlos", "1234", 12, 14, 1, 123);
         aU.añadirUsuario(prueba);
         aU.añadirUsuario(usuario2);
-        aU.añadirUsuario(PruebaPerfil);
+        aU.añadirUsuario(PruebaPerfil);*/
        
        
        
-        Iniciar ini = new Iniciar(p, aU, aPa, false);
+        Iniciar ini = new Iniciar(false);
         ini.setVisible(true);
     }
     
