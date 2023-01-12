@@ -1,10 +1,11 @@
 
 package urjc.poo.lingo.Clases;
+import java.io.Serializable;
 import java.util.ArrayList;
 import urjc.poo.lingo.Clases.*;
 
 
-public class AlmacenPartidas {
+public class AlmacenPartidas implements Serializable{
     
     Partida p;
     int index;
